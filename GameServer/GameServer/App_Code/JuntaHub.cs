@@ -6,9 +6,7 @@ using Microsoft.AspNet.SignalR;
 
 namespace GameServer.App_Code {
     public class JuntaHub : Hub {
-        public void KarteIdHinzu(Spieler spieler, int id) {
-
+        public void KarteIdHinzu(Spieler spieler, int id) { 
         }
     }
 }
-//kot aufm brot

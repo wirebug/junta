@@ -6,17 +6,16 @@ using System.Web;
 namespace GameServer.App_Code
 {
     public class Spielverwaltung
-    {
-        Queue<Spieler> reihenfolge;
+    { 
+        public List<Spieler> reihenfolge { get; }
         JuntaHub _hub;
-        Deck deck;//
-        
-        public void VerteileKarten(Spieler sp) {
-            Spieler temp = reihenfolge.First();
-            do {
-                Spieler aktuell = reihenfolge.Dequeue();
-                _hub.KarteIdHinzu(aktuell, deck.Ziehen());
-            } while (!reihenfolge.First().Equals(temp));
-        }   
+        Deck deck;
+        public int rundenCount { get; set; }
+
+        public void KarteZiehen()
+        {
+
+        }
     }
+
 }

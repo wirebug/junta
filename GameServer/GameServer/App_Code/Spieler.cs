@@ -5,10 +5,10 @@ using System.Web;
 
 namespace GameServer.App_Code {
     public class Spieler {
-        int flotten { get; set; }
-        int punkte { get; set; }
-        bool imperator { get; set; }
-        Planet planet { get; set; }
-        Hand hand { get; set; }
+        public int flotten { get; set; }
+        public int punkte { get; set; }
+        public bool imperator { get; set; }
+        public Planet planet { get; set; }
+        public Hand hand { get; set; }
     }
 }

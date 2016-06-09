@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameServer.App_Code.Karten;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,14 @@ namespace GameServer.App_Code {
         List<Karte> ablage;
         
         public Deck() {
+            //ToDo Adde anstatt der 45 Kartenobjekte, die exakten Objekttypen dem stapel hinzufügen
+            /*
             for(int i = 0; i < 45; i++) {
                 stapel.Add(new Karte(i));
             }
             Shuffle();
+            */
+
         }
 
         public void Gespielt(Karte karte) {
@@ -21,7 +26,7 @@ namespace GameServer.App_Code {
         }
         public void Shuffle() {
             Random rng = new Random();
-            int n = stapel.Count();
+            int n = stapel.Count;
             while (n > 1) {
                 n--;
                 int k = rng.Next(n + 1);
