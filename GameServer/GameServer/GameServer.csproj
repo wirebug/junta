@@ -111,24 +111,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\Deck.cs" />
-    <Content Include="App_Code\FlottenBefehligend.cs" />
-    <Content Include="App_Code\Hand.cs" />
-    <Content Include="App_Code\JuntaHub.cs" />
-    <Content Include="App_Code\Kampf.cs" />
-    <Content Include="App_Code\Karte.cs" />
-    <Content Include="App_Code\KarteZiehend.cs" />
-    <Content Include="App_Code\Konto.cs" />
-    <Content Include="App_Code\Planet.cs" />
-    <Content Include="App_Code\Spieler.cs" />
-    <Content Include="App_Code\Spielphase.cs" />
-    <Content Include="App_Code\Spielverwaltung.cs" />
-    <Content Include="App_Code\VersprechungenMachend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Code\Karten\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
