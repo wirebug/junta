@@ -1,0 +1,3 @@
+C:\Users\Christoph\Documents\Junta\GameClient\GameClient\bin\Debug\GameClient.exe.config
+C:\Users\Christoph\Documents\Junta\GameClient\GameClient\obj\Debug\GameClient.exe
+C:\Users\Christoph\Documents\Junta\GameClient\GameClient\obj\Debug\GameClient.pdb
