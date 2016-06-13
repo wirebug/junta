@@ -5,23 +5,20 @@ using System.Web;
 
 namespace GameServer.App_Code
 {
-    public class VersprechungenMachend : Spielphase
+    public class GeldAusgebend : Spielphase
     {
-        //Konstruktor
-        public VersprechungenMachend(Spielverwaltung sv) : base(sv){}
+        public GeldAusgebend(Spielverwaltung sv) : base(sv){ }
         public override void KarteZiehen(Spieler spieler)
         {
             //nicht gültig
         }
         public override void VersprechungenMachen(Spieler spieler)
         {
-            //mindestens 1 Versprechungen pro Spieler aus Imperator-Hand vom Imperator
-            //anbindung an GUI, da dort die Versprechungen gemacht werden
-            //wo liegen Versprechungskarten
+            //nicht gültig
         }
         public override void FlottenBefehligen(Spieler spieler)
         {
-            //nicht Gültig
+            //nicht gültig
         }
         public override void KaempfeAustragen(Spieler spieler)
         {
@@ -29,7 +26,7 @@ namespace GameServer.App_Code
         }
         public override void GeldAusgeben(Spieler spieler)
         {
-            //nicht Gültig
+            //geldkarten aus hand
         }
         public override void HandkartenlimitPruefen(Spieler spieler)
         {
