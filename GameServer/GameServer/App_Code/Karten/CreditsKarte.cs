@@ -9,7 +9,7 @@ namespace GameServer.App_Code.Karten
 {
     public class CreditsKarte : Karte
     {
-        int Credits { get; set; }
+        public int Credits { get; set; }
         CreditsKarte(int value, int credits, Deck deck, Hand hand, Konto konto) : base(value,hand,deck,konto)
         { 
             this.Credits = credits;
