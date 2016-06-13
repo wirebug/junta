@@ -15,9 +15,10 @@ namespace GameServer.App_Code
         }
         public override void VersprechungenMachen(Spieler spieler)
         {
-            //mindestens 1 Versprechungen pro Spieler aus Imperator-Hand vom Imperator
-            //anbindung an GUI, da dort die Versprechungen gemacht werden
-            //wo liegen Versprechungskarten
+            /*mindestens 1 Versprechungen pro Spieler aus Imperator-Hand vom Imperator
+             *SpielbrettView VersprechungenAuswählen(ids int[]) Karten über ihre IDs
+             *Hub VersprechenVerarbeiten(ids int[])
+             */
         }
         public override void FlottenBefehligen(Spieler spieler)
         {
