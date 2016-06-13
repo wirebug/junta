@@ -11,9 +11,13 @@ namespace GameServer.App_Code.Karten
      */
     public class ArtefaktKarte : Karte
     {
-        ArtefaktKarte(int value) : base(value)
+        ArtefaktKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
         {
 
+        }
+        override public void Action()
+        {
+            
         }
     }
 }
