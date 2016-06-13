@@ -7,9 +7,15 @@ namespace GameServer.App_Code.Karten
 {
     public class EinbrecherKarte : Karte
     {
-        EinbrecherKarte(int value) : base(value)
+        public EinbrecherKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
         {
 
+        }
+        override public void Action()
+        {
+            //spiele nach versprechungen
+            //schau auf handkarten eines spielers und nehme dann eine
+            //1x
         }
     }
 }

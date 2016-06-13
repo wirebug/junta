@@ -25,10 +25,11 @@ namespace GameServer.App_Code.Karten
             hand.spieler.Kampfmodifikator += 3;
             //spiele vor einem Kampf
             //der Kampfwert erhöht sich um 3
+            //2x
         }
         override public void Action()
         {
-
+            InterplanetareGefechtsstation();
         }
 
     }
