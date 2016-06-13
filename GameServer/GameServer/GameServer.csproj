@@ -111,6 +111,37 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\Deck.cs" />
+    <Content Include="App_Code\FlottenBefehligend.cs" />
+    <Content Include="App_Code\Hand.cs" />
+    <Content Include="App_Code\JuntaHub.cs" />
+    <Content Include="App_Code\Kampf.cs" />
+    <Content Include="App_Code\Karte.cs" />
+    <Content Include="App_Code\Karten\AblenkungsmanoeverKarte.cs" />
+    <Content Include="App_Code\Karten\AnexionKarte.cs" />
+    <Content Include="App_Code\Karten\ArtefaktKarte.cs" />
+    <Content Include="App_Code\Karten\AttentatKarte.cs" />
+    <Content Include="App_Code\Karten\BestechungKarte.cs" />
+    <Content Include="App_Code\Karten\CreditsKarte.cs" />
+    <Content Include="App_Code\Karten\EinbrecherKarte.cs" />
+    <Content Include="App_Code\Karten\InterplanetareGefechtstationKarte.cs" />
+    <Content Include="App_Code\Karten\Karte.cs" />
+    <Content Include="App_Code\Karten\NeuwahlenKarte.cs" />
+    <Content Include="App_Code\Karten\PRKampagneKarte.cs" />
+    <Content Include="App_Code\Karten\PropagandaKampagneKarte.cs" />
+    <Content Include="App_Code\Karten\SpendeKarte.cs" />
+    <Content Include="App_Code\Karten\SpionKarte.cs" />
+    <Content Include="App_Code\Karten\UeberraschungsangriffKarte.cs" />
+    <Content Include="App_Code\KarteZiehend.cs" />
+    <Content Include="App_Code\Konto.cs" />
+    <Content Include="App_Code\Planet.cs" />
+    <Content Include="App_Code\Spieler.cs" />
+    <Content Include="App_Code\Spielphase.cs" />
+    <Content Include="App_Code\Spielverwaltung.cs" />
+    <Content Include="App_Code\VersprechungenMachend.cs" />
+    <Content Include="App_Code\KaempfeAustragend.cs" />
+    <Content Include="App_Code\GeldAusgebend.cs" />
+    <Content Include="App_Code\HandkartenlimitPruefend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
