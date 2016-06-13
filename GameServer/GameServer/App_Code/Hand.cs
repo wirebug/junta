@@ -10,7 +10,10 @@ namespace GameServer.App_Code
         public bool hatSpion { get; set; }
         public bool hatEinbrecher { get; set; }
         public bool hatKampfkarte { get; set; }
-        public Spieler spieler { get; set; }
+
+        /// <summary>
+        /// Handkarten
+        /// </summary>
         List<Karte> hand = new List<Karte>();
         
         /// <summary>
@@ -60,7 +63,7 @@ namespace GameServer.App_Code
         /// <param name="item">Handkarte die gelöscht werden soll</param>
         void RemoveHandkarte(Karte item)
         {
-            checkStates();
+            checkFlags();
             hand.Remove(item);
         }
         /// <summary>
@@ -69,7 +72,7 @@ namespace GameServer.App_Code
         /// <param name="item">Karte die auf die Hand kommt</param>
         public void AddHandkarte(Karte item)
         {
-            checkStates();
+            checkFlags();
             hand.Add(item);
         }
 
