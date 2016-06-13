@@ -10,6 +10,7 @@ namespace GameServer.App_Code
         public bool hatSpion { get; set; }
         public bool hatEinbrecher { get; set; }
         public bool hatKampfkarte { get; set; }
+        public Spieler spieler { get; set; }
 
         /// <summary>
         /// Handkarten
@@ -50,7 +51,7 @@ namespace GameServer.App_Code
         public Karte RandomHandkarte()
         {
             Random rng = new Random();
-            int anzahl = hand.Count();
+            int anzahl = GetHandkartenAnzahl();
             int index = rng.Next(anzahl);
             Karte ret = hand[index];
             RemoveHandkarte(hand[index]);
@@ -74,6 +75,14 @@ namespace GameServer.App_Code
         {
             checkFlags();
             hand.Add(item);
+        }
+        /// <summary>
+        /// Gibt Anzahl der Handkarten zurück
+        /// </summary>
+        /// <returns></returns>
+        public int GetHandkartenAnzahl()
+        {
+            return hand.Count();
         }
 
     }
