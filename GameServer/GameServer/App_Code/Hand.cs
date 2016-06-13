@@ -7,6 +7,7 @@ namespace GameServer.App_Code
 {
     public class Hand
     {
+<<<<<<< HEAD
         public bool hatSpion { get; set; }
         public bool hatEinbrecher { get; set; }
         public bool hatKampfkarte { get; set; }
@@ -17,6 +18,14 @@ namespace GameServer.App_Code
         /// überprüft die flags hatSpion, hat Einbrecher, hatKampfkarte auf korrektheit
         /// </summary>
         void checkFlags()
+=======
+        bool hatSpion { get; set; }
+        bool hatEinbrecher { get; set; }
+        bool hatKampfkarte { get; set; }
+        public Spieler spieler { get; set; }
+        List<Karte> hand = new List<Karte>();
+        void checkStates()
+>>>>>>> Phasen
         {
             hatKampfkarte = false;
             foreach (Karte k in hand)
@@ -63,14 +72,19 @@ namespace GameServer.App_Code
             checkStates();
             hand.Remove(item);
         }
+<<<<<<< HEAD
         /// <summary>
         /// Legt Karte auf Hand
         /// </summary>
         /// <param name="item">Karte die auf die Hand kommt</param>
+=======
+
+>>>>>>> Phasen
         public void AddHandkarte(Karte item)
         {
             checkStates();
             hand.Add(item);
+            //Karte.hand.set
         }
 
     }

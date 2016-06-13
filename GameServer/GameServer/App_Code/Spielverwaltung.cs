@@ -9,13 +9,8 @@ namespace GameServer.App_Code
     { 
         public List<Spieler> reihenfolge { get; }
         JuntaHub _hub;
-        Deck deck;
+        public Deck deck { get; }
         public int rundenCount { get; set; }
-
-        public void KarteZiehen()
-        {
-
-        }
     }
 
 }

@@ -17,16 +17,24 @@ namespace GameServer.App_Code
                     if (sv.rundenCount == 1)
                     {
                         //2 Karten ziehen
-                        s.
+                        s.hand.AddHandkarte(sv.deck.Ziehen());
+                        s.hand.AddHandkarte(sv.deck.Ziehen());
                     }
                     else
                     {
-                        //1 Karte
+                        //1 Karte ziehen
+                        s.hand.AddHandkarte(sv.deck.Ziehen());
                     }
                 }
                 else
                 {
                     //Spielerzahl + 2 Karten ziehen
+                    foreach(Spieler si in sv.reihenfolge)//Spieleranzahl einfacher auslesen?
+                    {
+                        s.hand.AddHandkarte(sv.deck.Ziehen());
+                    }
+                    s.hand.AddHandkarte(sv.deck.Ziehen());
+                    s.hand.AddHandkarte(sv.deck.Ziehen());
                 }
 
             }

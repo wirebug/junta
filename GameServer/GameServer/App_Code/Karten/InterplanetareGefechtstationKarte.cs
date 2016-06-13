@@ -13,7 +13,7 @@ namespace GameServer.App_Code.Karten
     {
         InterplanetareGefechtstationKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto)
         {
-
+            
         }
         public void Action(Kampf k)
         {
@@ -22,7 +22,7 @@ namespace GameServer.App_Code.Karten
         }
         public void InterplanetareGefechtsstation()
         {
-            
+            hand.spieler.Kampfmodifikator += 3;
             //spiele vor einem Kampf
             //der Kampfwert erhöht sich um 3
         }
