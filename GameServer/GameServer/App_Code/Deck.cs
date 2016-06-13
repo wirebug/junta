@@ -18,6 +18,13 @@ namespace GameServer.App_Code {
             }
             Shuffle();
             */
+            for(int i = 1; i < 12; i++)
+            {
+                string s = 
+                new CreditsKarte(i, 1000, null, this, null);
+            }
+            Karte k1 = new CreditsKarte(0,1000, null, this, null);
+            //stapel.Add(new Karte(id,null,this,null))
 
         }
 

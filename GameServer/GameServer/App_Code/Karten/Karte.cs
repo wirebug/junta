@@ -12,8 +12,8 @@ namespace GameServer.App_Code.Karten
         int ID { get; set; }
         public Hand hand { get; set; }
 
-        Deck deck { get; set; }
-        Konto konto { get; set; }
+        public Deck deck { get; set; }
+        public Konto konto { get; set; }
         public Karte(int id, Hand hand, Deck deck, Konto konto)
         {
             this.ID = id;
@@ -26,7 +26,7 @@ namespace GameServer.App_Code.Karten
         
         public void WaehleAktion()
         {
-            //
+            //code der in allen karten gleich ist
             Action();
         }
 
