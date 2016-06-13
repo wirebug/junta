@@ -13,7 +13,9 @@ namespace GameServer.App_Code.Karten
         }
         override public void Action()
         {
-
+            //vor kampf
+            // ignoriere Milizen des IMperators
+            //1x
         }
     }
 }
