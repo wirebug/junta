@@ -139,12 +139,9 @@
     <Content Include="App_Code\Spielphase.cs" />
     <Content Include="App_Code\Spielverwaltung.cs" />
     <Content Include="App_Code\VersprechungenMachend.cs" />
-<<<<<<< HEAD
-=======
     <Content Include="App_Code\KaempfeAustragend.cs" />
     <Content Include="App_Code\GeldAusgebend.cs" />
     <Content Include="App_Code\HandkartenlimitPruefend.cs" />
->>>>>>> refs/remotes/origin/Phasen
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
