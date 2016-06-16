@@ -15,21 +15,15 @@ namespace GameServer.App_Code.Karten
         {
             
         }
-        public void Action(Kampf k)
+        override public void Action()
         {
-            
-            InterplanetareGefechtsstation();
-        }
-        public void InterplanetareGefechtsstation()
-        {
-            hand.spieler.Kampfmodifikator += 3;
+            //TODO
+            /*
+            hand.spieler.kampf.angriffswürfel.getSpieler
             //spiele vor einem Kampf
             //der Kampfwert erhöht sich um 3
             //2x
-        }
-        override public void Action()
-        {
-            InterplanetareGefechtsstation();
+            */
         }
 
     }
