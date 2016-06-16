@@ -40,7 +40,7 @@ namespace GameServer.App_Code
             }
         }
 
-        Karte RandomHandkarte()
+        public Karte RandomHandkarte()
         {
             Random rng = new Random();
             int anzahl = GetHandKartenZahl();
@@ -50,7 +50,7 @@ namespace GameServer.App_Code
             return ret;
         }
 
-        void RemoveHandkarte(Karte item)
+        public void RemoveHandkarte(Karte item)
         {
             checkStates();
             hand.Remove(item);
@@ -63,7 +63,7 @@ namespace GameServer.App_Code
             //Karte.hand.set
         }
 
-        int GetHandKartenZahl()
+        public int GetHandKartenZahl()
         {
             return hand.Count();
         }

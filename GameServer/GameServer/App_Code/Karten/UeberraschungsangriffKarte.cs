@@ -7,7 +7,7 @@ namespace GameServer.App_Code.Karten
 {
     public class Ueberraschungsangriff : Karte
     {
-        Ueberraschungsangriff(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
+        public Ueberraschungsangriff(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
         {
 
         }

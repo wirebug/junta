@@ -22,7 +22,7 @@ namespace GameServer.App_Code {
         }
 
         private bool Würfeln() { 
-            int vert = 0;
+            int vert = 0; // spieler.planet.gebäude
             int angr = 0;
             Random rng = new Random();
             for (int i = 0; i < verteidigungswürfel; i++) {

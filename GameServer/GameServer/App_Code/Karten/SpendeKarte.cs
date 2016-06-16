@@ -7,7 +7,7 @@ namespace GameServer.App_Code.Karten
 {
     public class SpendeKarte : Karte
     {
-        SpendeKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
+        public SpendeKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
         {
 
         }
