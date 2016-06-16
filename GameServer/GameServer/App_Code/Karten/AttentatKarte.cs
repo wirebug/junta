@@ -17,7 +17,10 @@ namespace GameServer.App_Code.Karten
         }
         override public void Action()
         {
-
+            /*SPIELE VOR EINEM KAMPF
+                 * ZERSTÖRE EINE GEGNERISCHE MILIZ DEINER WAHL
+                 2X 
+                 */
         }
     }
 }
