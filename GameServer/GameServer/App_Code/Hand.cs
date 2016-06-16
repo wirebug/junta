@@ -12,7 +12,6 @@ namespace GameServer.App_Code
         bool hatKampfkarte { get; set; }
         public Spieler spieler { get; set; }
         List<Karte> hand = new List<Karte>();
-        //Jakob ist 
         void checkStates()
         {
             hatKampfkarte = false;
@@ -53,10 +52,11 @@ namespace GameServer.App_Code
             hand.Remove(item);
         }
 
-        void AddHandkarte(Karte item)
+        public void AddHandkarte(Karte item)
         {
             checkStates();
             hand.Add(item);
+            //Karte.hand.set
         }
 
         int GetHandKartenZahl()
