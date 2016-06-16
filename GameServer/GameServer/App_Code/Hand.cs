@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code
 {
     public class Hand
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         public bool hatSpion { get; set; }
         public bool hatEinbrecher { get; set; }
         public bool hatKampfkarte { get; set; }
@@ -23,26 +22,6 @@ namespace GameServer.App_Code
         /// überprüft die flags hatSpion, hat Einbrecher, hatKampfkarte auf korrektheit
         /// </summary>
         void checkFlags()
-=======
-        bool hatSpion { get; set; }
-        bool hatEinbrecher { get; set; }
-        bool hatKampfkarte { get; set; }
-        public Spieler spieler { get; set; }
-        List<Karte> hand = new List<Karte>();
-        void checkStates()
->>>>>>> Phasen
-=======
-        bool hatSpion { get; set; }
-        bool hatEinbrecher { get; set; }
-        bool hatKampfkarte { get; set; }
-        public Spieler spieler { get; set; }
-        List<Karte> hand = new List<Karte>();
-<<<<<<< HEAD
-        
-=======
->>>>>>> refs/remotes/origin/master
-        void checkStates()
->>>>>>> master
         {
             hatKampfkarte = false;
             foreach (Karte k in hand)
@@ -69,11 +48,7 @@ namespace GameServer.App_Code
         public Karte RandomHandkarte()
         {
             Random rng = new Random();
-<<<<<<< HEAD
-            int anzahl = GetHandkartenAnzahl();
-=======
             int anzahl = GetHandKartenZahl();
->>>>>>> master
             int index = rng.Next(anzahl);
             Karte ret = hand[index];
             RemoveHandkarte(hand[index]);
@@ -85,18 +60,10 @@ namespace GameServer.App_Code
             checkFlags();
             hand.Remove(item);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
         /// <summary>
         /// Legt Karte auf Hand
         /// </summary>
         /// <param name="item">Karte die auf die Hand kommt</param>
-=======
-
->>>>>>> Phasen
-=======
-
->>>>>>> master
         public void AddHandkarte(Karte item)
         {
             checkFlags();

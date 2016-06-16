@@ -9,6 +9,7 @@ namespace GameServer.App_Code
     {
         public static int spielerCount = 0;
         public int ID;
+        public int Kampfmodifikator { get; set; }//Kampkarte InterplanetareGefechtsstations - bonus
         public List<int> versprechungen;//Versprechungen sind noch nicht in der Hand und werden als ids übergeben
         public int flotten { get; set; }
         public int punkte { get; set; }
@@ -18,7 +19,6 @@ namespace GameServer.App_Code
         public Spieler(int flotten, int punkte, bool imperator, Planet planet, Hand hand)
         {
             Kampfmodifikator = 0;
-        }
         public Konto konto { get; set; }
         public Kampf kampf { get; set; }
 
