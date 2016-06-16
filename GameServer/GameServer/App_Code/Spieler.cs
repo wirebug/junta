@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GameServer.App_Code
-{
-    public class Spieler
-    {
+namespace GameServer.App_Code {
+    public class Spieler {
         public static int spielerCount = 0;
         public int ID;
         public List<int> versprechungen;//Versprechungen sind noch nicht in der Hand und werden als ids übergeben
@@ -22,7 +20,11 @@ namespace GameServer.App_Code
         public Konto konto { get; set; }
         public Kampf kampf { get; set; }
 
-        //Konstruktor NICHT FERTIG!!!, nur ID vergeben, rest fehlt
+        //Konstruktor NICHT FERTIG!!!
+        public Spieler(int flotten, int punkte, bool imperator, Planet planet, Hand hand)
+        {
+            Kampfmodifikator = 0;
+        }
         public Spieler()
         {
             spielerCount++;
