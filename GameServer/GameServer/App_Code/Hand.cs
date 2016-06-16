@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code
 {
