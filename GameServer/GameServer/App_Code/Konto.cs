@@ -7,7 +7,7 @@ using GameServer.App_Code.Karten;
 namespace GameServer.App_Code {
     public class Konto {
         Spieler spieler { get; set; }
-        int Credits { get; set; }
+        public int Credits { get; set; }
 
 
         /// <summary>

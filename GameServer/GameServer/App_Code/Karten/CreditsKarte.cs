@@ -17,8 +17,7 @@ namespace GameServer.App_Code.Karten
         }
         public override void Action()
         {
-            konto.increaseGuthaben(credits);
-
+            konto.increaseGuthaben(Credits);
         }
         
     }

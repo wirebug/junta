@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code
 {
@@ -16,28 +17,24 @@ namespace GameServer.App_Code
         /// Handkarten
         /// </summary>
         List<Karte> hand = new List<Karte>();
-<<<<<<< HEAD
-        
-=======
->>>>>>> refs/remotes/origin/master
-        void checkStates()
+        void checkFlags()
         {
             hatKampfkarte = false;
             foreach (Karte k in hand)
             {
-                if (k.id == 0)
+                if (k.ID == 0)
                 {
                     hatSpion = true;
                 }
                 else
                     hatSpion = false;
-                if (k.id == 1)
+                if (k.ID== 1)
                 {
                     hatEinbrecher = true;
                 }
                 else
                     hatEinbrecher = false;
-                if (k.id > 1 || k.id < 14)
+                if (k.ID > 1 || k.ID < 14)
                 {
                     hatKampfkarte = true;
                 }
@@ -47,11 +44,7 @@ namespace GameServer.App_Code
         public Karte RandomHandkarte()
         {
             Random rng = new Random();
-<<<<<<< HEAD
-            int anzahl = GetHandkartenAnzahl();
-=======
             int anzahl = GetHandKartenZahl();
->>>>>>> master
             int index = rng.Next(anzahl);
             Karte ret = hand[index];
             RemoveHandkarte(hand[index]);
