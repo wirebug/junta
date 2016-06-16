@@ -9,7 +9,9 @@ namespace GameServer.App_Code.Karten
     {
         public SpendeKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
         {
-
+            kartenname = "Spende";
+            kartenphase = "Spiele beim Geld ausgeben.";
+            kartentext = "Du erhälst ein Gebäude gratis.";
         }
         override public void Action()
         {

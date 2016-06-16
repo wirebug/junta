@@ -7,9 +7,12 @@ namespace GameServer.App_Code.Karten
 {
     public class AblenkungsmanoeverKarte : Karte
     {
+        
         public AblenkungsmanoeverKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto) 
         {
-            
+            kartenname = "Ablenkungsmanöver";
+            kartenphase = "Spiele unmittelbar nach einem Würfelwurf.";
+            kartentext = "Entweder ein einzlener oder alle Würfel dieses Wurfs werden neue geworfen.";
         }
 
         public override void Action()

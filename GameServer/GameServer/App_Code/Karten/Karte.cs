@@ -14,6 +14,9 @@ namespace GameServer.App_Code.Karten
 
         public Deck deck { get; set; }
         public Konto konto { get; set; }
+        public string kartenname;
+        public string kartentext;
+        public string kartenphase;
         public Karte(int id, Hand hand, Deck deck, Konto konto)
         {
             this.ID = id;
