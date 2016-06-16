@@ -21,6 +21,7 @@ namespace GameServer.App_Code
             Kampfmodifikator = 0;
         public Konto konto { get; set; }
         public Kampf kampf { get; set; }
+        public Credits {get; set; }
 
         //Konstruktor NICHT FERTIG!!!, nur ID vergeben, rest fehlt
         public Spieler()
@@ -28,5 +29,14 @@ namespace GameServer.App_Code
             spielerCount++;
             ID = spielerCount;
         }
+
+    /// <summary>
+    /// erhöht Guthaben mit der Summe aus Action
+    /// </summary>
+    /// <param name="Credit">Muss eine Karte vom Typ Geldkarte sein</param>
+    public void increaseGuthaben(int Credit)
+    {
+        this.Credits += Credit;
+    }
     }
 }
