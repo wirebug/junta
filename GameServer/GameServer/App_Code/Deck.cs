@@ -29,42 +29,42 @@ namespace GameServer.App_Code {
             // ID 17 - 44 sind GELDPHASE KARTEN
 
 
-            stapel.Add(new SpionKarte(0, null, this, null)); //Nach FLotten
-            stapel.Add(new EinbrecherKarte(1, null, this, null)); //Nach Versprechungen
+            stapel.Add(new SpionKarte(0, null, this)); //Nach FLotten
+            stapel.Add(new EinbrecherKarte(1, null, this)); //Nach Versprechungen
 
             //KAMPFPHASE KARTEN
-            stapel.Add(new AblenkungsmanoeverKarte(2, null, this, null)); //Würfel neu wprfeln
-            stapel.Add(new AblenkungsmanoeverKarte(3, null, this, null));
-            stapel.Add(new AnexionKarte(4, null, this, null)); //vor Kampf wenn vert mehr gebäude
-            stapel.Add(new AttentatKarte(5, null, this, null));//vor kampf zerstöre 1 flotte
-            stapel.Add(new AttentatKarte(6, null, this, null));
-            stapel.Add(new BestechungKarte(7, null, this, null)); //vor kampf ignoriere flotte des imperators
-            stapel.Add(new InterplanetareGefechtstationKarte(8, null, this, null));//vor kampf +3 bonus
-            stapel.Add(new InterplanetareGefechtstationKarte(9, null, this, null));
-            stapel.Add(new PropagandaKampagneKarte(10, null, this, null)); //vor kampf alle vert flotten haben wert 2
-            stapel.Add(new PropagandaKampagneKarte(11, null, this, null));
-            stapel.Add(new Ueberraschungsangriff(12, null, this, null)); //vor kampf als angreifer, ignoriere gebäude
-            stapel.Add(new Ueberraschungsangriff(13, null, this, null));
+            stapel.Add(new AblenkungsmanoeverKarte(2, null, this)); //Würfel neu wprfeln
+            stapel.Add(new AblenkungsmanoeverKarte(3, null, this));
+            stapel.Add(new AnexionKarte(4, null, this)); //vor Kampf wenn vert mehr gebäude
+            stapel.Add(new AttentatKarte(5, null, this));//vor kampf zerstöre 1 flotte
+            stapel.Add(new AttentatKarte(6, null, this));
+            stapel.Add(new BestechungKarte(7, null, this)); //vor kampf ignoriere flotte des imperators
+            stapel.Add(new InterplanetareGefechtstationKarte(8, null, this));//vor kampf +3 bonus
+            stapel.Add(new InterplanetareGefechtstationKarte(9, null, this));
+            stapel.Add(new PropagandaKampagneKarte(10, null, this)); //vor kampf alle vert flotten haben wert 2
+            stapel.Add(new PropagandaKampagneKarte(11, null, this));
+            stapel.Add(new Ueberraschungsangriff(12, null, this)); //vor kampf als angreifer, ignoriere gebäude
+            stapel.Add(new Ueberraschungsangriff(13, null, this));
             //REST
-            stapel.Add(new NeuwahlenKarte(14, null, this, null)); //keine auswirkungen
+            stapel.Add(new NeuwahlenKarte(14, null, this)); //keine auswirkungen
             //BONUSPUNTKE
-            stapel.Add(new ArtefaktKarte(15, null, this, null));
-            stapel.Add(new ArtefaktKarte(16, null, this, null));
+            stapel.Add(new ArtefaktKarte(15, null, this));
+            stapel.Add(new ArtefaktKarte(16, null, this));
             //GELDPHASE KARTEN
-            stapel.Add(new PRKampagneKarte(17, null, this, null));
-            stapel.Add(new SpendeKarte(18, null, this, null));
+            stapel.Add(new PRKampagneKarte(17, null, this));
+            stapel.Add(new SpendeKarte(18, null, this));
 
             for (int i = 19; i <= 30; i++)
             {
-                stapel.Add(new CreditsKarte(i, 1000, null, this, null));
+                stapel.Add(new CreditsKarte(i, 1000, null, this));
             }
             for (int i = 31; i < 42; i++)
             {
-                stapel.Add(new CreditsKarte(i, 2000, null, this, null));
+                stapel.Add(new CreditsKarte(i, 2000, null, this));
             }
             for (int i = 42; i <= 44; i++)
             {
-                stapel.Add(new CreditsKarte(i, 3000, null, this, null));
+                stapel.Add(new CreditsKarte(i, 3000, null, this));
             }
             Shuffle();
 
