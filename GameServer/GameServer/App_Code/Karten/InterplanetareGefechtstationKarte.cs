@@ -11,9 +11,11 @@ namespace GameServer.App_Code.Karten
      */
     public class InterplanetareGefechtstationKarte : Karte
     {
-        public InterplanetareGefechtstationKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto)
+        public InterplanetareGefechtstationKarte(int value,Hand hand,Deck deck) : base(value,hand,deck)
         {
-            
+            kartenname = "Interplanetare Gefechtsstation";
+            kartenphase = "Spiele vor einem Kampf.";
+            kartentext = "Dein Kampfwert erhöht sich beim nächsten Kampf um +3.";
         }
         override public void Action()
         {
