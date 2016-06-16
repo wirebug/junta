@@ -10,9 +10,12 @@ namespace GameServer.App_Code
         bool hatSpion { get; set; }
         bool hatEinbrecher { get; set; }
         bool hatKampfkarte { get; set; }
-        Spieler spieler { get; set; }
+        public Spieler spieler { get; set; }
         List<Karte> hand = new List<Karte>();
+<<<<<<< HEAD
         
+=======
+>>>>>>> refs/remotes/origin/master
         void checkStates()
         {
             hatKampfkarte = false;
@@ -53,10 +56,11 @@ namespace GameServer.App_Code
             hand.Remove(item);
         }
 
-        void AddHandkarte(Karte item)
+        public void AddHandkarte(Karte item)
         {
             checkStates();
             hand.Add(item);
+            //Karte.hand.set
         }
 
         int GetHandKartenZahl()

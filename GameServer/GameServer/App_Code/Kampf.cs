@@ -5,8 +5,8 @@ using System.Web;
 
 namespace GameServer.App_Code {
     public class Kampf {
-        private Dictionary<Spieler, int> angriffswürfel { get; set; }
-        private int verteidigungswürfel { get; set; }
+        private Dictionary<Spieler, int> angriffswürfel { get; set; } //Würfel pro Spieler
+        private int verteidigungswürfel { get; set; } //Würfel des Verteidigungsspieler
         private Spieler zuordnung { get; set; }
 
         public Kampf() {
@@ -20,7 +20,7 @@ namespace GameServer.App_Code {
             this.angriffswürfel.Add(spieler, angriffswürfel);
         }
 
-        private bool Würfeln() {
+        private bool Würfeln() { 
             int vert = 0;
             int angr = 0;
             Random rng = new Random();

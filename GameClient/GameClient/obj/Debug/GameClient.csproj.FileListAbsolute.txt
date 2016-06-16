@@ -1,3 +1,6 @@
 C:\Users\Christoph\Documents\Junta\GameClient\GameClient\bin\Debug\GameClient.exe.config
 C:\Users\Christoph\Documents\Junta\GameClient\GameClient\obj\Debug\GameClient.exe
 C:\Users\Christoph\Documents\Junta\GameClient\GameClient\obj\Debug\GameClient.pdb
+C:\Users\Sebastian\Documents\GitHub\junta\GameClient\GameClient\bin\Debug\GameClient.exe.config
+C:\Users\Sebastian\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\GameClient.exe
+C:\Users\Sebastian\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\GameClient.pdb

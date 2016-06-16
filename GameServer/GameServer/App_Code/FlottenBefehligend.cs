@@ -18,8 +18,13 @@ namespace GameServer.App_Code
         }
         public override void FlottenBefehligen(Spieler spieler)
         {
+            //wird das KampfObjekt hier erzeugt? wo werden die Flotteneinstellungen angelegt
             //Imperator Flotten alle 1 (defending)
-            //Alle Spielerflotten befehligen
+            if (spieler.imperator)
+            {
+
+            }
+            //Spielerflotten befehligen
         }
         public override void KaempfeAustragen(Spieler spieler)
         {

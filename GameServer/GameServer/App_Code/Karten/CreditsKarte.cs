@@ -9,18 +9,17 @@ namespace GameServer.App_Code.Karten
 {
     public class CreditsKarte : Karte
     {
-        int Value { get; set; }
-        CreditsKarte(int value, int credits) : base(value)
-        {
-            Value = credits;
+        public int Credits { get; set; }
+        public CreditsKarte(int value, int credits,Hand hand,Deck deck, Konto konto) : base(value,hand,deck,konto)
+        { 
+            this.Credits = credits;
         }
         public override void Action()
         {
-            Credits(Value);
+            //12x 1000 
+            //11x 2000
+            //3x 3000
         }
-        public void Credits(int value)
-        {
-            
-        }
+        
     }
 }
