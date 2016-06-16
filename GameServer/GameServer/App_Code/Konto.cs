@@ -6,9 +6,9 @@ using System.Web;
 namespace GameServer.App_Code {
     public class Konto {
         Spieler spieler { get; set; }
-        int guthaben { get; set; }
+        public int guthaben { get; set; }
 
-        void addGuthaben(Karte karte)
+        public void addGuthaben(Karte karte)
         {
             guthaben += karte.creditskarte;
         }
