@@ -131,7 +131,6 @@
     <Content Include="App_Code\Karten\SpendeKarte.cs" />
     <Content Include="App_Code\Karten\SpionKarte.cs" />
     <Content Include="App_Code\Karten\UeberraschungsangriffKarte.cs" />
-    <Content Include="App_Code\Konto.cs" />
     <Content Include="App_Code\Planet.cs" />
     <Content Include="App_Code\Spieler.cs" />
     <Content Include="App_Code\Spielverwaltung.cs" />
