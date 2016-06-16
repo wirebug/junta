@@ -26,25 +26,29 @@ namespace GameServer.App_Code
             hatKampfkarte = false;
             foreach (Karte k in hand)
             {
-                if (k.id == 0)
+                if (k.ID == 0)
                 {
                     hatSpion = true;
                 }
                 else
                     hatSpion = false;
-                if (k.id == 1)
+                if (k.ID == 1)
                 {
                     hatEinbrecher = true;
                 }
                 else
                     hatEinbrecher = false;
-                if (k.id > 1)
+                if (k.ID > 1 && k.ID < 14)
                 {
                     hatKampfkarte = true;
                 }
             }
         }
 
+        /// <summary>
+        /// Zieht zufällige Karte aus Spielerhand
+        /// </summary>
+        /// <returns>Zufällige Handkarte des Spielers</returns>
         public Karte RandomHandkarte()
         {
             Random rng = new Random();
@@ -68,7 +72,6 @@ namespace GameServer.App_Code
         {
             checkFlags();
             hand.Add(item);
-            //Karte.hand.set
         }
         /// <summary>
         /// Gibt Anzahl der Handkarten zurück
