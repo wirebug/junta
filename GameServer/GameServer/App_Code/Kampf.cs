@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code {
     public class Kampf {
@@ -56,6 +57,14 @@ namespace GameServer.App_Code {
                 }
                 return ergebnis;
             }
+        }
+
+        public void KarteVorKampf(Karte k) {
+            k.Action();
+        }
+
+        public void KarteInKampf(Karte k) {
+            k.Action();
         }
         
 
