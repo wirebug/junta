@@ -8,7 +8,7 @@ namespace GameServer.App_Code.Karten
     public class AblenkungsmanoeverKarte : Karte
     {
         
-        public AblenkungsmanoeverKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto) 
+        public AblenkungsmanoeverKarte(int value,Hand hand,Deck deck) : base(value,hand,deck) 
         {
             kartenname = "Ablenkungsmanöver";
             kartenphase = "Spiele unmittelbar nach einem Würfelwurf.";

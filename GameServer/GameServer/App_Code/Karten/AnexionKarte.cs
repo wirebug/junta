@@ -8,7 +8,7 @@ namespace GameServer.App_Code.Karten
     public class AnexionKarte : Karte
     {
         
-        public AnexionKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
+        public AnexionKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
             kartenname = "Annexion";
             kartenphase = "Spiele als Angreifer vor einem Kampf, wenn der Verteidiger mehr Gebäude hat als du.";

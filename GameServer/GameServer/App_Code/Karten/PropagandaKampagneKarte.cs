@@ -7,7 +7,7 @@ namespace GameServer.App_Code.Karten
 {
     public class PropagandaKampagneKarte : Karte
     {
-        public PropagandaKampagneKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
+        public PropagandaKampagneKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
             kartenname = "Propaganda";
             kartenphase = "Spiele vor einem Kampf.";

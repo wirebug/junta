@@ -13,16 +13,14 @@ namespace GameServer.App_Code.Karten
         public Hand hand { get; set; }
 
         public Deck deck { get; set; }
-        public Konto konto { get; set; }
         public string kartenname;
         public string kartentext;
         public string kartenphase;
-        public Karte(int id, Hand hand, Deck deck, Konto konto)
+        public Karte(int id, Hand hand, Deck deck)
         {
             this.ID = id;
             this.hand = hand;
             this.deck = deck;
-            this.konto = konto;
         }
 
         public abstract void Action();
