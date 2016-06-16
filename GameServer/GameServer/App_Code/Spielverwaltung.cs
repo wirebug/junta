@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code
 {
     public class Spielverwaltung
-    { 
-        public List<Spieler> reihenfolge { get; }
+    {
+        public int[] reihenfolge { get; }
+        public Spieler[] spieler;
         JuntaHub _hub;
         public Deck deck { get; }
         public int rundenCount { get; set; }
         public void KartenZiehen()
         {
-            foreach (Spieler s in reihenfolge)
+            foreach (Spieler s in spieler)
             {
                 if (!s.imperator)
                 {
@@ -58,22 +60,28 @@ namespace GameServer.App_Code
             //Für jeden einzelnen VERTEIDIGENDEN Spieler wird ein Kampf erstellt
             if (sp.kampf == null)
             {
-                foreach (Spieler s in reihenfolge)
+                foreach (Spieler s in spieler)
                 {
-                    s.kampf = new Kampf();
+                    if (s.imperator)
+                    {
+                        s.kampf = new ImperatorKampf();
+                        s.kampf.addVerteidigung(s.flotten);//alle imp flotten verteidigen
+                    }
+                    else
+                    {
+                        s.kampf = new Kampf();
+                    }
                 }
             }
-            if (sp.imperator)   //Imp.-Flotten verteidigen
+            if (!sp.imperator)
             {
-                sp.kampf.addVerteidigung(sp.flotten);
-            }else
-            {
-                
+
             }
         }
         public void KaempfeAustragen()
         {
-            //Spieler hat kampf opjekt was hier abgehandelt wird?
+            //Spieler hat kampf opjekt was hier abgehandelt wird
+            //MUSS NACH ABHANDLUNG AUF NULL GESETZT WERDEN
         }
         public void GeldAusgeben(Spieler sp, int kauf)
         {
