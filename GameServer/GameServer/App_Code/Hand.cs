@@ -13,6 +13,10 @@ namespace GameServer.App_Code
         bool hatKampfkarte { get; set; }
         public Spieler spieler { get; set; }
         List<Karte> hand = new List<Karte>();
+<<<<<<< HEAD
+        
+=======
+>>>>>>> refs/remotes/origin/master
         void checkStates()
         {
             hatKampfkarte = false;
