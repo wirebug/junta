@@ -7,7 +7,7 @@ namespace GameServer.App_Code.Karten
 {
     public class PRKampagneKarte : Karte
     {
-        public PRKampagneKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
+        public PRKampagneKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
             kartenname = "PRKampagne";
             kartenphase = "Spiele beim Geld ausgeben.";

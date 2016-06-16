@@ -11,7 +11,7 @@ namespace GameServer.App_Code.Karten
     {
         public int Credits { get; set; }
         
-        public CreditsKarte(int value, int credits,Hand hand,Deck deck, Konto konto) : base(value,hand,deck,konto)
+        public CreditsKarte(int value, int credits,Hand hand,Deck deck) : base(value,hand,deck)
         {
             this.Credits = credits;
             kartenname = "Credits";
