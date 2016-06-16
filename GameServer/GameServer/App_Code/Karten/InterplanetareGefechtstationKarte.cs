@@ -17,13 +17,14 @@ namespace GameServer.App_Code.Karten
         }
         override public void Action()
         {
-            //TODO
-            /*
-            hand.spieler.kampf.angriffswürfel.getSpieler
+            
+            hand.spieler.kampf.angriffswürfel[hand.spieler] += 3;
+            //ACHTUNG KARTE WIRD VOR DEM KAMPF GESPIELT ABER ERST BEIM WÜRFELN VERRECHNET !
+
             //spiele vor einem Kampf
             //der Kampfwert erhöht sich um 3
             //2x
-            */
+            
         }
 
     }
