@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code {
     public class Kampf {
-        private Dictionary<Spieler, int> angriffswürfel { get; set; }
-        private int verteidigungswürfel { get; set; }
+        private Dictionary<Spieler, int> angriffswürfel { get; set; } //Würfel pro Spieler
+        private int verteidigungswürfel { get; set; } //Würfel des Verteidigungsspieler
         private Spieler zuordnung { get; set; }
 
         public Kampf() {
@@ -20,8 +21,8 @@ namespace GameServer.App_Code {
             this.angriffswürfel.Add(spieler, angriffswürfel);
         }
 
-        private bool Würfeln() {
-            int vert = 0;
+        private bool Würfeln() { 
+            int vert = 0; // spieler.planet.gebäude
             int angr = 0;
             Random rng = new Random();
             for (int i = 0; i < verteidigungswürfel; i++) {
@@ -56,6 +57,14 @@ namespace GameServer.App_Code {
                 }
                 return ergebnis;
             }
+        }
+
+        public void KarteVorKampf(Karte k) {
+            k.Action();
+        }
+
+        public void KarteInKampf(Karte k) {
+            k.Action();
         }
         
 

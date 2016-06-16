@@ -11,24 +11,20 @@ namespace GameServer.App_Code.Karten
      */
     public class InterplanetareGefechtstationKarte : Karte
     {
-        InterplanetareGefechtstationKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto)
-        {
-
-        }
-        public void Action(Kampf k)
+        public InterplanetareGefechtstationKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto)
         {
             
-            InterplanetareGefechtsstation();
-        }
-        public void InterplanetareGefechtsstation()
-        {
-            
-            //spiele vor einem Kampf
-            //der Kampfwert erhöht sich um 3
         }
         override public void Action()
         {
+            
+            hand.spieler.kampf.angriffswürfel[hand.spieler] += 3;
+            //ACHTUNG KARTE WIRD VOR DEM KAMPF GESPIELT ABER ERST BEIM WÜRFELN VERRECHNET !
 
+            //spiele vor einem Kampf
+            //der Kampfwert erhöht sich um 3
+            //2x
+            
         }
 
     }

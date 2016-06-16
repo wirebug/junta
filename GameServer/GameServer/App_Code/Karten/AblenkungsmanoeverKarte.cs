@@ -7,14 +7,16 @@ namespace GameServer.App_Code.Karten
 {
     public class AblenkungsmanoeverKarte : Karte
     {
-        AblenkungsmanoeverKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto) 
+        public AblenkungsmanoeverKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto) 
         {
             
         }
 
         public override void Action()
         {
-            throw new NotImplementedException();
+            //spiele nach Würfelwurf
+            //Würfel neu würfeln
+            //2x
         }
     }
 }

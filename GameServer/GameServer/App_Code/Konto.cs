@@ -7,6 +7,7 @@ using GameServer.App_Code.Karten;
 namespace GameServer.App_Code {
     public class Konto {
         Spieler spieler { get; set; }
+<<<<<<< HEAD
         public int Credits { get; set; }
 
 
@@ -24,6 +25,11 @@ namespace GameServer.App_Code {
         /// </summary>
         /// <param name="Credit">Credits die abgezogen werden sollen</param>
         public void decreaseGuthaben(int Credit)
+=======
+        public int guthaben { get; set; }
+
+        public void addGuthaben(Karte karte)
+>>>>>>> master
         {
             if (Credits - Credit > 0)
             {

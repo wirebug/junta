@@ -10,26 +10,14 @@ namespace GameServer.App_Code.Karten
     {
         private int value;
         int ID { get; set; }
-        private Hand phand;
-        public Hand Phand
-        {
-           get
-            {
-                return Phand;
-            }
-            set
-            {
-                phand = Phand;
-            }
+        public Hand hand { get; set; }
 
-        }
-
-        Deck deck { get; set; }
-        Konto konto { get; set; }
+        public Deck deck { get; set; }
+        public Konto konto { get; set; }
         public Karte(int id, Hand hand, Deck deck, Konto konto)
         {
             this.ID = id;
-            this.Phand = hand;
+            this.hand = hand;
             this.deck = deck;
             this.konto = konto;
         }
@@ -38,7 +26,7 @@ namespace GameServer.App_Code.Karten
         
         public void WaehleAktion()
         {
-            //
+            //code der in allen karten gleich ist
             Action();
         }
 

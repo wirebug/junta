@@ -7,20 +7,20 @@ namespace GameServer.App_Code
 {
     public class Hand
     {
-        public bool hatSpion { get; set; }
-        public bool hatEinbrecher { get; set; }
-        public bool hatKampfkarte { get; set; }
+        bool hatSpion { get; set; }
+        bool hatEinbrecher { get; set; }
+        bool hatKampfkarte { get; set; }
         public Spieler spieler { get; set; }
 
         /// <summary>
         /// Handkarten
         /// </summary>
         List<Karte> hand = new List<Karte>();
+<<<<<<< HEAD
         
-        /// <summary>
-        /// überprüft die flags hatSpion, hat Einbrecher, hatKampfkarte auf korrektheit
-        /// </summary>
-        void checkFlags()
+=======
+>>>>>>> refs/remotes/origin/master
+        void checkStates()
         {
             hatKampfkarte = false;
             foreach (Karte k in hand)
@@ -44,37 +44,36 @@ namespace GameServer.App_Code
             }
         }
 
-        /// <summary>
-        /// Zieht zufälige Handkarte des Spielers
-        /// </summary>
-        /// <returns>Handkarte vom Typ Karte</returns>
         public Karte RandomHandkarte()
         {
             Random rng = new Random();
+<<<<<<< HEAD
             int anzahl = GetHandkartenAnzahl();
+=======
+            int anzahl = GetHandKartenZahl();
+>>>>>>> master
             int index = rng.Next(anzahl);
             Karte ret = hand[index];
             RemoveHandkarte(hand[index]);
             return ret;
         }
 
-        /// <summary>
-        /// Nimmt Karte von Hand
-        /// </summary>
-        /// <param name="item">Handkarte die gelöscht werden soll</param>
-        void RemoveHandkarte(Karte item)
+        public void RemoveHandkarte(Karte item)
         {
             checkFlags();
             hand.Remove(item);
         }
-        /// <summary>
-        /// Legt Karte auf Hand
-        /// </summary>
-        /// <param name="item">Karte die auf die Hand kommt</param>
+
         public void AddHandkarte(Karte item)
         {
             checkFlags();
             hand.Add(item);
+            //Karte.hand.set
+        }
+
+        public int GetHandKartenZahl()
+        {
+            return hand.Count();
         }
         /// <summary>
         /// Gibt Anzahl der Handkarten zurück
