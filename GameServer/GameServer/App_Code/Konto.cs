@@ -8,7 +8,7 @@ namespace GameServer.App_Code {
         Spieler spieler { get; set; }
         public int guthaben { get; set; }
 
-        void addGuthaben(Karte karte)
+        public void addGuthaben(Karte karte)
         {
             guthaben += karte.creditskarte;
         }

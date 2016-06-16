@@ -53,20 +53,25 @@ namespace GameServer.App_Code
             // mind 1 pro Spieler vom Imp.
             sp.versprechungen.AddRange(ids);
         }
-        public void FlottenBefehligen(Spieler sp)
+        public void FlottenBefehligen(Spieler sp, int[] würfel)
         {
             //Für jeden einzelnen VERTEIDIGENDEN Spieler wird ein Kampf erstellt
-            if (sp.imperator)   //Imp.-Flotten alle 1
+            if (sp.kampf == null)
             {
-                Kampf ik = new Kampf();
-                ik.addVerteidigung(sp.flotten);
+                foreach (Spieler s in reihenfolge)
+                {
+                    s.kampf = new Kampf();
+                }
+            }
+            if (sp.imperator)   //Imp.-Flotten verteidigen
+            {
+                sp.kampf.addVerteidigung(sp.flotten);
             }else
             {
-                Kampf sk = new Kampf();
-
+                
             }
         }
-        public void KaempfeAustragen()//Doppelt mit Flottenbefehligen?
+        public void KaempfeAustragen()
         {
             //Spieler hat kampf opjekt was hier abgehandelt wird?
         }
