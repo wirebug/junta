@@ -10,6 +10,7 @@ namespace GameServer.App_Code
     {
         public int[] reihenfolge { get; }
         public Spieler[] spieler;
+        public int imperatorID;
         JuntaHub _hub;
         public Deck deck { get; }
         public int rundenCount { get; set; }
@@ -46,9 +47,7 @@ namespace GameServer.App_Code
         }
         public void KarteKlauen(Spieler taeter, Spieler opfer)
         {
-            Karte rndKarte = opfer.hand.RandomHandkarte();
-            opfer.hand.RemoveHandkarte(rndKarte);
-            taeter.hand.AddHandkarte(rndKarte);
+            taeter.hand.AddHandkarte(opfer.hand.RandomHandkarte());
         }
         public void VersprechungMachen(int[] ids, Spieler sp)
         {
@@ -58,24 +57,46 @@ namespace GameServer.App_Code
         public void FlottenBefehligen(Spieler sp, int[] würfel)
         {
             //Für jeden einzelnen VERTEIDIGENDEN Spieler wird ein Kampf erstellt
+            ImperatorKampf a;
+            int tmpw;
             if (sp.kampf == null)
             {
                 foreach (Spieler s in spieler)
                 {
                     if (s.imperator)
                     {
-                        s.kampf = new ImperatorKampf();
-                        s.kampf.addVerteidigung(s.flotten);//alle imp flotten verteidigen
+                        s.kampf = new ImperatorKampf(s);
+                        a = (ImperatorKampf)s.kampf;
+                        a.addVerteidigung(s, s.flotten);//alle Imp. flotten verteidigen
                     }
                     else
                     {
-                        s.kampf = new Kampf();
+                        s.kampf = new Kampf(s);
                     }
                 }
             }
             if (!sp.imperator)
             {
-
+                for(int i=0;i<4;i++)
+                {
+                    tmpw = würfel[i];
+                    if (tmpw == sp.ID)//wenn der würfel die eigene ID zeigt, verteidigt man sich
+                    {
+                        sp.kampf.addVerteidigung(1);
+                    }
+                    else
+                    {
+                        if (tmpw == 6)//6 ist immer das verteidigen des Imperators
+                        {
+                            a = (ImperatorKampf)spieler[imperatorID].kampf;
+                            a.addVerteidigung(sp, 1);
+                        }
+                        else//angreifen des Spielers mit index seiner ID-1(da liste)
+                        {
+                            spieler[tmpw-1].kampf.addAngriff(sp, 1);
+                        }
+                    }
+                }
             }
         }
         public void KaempfeAustragen()
@@ -118,15 +139,16 @@ namespace GameServer.App_Code
         }
         public void HandkartenlimitPrüfen()
         {
-            foreach (Spieler s in reihenfolge)
+            Karte tmp;
+            foreach (Spieler s in spieler)
             {
                 while (s.hand.GetHandKartenZahl() > 4)
                 {
-                    s.hand.RemoveHandkarte(s.hand.RandomHandkarte());
+                    tmp = s.hand.RandomHandkarte();
+                    deck.Gespielt(tmp);
                 }
             }
             rundenCount++;
         }
     }
-
 }

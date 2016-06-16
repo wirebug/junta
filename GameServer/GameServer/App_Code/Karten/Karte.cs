@@ -9,7 +9,7 @@ namespace GameServer.App_Code.Karten
     public abstract class Karte
     {
         private int value;
-        int ID { get; set; }
+        int ID { get; set; }// WAR DAS NICHT MAL KLEINGSCHRIEBEN? id
         public Hand hand { get; set; }
 
         public Deck deck { get; set; }

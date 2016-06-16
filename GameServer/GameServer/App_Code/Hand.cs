@@ -13,10 +13,6 @@ namespace GameServer.App_Code
         bool hatKampfkarte { get; set; }
         public Spieler spieler { get; set; }
         List<Karte> hand = new List<Karte>();
-<<<<<<< HEAD
-        
-=======
->>>>>>> refs/remotes/origin/master
         void checkStates()
         {
             hatKampfkarte = false;
@@ -41,7 +37,7 @@ namespace GameServer.App_Code
             }
         }
 
-        public Karte RandomHandkarte()
+        public Karte RandomHandkarte()//Removed sogar eine handkarte, umbenennen evt in RemoveRandomHandkarte?
         {
             Random rng = new Random();
             int anzahl = GetHandKartenZahl();

@@ -6,18 +6,20 @@ using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code {
     public class Kampf {
-        //HENRYK IST EIN FEHLER
+        
         public Dictionary<Spieler, int> angriffswürfel { get; set; } //Würfel pro Spieler
-        public int verteidigungswürfel { get; set; } //Würfel des Verteidigungsspieler
+        public int verteidigungswürfel { get; set; }
         public Spieler zuordnung { get; set; }
 
-        public Kampf() {
+        public Kampf(Spieler s) {
             angriffswürfel = new Dictionary<Spieler, int>();
-            verteidigungswürfel += zuordnung.planet.gebäude;
+            zuordnung = s;
         }
-        public void addVerteidigung(int verteidigungswürfel) {
-            this.verteidigungswürfel = verteidigungswürfel;
+        public void addVerteidigung(int verteidigungswürfel)
+        {
+            this.verteidigungswürfel += verteidigungswürfel;
         }
+
 
         public void addAngriff(Spieler spieler, int angriffswürfel) {
             this.angriffswürfel.Add(spieler, angriffswürfel);

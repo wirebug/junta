@@ -6,11 +6,12 @@ using System.Web;
 namespace GameServer.App_Code {
     public class ImperatorKampf : Kampf {
 
-        public new Dictionary<Spieler, int> verteidigungswürfel { get; set; }
+        public new Dictionary<Spieler, int> verteidigungswürfel;
 
         public void addVerteidigung(Spieler spieler, int verteidigungswürfel) {
             this.verteidigungswürfel.Add(spieler, verteidigungswürfel);
         }
+        public ImperatorKampf(Spieler s) : base(s) { }
 
         private bool Würfeln() {
             int vert = 0;
