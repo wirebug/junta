@@ -12,6 +12,10 @@ namespace GameServer.App_Code
         public bool hatEinbrecher { get; set; }
         public bool hatKampfkarte { get; set; }
         public Spieler spieler { get; set; }
+
+        /// <summary>
+        /// Handkarten
+        /// </summary>
         List<Karte> hand = new List<Karte>();
         
         /// <summary>
@@ -56,7 +60,7 @@ namespace GameServer.App_Code
         public Karte RandomHandkarte()
         {
             Random rng = new Random();
-            int anzahl = hand.Count();
+            int anzahl = GetHandkartenAnzahl();
             int index = rng.Next(anzahl);
             Karte ret = hand[index];
             RemoveHandkarte(hand[index]);
@@ -69,7 +73,7 @@ namespace GameServer.App_Code
         /// <param name="item">Handkarte die gelöscht werden soll</param>
         void RemoveHandkarte(Karte item)
         {
-            checkStates();
+            checkFlags();
             hand.Remove(item);
         }
 <<<<<<< HEAD
@@ -82,9 +86,17 @@ namespace GameServer.App_Code
 >>>>>>> Phasen
         public void AddHandkarte(Karte item)
         {
-            checkStates();
+            checkFlags();
             hand.Add(item);
             //Karte.hand.set
+        }
+        /// <summary>
+        /// Gibt Anzahl der Handkarten zurück
+        /// </summary>
+        /// <returns></returns>
+        public int GetHandkartenAnzahl()
+        {
+            return hand.Count();
         }
 
     }
