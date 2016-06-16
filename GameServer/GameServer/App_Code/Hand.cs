@@ -8,6 +8,7 @@ namespace GameServer.App_Code
     public class Hand
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         public bool hatSpion { get; set; }
         public bool hatEinbrecher { get; set; }
         public bool hatKampfkarte { get; set; }
@@ -30,6 +31,18 @@ namespace GameServer.App_Code
         List<Karte> hand = new List<Karte>();
         void checkStates()
 >>>>>>> Phasen
+=======
+        bool hatSpion { get; set; }
+        bool hatEinbrecher { get; set; }
+        bool hatKampfkarte { get; set; }
+        public Spieler spieler { get; set; }
+        List<Karte> hand = new List<Karte>();
+<<<<<<< HEAD
+        
+=======
+>>>>>>> refs/remotes/origin/master
+        void checkStates()
+>>>>>>> master
         {
             hatKampfkarte = false;
             foreach (Karte k in hand)
@@ -53,29 +66,26 @@ namespace GameServer.App_Code
             }
         }
 
-        /// <summary>
-        /// Zieht zufälige Handkarte des Spielers
-        /// </summary>
-        /// <returns>Handkarte vom Typ Karte</returns>
         public Karte RandomHandkarte()
         {
             Random rng = new Random();
+<<<<<<< HEAD
             int anzahl = GetHandkartenAnzahl();
+=======
+            int anzahl = GetHandKartenZahl();
+>>>>>>> master
             int index = rng.Next(anzahl);
             Karte ret = hand[index];
             RemoveHandkarte(hand[index]);
             return ret;
         }
 
-        /// <summary>
-        /// Nimmt Karte von Hand
-        /// </summary>
-        /// <param name="item">Handkarte die gelöscht werden soll</param>
-        void RemoveHandkarte(Karte item)
+        public void RemoveHandkarte(Karte item)
         {
             checkFlags();
             hand.Remove(item);
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
         /// <summary>
         /// Legt Karte auf Hand
@@ -84,6 +94,9 @@ namespace GameServer.App_Code
 =======
 
 >>>>>>> Phasen
+=======
+
+>>>>>>> master
         public void AddHandkarte(Karte item)
         {
             checkFlags();
@@ -95,6 +108,11 @@ namespace GameServer.App_Code
         /// </summary>
         /// <returns></returns>
         public int GetHandkartenAnzahl()
+        {
+            return hand.Count();
+        }
+
+        public int GetHandKartenZahl()
         {
             return hand.Count();
         }

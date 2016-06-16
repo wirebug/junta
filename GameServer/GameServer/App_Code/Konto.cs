@@ -9,6 +9,7 @@ namespace GameServer.App_Code {
         Spieler spieler { get; set; }
         public int guthaben { get; set; }
 
+<<<<<<< HEAD
 
         /// <summary>
         /// erhöht Guthaben mit der Summe von Geldkarte x
@@ -24,6 +25,9 @@ namespace GameServer.App_Code {
         /// </summary>
         /// <param name="Summe">Credits die abgezogen werden sollen</param>
         public void decreaseGuthaben(int Summe)
+=======
+        public void addGuthaben(Karte karte)
+>>>>>>> master
         {
             if (guthaben - Summe > 0)
             {
