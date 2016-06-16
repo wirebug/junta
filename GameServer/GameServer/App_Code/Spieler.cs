@@ -19,6 +19,7 @@ namespace GameServer.App_Code
         public Spieler(int flotten, int punkte, bool imperator, Planet planet, Hand hand)
         {
             Kampfmodifikator = 0;
+        }
         public Konto konto { get; set; }
         public Kampf kampf { get; set; }
 
