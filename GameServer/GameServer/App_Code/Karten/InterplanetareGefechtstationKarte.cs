@@ -11,7 +11,7 @@ namespace GameServer.App_Code.Karten
      */
     public class InterplanetareGefechtstationKarte : Karte
     {
-        InterplanetareGefechtstationKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto)
+        public InterplanetareGefechtstationKarte(int value,Hand hand,Deck deck,Konto konto) : base(value,hand,deck,konto)
         {
             
         }
