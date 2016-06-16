@@ -29,8 +29,8 @@ namespace GameServer.App_Code {
             // ID 17 - 44 sind GELDPHASE KARTEN
 
 
-            stapel.Add(new SpionKarte(0, null, this, null));
-            stapel.Add(new EinbrecherKarte(1, null, this, null));
+            stapel.Add(new SpionKarte(0, null, this, null)); //Nach FLotten
+            stapel.Add(new EinbrecherKarte(1, null, this, null)); //Nach Versprechungen
 
             //KAMPFPHASE KARTEN
             stapel.Add(new AblenkungsmanoeverKarte(2, null, this, null)); //Würfel neu wprfeln
