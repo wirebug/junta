@@ -6,12 +6,13 @@ using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code {
     public class Kampf {
-        private Dictionary<Spieler, int> angriffswürfel { get; set; } //Würfel pro Spieler
-        private int verteidigungswürfel { get; set; } //Würfel des Verteidigungsspieler
-        private Spieler zuordnung { get; set; }
+        public Dictionary<Spieler, int> angriffswürfel { get; set; } //Würfel pro Spieler
+        public int verteidigungswürfel { get; set; } //Würfel des Verteidigungsspieler
+        public Spieler zuordnung { get; set; }
 
         public Kampf() {
             angriffswürfel = new Dictionary<Spieler, int>();
+            verteidigungswürfel += zuordnung.planet.gebäude;
         }
         public void addVerteidigung(int verteidigungswürfel) {
             this.verteidigungswürfel = verteidigungswürfel;
@@ -21,8 +22,12 @@ namespace GameServer.App_Code {
             this.angriffswürfel.Add(spieler, angriffswürfel);
         }
 
+        public void addAngriffWert(Spieler spieler, int value) {
+            this.angriffswürfel[spieler] += value;
+        }
+
         private bool Würfeln() { 
-            int vert = 0; // spieler.planet.gebäude
+            int vert = 0;
             int angr = 0;
             Random rng = new Random();
             for (int i = 0; i < verteidigungswürfel; i++) {
