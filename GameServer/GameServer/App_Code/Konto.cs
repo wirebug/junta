@@ -7,30 +7,30 @@ using GameServer.App_Code.Karten;
 namespace GameServer.App_Code {
     public class Konto {
         Spieler spieler { get; set; }
-        public int guthaben { get; set; }
+        public int Credits { get; set; }
 
 
         /// <summary>
         /// erhöht Guthaben mit der Summe von Geldkarte x
         /// </summary>
-        /// <param name="karte">Muss eine Karte vom Typ Geldkarte sein</param>
-        public void increaseGuthaben(CreditsKarte karte)
+        /// <param name="Credit">Credit der</param>
+        public void increaseGuthaben(int Credit)
         {
-            guthaben += karte. ; //guthaben attribut fehlt noch
+            this.Credits += Credit;
         }
 
         /// <summary>
-        /// veringert das Guthaben in Höhe des Parameters
+        /// veringert das Guthaben in Höhe des Parameters. Achtung Methode wirft ArgumentOutOfRangeException!
         /// </summary>
-        /// <param name="Summe">Credits die abgezogen werden sollen</param>
-        public void decreaseGuthaben(int Summe)
+        /// <param name="Credit">Credits die abgezogen werden sollen</param>
+        public void decreaseGuthaben(int Credit)
         {
-            if (guthaben - Summe > 0)
+            if (Credits - Credit > 0)
             {
-                guthaben -= Summe;
+                this.Credits -= Credit;
             } else
             {
-                throw ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("Nicht genug Guthaben!");
             }
         }
     }

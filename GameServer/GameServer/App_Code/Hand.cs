@@ -37,7 +37,7 @@ namespace GameServer.App_Code
                 }
                 else
                     hatEinbrecher = false;
-                if (k.id > 1)
+                if (k.id > 1 || k.id < 14)
                 {
                     hatKampfkarte = true;
                 }
