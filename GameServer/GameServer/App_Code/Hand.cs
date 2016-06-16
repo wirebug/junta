@@ -12,7 +12,7 @@ namespace GameServer.App_Code
         bool hatKampfkarte { get; set; }
         Spieler spieler { get; set; }
         List<Karte> hand = new List<Karte>();
-        //Jakob ist 
+        
         void checkStates()
         {
             hatKampfkarte = false;
