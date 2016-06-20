@@ -8,6 +8,9 @@
         Title="DebugWindow" Height="300" Width="300">
     <Grid>
         <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Margin="40,34,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="PräsidentÄndern" Content="Präsident ändern" HorizontalAlignment="Left" Height="20" Margin="28,59,0,0" VerticalAlignment="Top" Width="111" Click="PräsidentÄndern_Click"/>
+        <Button x:Name="KarteHinzu" Content="Karte Hinzu" HorizontalAlignment="Left" Margin="28,84,0,0" VerticalAlignment="Top" Width="111" Click="KarteHinzu_Click"/>
+        <Button x:Name="KarteWeg" Content="Karte Weg" HorizontalAlignment="Left" Margin="28,109,0,0" VerticalAlignment="Top" Width="111" Click="KarteWeg_Click"/>
 
     </Grid>
 </Window>
