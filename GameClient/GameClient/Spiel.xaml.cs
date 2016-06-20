@@ -26,12 +26,6 @@ namespace GameClient {
         public ObservableCollection<FakeKarte> karten = new ObservableCollection<FakeKarte>();
         public ObservableCollection<FakeKarte> versprechen = new ObservableCollection<FakeKarte>();
         private bool istPräsident = false;
-        public bool IstPräsident {
-            get { return istPräsident; }
-            set {
-                istPräsident = value;
-                istPräsidentChanged(); }
-        }
 
         private int milizen;
         public int Milizen {
@@ -42,17 +36,18 @@ namespace GameClient {
         }
 
         public FakeSpieler selbst;
-        public List<FakeSpieler> mitspieler;
+        public ObservableCollection<FakeSpieler> mitspieler = new ObservableCollection<FakeSpieler>();
 
         public Spiel() {          
             InitializeComponent();
             handGrid.DataContext = karten;
             versprechenGrid.DataContext = versprechen;
+            mitspielerGrid.DataContext = mitspieler;
             //this.Loaded += (s,e) => { proxy = new HubProxy(this); };      
         }
 
         private void istPräsidentChanged() {
-            if (istPräsident) {
+            if (selbst.präsident) {
                     präsidentLabel.Content = "Du bist Präsident";
                 } else {
                     präsidentLabel.Content = "Du bist nicht Präsident";
