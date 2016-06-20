@@ -18,6 +18,14 @@ namespace GameClient {
             var connection = new HubConnection(url);
             proxy = connection.CreateHubProxy("JuntaHub");
 
+            proxy.On<int, bool>("SetSelf", (ident, präs) => SetSelf(ident, präs));
+
+            proxy.On<int, bool>("AddOtherPlayer", (ident, präs) => AddOtherPlayers(ident, präs));
+
+            proxy.On<int, int>("UpdatePunkteMitspieler", (ident, pktzl) => UpdatePunkteMitspieler(ident, pktzl));
+
+            proxy.On<int, bool>("UpdatePräsident", (ident, präs) => UpdatePräsident(ident, präs));
+
             connection.Start().Wait();
         }
 
@@ -86,10 +94,15 @@ namespace GameClient {
 
         public void KampfWählen(int ident) {
             if (IsPlayer(ident)) {
+                /*Fenster öffnen und entsprechend Anzahl Milizen in
+                 * Liste einfügen und mit RadioButtons entsprechend
+                 * Abfragen welches Ziel gewählt wurde*/
 
+                /*Invoke testen ob Methode weiterläuft oder auf Abarbeitung wartet*/
             }
         }
-
+        
+        
 
     }
 }
