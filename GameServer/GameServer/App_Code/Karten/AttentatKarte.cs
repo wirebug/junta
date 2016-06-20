@@ -11,9 +11,11 @@ namespace GameServer.App_Code.Karten
      */
         public class AttentatKarte : Karte
         {
-        public AttentatKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
+        public AttentatKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-
+            kartenname = "Attentat";
+            kartenphase = "Spiele vor einem Kampf.";
+            kartentext = "Zerstöre eine gegnerische Flotte eines Gegners deiner Wahl.";
         }
         override public void Action()
         {

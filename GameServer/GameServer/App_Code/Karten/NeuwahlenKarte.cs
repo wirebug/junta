@@ -7,9 +7,11 @@ namespace GameServer.App_Code.Karten
 {
     public class NeuwahlenKarte : Karte
     {
-        public NeuwahlenKarte(int value, Hand hand, Deck deck, Konto konto) : base(value, hand, deck, konto)
+        public NeuwahlenKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-
+            kartenname = "Neuwahlen";
+            kartenphase = "Diese Karte ist nicht Ausspielbar.";
+            kartentext = "Wahlen...was für ein Altmodischer Quatsch.";
         }
         override public void Action()
         {
