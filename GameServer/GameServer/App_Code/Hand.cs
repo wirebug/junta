@@ -82,6 +82,10 @@ namespace GameServer.App_Code
             return hand.Count();
         }
 
+        /// <summary>
+        /// Gibt die Anzahl der auf der Hand befindlichen Karten zurück
+        /// </summary>
+        /// <returns>Anzahl der Handkarten</returns>
         public int GetHandKartenZahl()
         {
             return hand.Count();

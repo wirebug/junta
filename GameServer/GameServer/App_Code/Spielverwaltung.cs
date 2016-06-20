@@ -88,7 +88,7 @@ namespace GameServer.App_Code
             switch (kauf)
             {
                 case 1://Handkarte hinzufügen
-                    if (sp.konto.guthaben >= 1)
+                    if (sp.Credits >= 1)
                     {
                         sp.hand.AddHandkarte(deck.Ziehen());
                         sp.konto.guthaben -= 1;
