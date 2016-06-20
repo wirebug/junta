@@ -20,7 +20,6 @@ namespace GameServer.App_Code.Karten
         }
         public override void Action()
         {
-            konto.
             //12x 1000 
             //11x 2000
             //3x 3000
