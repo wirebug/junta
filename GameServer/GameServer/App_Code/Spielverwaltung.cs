@@ -34,7 +34,7 @@ namespace GameServer.App_Code
                 else
                 {
                     //Imperator, Spielerzahl + 2 Karten ziehen
-                    for(int i=0;i<reihenfolge.Count;i++)
+                    for (int i = 0; i < reihenfolge.Count(); i++)
                     {
                         s.hand.AddHandkarte(deck.Ziehen());
                     }
@@ -107,7 +107,7 @@ namespace GameServer.App_Code
                 case 3://Gebäude hinzufügen
                     if (sp.Credits >= 4)
                     {
-                        if(sp.planet.gebäude<5)
+                        if (sp.planet.gebäude < 5)
                             sp.planet.gebäude++;
                         sp.Credits -= 4;
                     }
