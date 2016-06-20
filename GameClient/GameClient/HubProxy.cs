@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GameClient {
-    class HubProxy {
+    public class HubProxy {
         IHubProxy proxy;
 
         public HubProxy() {
