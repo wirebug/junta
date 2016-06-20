@@ -41,11 +41,14 @@ namespace GameClient {
             }
         }
 
+        public FakeSpieler selbst;
+        public List<FakeSpieler> mitspieler;
+
         public Spiel() {          
             InitializeComponent();
             handGrid.DataContext = karten;
             versprechenGrid.DataContext = versprechen;
-            //this.Loaded += (s,e) => { proxy = new HubProxy(); };          
+            //this.Loaded += (s,e) => { proxy = new HubProxy(this); };      
         }
 
         private void istPräsidentChanged() {
