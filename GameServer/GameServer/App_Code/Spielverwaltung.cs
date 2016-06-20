@@ -79,13 +79,13 @@ namespace GameServer.App_Code
                 {
                     if (s.imperator)
                     {
-                        s.kampf = new ImperatorKampf(s);
+                        s.kampf = new ImperatorKampf();
                         a = (ImperatorKampf)s.kampf;
                         a.addVerteidigung(s, s.flotten);//alle Imp. flotten verteidigen
                     }
                     else
                     {
-                        s.kampf = new Kampf(s);
+                        s.kampf = new Kampf();
                     }
                 }
             }
