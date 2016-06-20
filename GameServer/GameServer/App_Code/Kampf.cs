@@ -6,7 +6,6 @@ using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code {
     public class Kampf {
-        //HENRYK IST EIN FEHLER
         public Dictionary<Spieler, int> angriffswürfel { get; set; } //Würfel pro Spieler
         public int verteidigungswürfel { get; set; } //Würfel des Verteidigungsspieler
         public Spieler zuordnung { get; set; }
