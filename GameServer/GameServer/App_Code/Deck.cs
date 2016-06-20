@@ -9,7 +9,16 @@ namespace GameServer.App_Code {
     public class Deck {
         List<Karte> stapel;
         List<Karte> ablage;
-        
+
+        /// <summary>
+        /// 45 Karten von ID 0 bis ID 44
+        /// ID 0 ist Spion
+        /// ID 1 ist Einbrecher
+        /// ID 2 bis 13 sind KAMPFPHASE KARTEN
+        /// ID 14 ist KEINE AUSWIRKUNGEN
+        /// ID 15,16 BONUSPUNKTE
+        /// ID 17 - 44 sind GELDPHASE KARTEN
+        /// </summary>
         public Deck() {
             //ToDo Adde anstatt der 45 Kartenobjekte, die exakten Objekttypen dem stapel hinzufügen
             /*
@@ -18,15 +27,6 @@ namespace GameServer.App_Code {
             }
             Shuffle();
             */
-
-
-            // 45 Karten von ID 0 bis ID 44
-            // ID 0 ist Spion
-            // ID 1 ist Einbrecher
-            // ID 2 bis 13 sind KAMPFPHASE KARTEN
-            // ID 14 ist KEINE AUSWIRKUNGEN
-            // ID 15,16 BONUSPUNKTE
-            // ID 17 - 44 sind GELDPHASE KARTEN
 
 
             stapel.Add(new SpionKarte(0, null, this)); //Nach FLotten

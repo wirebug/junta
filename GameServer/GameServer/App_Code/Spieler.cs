@@ -16,7 +16,6 @@ namespace GameServer.App_Code
         public bool imperator { get; set; }
         public Planet planet { get; set; }
         public Hand hand { get; set; }
-        public Konto konto { get; set; }
         public Kampf kampf { get; set; }
         public int Credits { get; set; }
 

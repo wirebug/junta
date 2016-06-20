@@ -91,25 +91,25 @@ namespace GameServer.App_Code
                     if (sp.Credits >= 1)
                     {
                         sp.hand.AddHandkarte(deck.Ziehen());
-                        sp.konto.guthaben -= 1;
+                        sp.Credits -= 1;
                     }
                     break;
                 case 2://Flotte hinzufügen
-                    if (sp.konto.guthaben >= 2)
+                    if (sp.Credits >= 2)
                     {
                         if (sp.flotten < 4)
                         {
                             sp.flotten++;
-                            sp.konto.guthaben -= 2;
+                            sp.Credits -= 2;
                         }
                     }
                     break;
                 case 3://Gebäude hinzufügen
-                    if (sp.konto.guthaben >= 4)
+                    if (sp.Credits >= 4)
                     {
                         if(sp.planet.gebäude<5)
                             sp.planet.gebäude++;
-                        sp.konto.guthaben -= 4;
+                        sp.Credits -= 4;
                     }
                     break;
                 default:
@@ -118,7 +118,7 @@ namespace GameServer.App_Code
         }
         public void HandkartenlimitPrüfen()
         {
-            foreach (Spieler s in reihenfolge)
+            foreach (Spieler s in reihenfolge) //iterate through int or change reihenfolge to Spieler array
             {
                 while (s.hand.GetHandKartenZahl() > 4)
                 {
