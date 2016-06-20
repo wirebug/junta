@@ -101,6 +101,5 @@ namespace GameServer.App_Code {
             }
             Shuffle();
         }
-
     }
 }
