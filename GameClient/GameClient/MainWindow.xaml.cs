@@ -25,13 +25,6 @@ namespace GameClient
         public MainWindow()
         {
             InitializeComponent();
-            this.Loaded += (s, e) => {
-                string url = @"http://localhost:58523/";
-                var connection = new HubConnection(url);
-                proxy = connection.CreateHubProxy("JuntaHub");
-
-                connection.Start().Wait();
-            };
         }
     }
 }

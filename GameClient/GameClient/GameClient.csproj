@@ -66,6 +66,8 @@
     <Compile Include="DebugWindow.xaml.cs">
       <DependentUpon>DebugWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Referenzen\FakeKarte.cs" />
+    <Compile Include="Referenzen\FakeSpieler.cs" />
     <Compile Include="Spiel.xaml.cs">
       <DependentUpon>Spiel.xaml</DependentUpon>
     </Compile>

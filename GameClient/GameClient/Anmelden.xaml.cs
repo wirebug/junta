@@ -26,5 +26,6 @@ namespace GameClient {
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("Spiel.xaml", UriKind.RelativeOrAbsolute));
         }
+
     }
 }
