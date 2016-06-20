@@ -13,16 +13,51 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GameClient.Referenzen;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace GameClient {
     /// <summary>
     /// Interaktionslogik für Spiel.xaml
     /// </summary>
     public partial class Spiel : Page {
-        HubProxy proxy;
+        public HubProxy proxy;
+        public ObservableCollection<FakeKarte> karten = new ObservableCollection<FakeKarte>();
+        public ObservableCollection<FakeKarte> versprechen = new ObservableCollection<FakeKarte>();
+        private bool istPräsident = false;
+
+        private int milizen;
+        public int Milizen {
+            get { return milizen; }
+            set { milizen = value;
+                milizenLabel.Content = milizen;
+            }
+        }
+
+        public FakeSpieler selbst;
+        public ObservableCollection<FakeSpieler> mitspieler = new ObservableCollection<FakeSpieler>();
+
         public Spiel() {          
             InitializeComponent();
-            this.Loaded += (s,e) => { proxy = new HubProxy(); };          
+            handGrid.DataContext = karten;
+            versprechenGrid.DataContext = versprechen;
+            mitspielerGrid.DataContext = mitspieler;
+            //this.Loaded += (s,e) => { proxy = new HubProxy(this); };      
+        }
+
+        private void istPräsidentChanged() {
+            if (selbst.präsident) {
+                    präsidentLabel.Content = "Du bist Präsident";
+                } else {
+                    präsidentLabel.Content = "Du bist nicht Präsident";
+                }
+            
+        }
+
+        private void debugButton_Click(object sender, RoutedEventArgs e) {
+            DebugWindow debug = new DebugWindow(this);
+            debug.Show();
         }
     }
 }

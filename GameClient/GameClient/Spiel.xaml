@@ -9,12 +9,33 @@
       Title="Spiel">
 
     <Grid>
-        <Button x:Name="debugButton" Content="debug" HorizontalAlignment="Left" Margin="10,770,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="debugButton" Content="debug" HorizontalAlignment="Left" Margin="10,689,0,0" VerticalAlignment="Top" Width="75" Click="debugButton_Click"/>
         <Ellipse x:Name="gebäude1" Fill="Lime" HorizontalAlignment="Left" Height="100" Margin="744,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude2" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="632,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude3" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="570,436,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude6" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="856,214,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude5" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="942,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude4" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="780,536,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Ellipse x:Name="gebäude2" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="655,239,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Ellipse x:Name="gebäude3" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="581,474,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Ellipse x:Name="gebäude6" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="883,214,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Ellipse x:Name="gebäude5" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="928,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Ellipse x:Name="gebäude4" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="785,549,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="präsidentLabel" Content="Du bist nicht Präsident" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Height="24" Width="214"/>
+        <Label x:Name="milizenLabel" Content="0" HorizontalAlignment="Left" Height="31" Margin="10,92,0,0" VerticalAlignment="Top" Width="116"/>
+        <DataGrid x:Name="handGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="438" Margin="37,179,0,0" VerticalAlignment="Top" Width="510" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding titel}" MinWidth="100"/>
+                <DataGridTextColumn Header="Beschreibung" Binding="{Binding text}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="versprechenGrid" HorizontalAlignment="Left" Height="169" Margin="1013,37,0,0" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding title}" MinWidth="100"/>
+                <DataGridTextColumn Header="Beschreibung" Binding="{Binding text}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="würfelzahlLabel" Content="Label" HorizontalAlignment="Left" Height="66" Margin="639,28,0,0" VerticalAlignment="Top" Width="82"/>
+        <DataGrid x:Name="mitspielerGrid" HorizontalAlignment="Left" Height="120" Margin="1319,338,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Zahl" Binding="{Binding würfelzahl}" MinWidth="40"/>
+                <DataGridTextColumn Header="Punkte" Binding="{Binding punktzahl}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

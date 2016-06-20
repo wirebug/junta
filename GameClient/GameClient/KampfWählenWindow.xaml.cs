@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.SignalR.Client;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +10,14 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GameClient
-{
+namespace GameClient {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für KampfWählenWindow.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
-    {
-        IHubProxy proxy;
-        public MainWindow()
-        {
+    public partial class KampfWählenWindow : Window {
+        public KampfWählenWindow() {
             InitializeComponent();
         }
     }
