@@ -15,6 +15,7 @@ namespace GameServer.App_Code.Karten
         }
         override public void Action()
         {
+            hand.spieler.planet.gebäude += 1;
             //beim geldausgeben
             //du bekommst ein Gebäude umsonst dazu
             //1x

@@ -44,5 +44,9 @@ namespace GameClient {
         private void KarteWeg_Click(object sender, RoutedEventArgs e) {
             spiel.karten.RemoveAt(0);
         }
+
+        private void spielerHinzu_Click(object sender, RoutedEventArgs e) {
+            spiel.mitspieler.Add(new FakeSpieler(3));
+        }
     }
 }
