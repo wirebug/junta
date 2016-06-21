@@ -66,6 +66,9 @@
     <Compile Include="DebugWindow.xaml.cs">
       <DependentUpon>DebugWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KampfWählenWindow.xaml.cs">
+      <DependentUpon>KampfWählenWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Referenzen\FakeKarte.cs" />
     <Compile Include="Referenzen\FakeSpieler.cs" />
     <Compile Include="Spiel.xaml.cs">
@@ -76,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DebugWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KampfWählenWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

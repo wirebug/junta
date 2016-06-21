@@ -25,11 +25,7 @@ namespace GameClient {
         }
 
         private void PräsidentÄndern_Click(object sender, RoutedEventArgs e) {
-            if (spiel.IstPräsident) {
-                spiel.IstPräsident = false;
-            } else {
-                spiel.IstPräsident = true;
-            }
+            
         }
 
         private void KarteHinzu_Click(object sender, RoutedEventArgs e) {
@@ -46,7 +42,11 @@ namespace GameClient {
         }
 
         private void spielerHinzu_Click(object sender, RoutedEventArgs e) {
-            spiel.mitspieler.Add(new FakeSpieler(3));
+            spiel.mitspieler.Add(new FakeSpieler(3, false));
+        }
+
+        private  void button_Click(object sender, RoutedEventArgs e) {
+           
         }
     }
 }
