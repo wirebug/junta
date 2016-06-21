@@ -46,7 +46,11 @@ namespace GameServer.App_Code {
         }
         public void SpieleSpion(Spieler spieler)
         {
-
+            Clients.All.SpieleSpion(spieler.planet.würfelzahl);
+        }
+        public void SpionAntwort(bool b)
+        {
+            //TODO sv.verarbeiteSpionAntwort
         }
         public void SpieleEinbrecher(Spieler spieler)
         {

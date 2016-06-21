@@ -12,6 +12,7 @@ namespace GameServer.App_Code
         public bool hatEinbrecher { get; set; }
         public bool hatKampfkarte { get; set; }
         public Spieler spieler { get; set; }
+        public bool isEmpty { get { return hand.Count == 0; } }
 
         /// <summary>
         /// Handkarten
@@ -51,12 +52,12 @@ namespace GameServer.App_Code
         /// <returns>Zufällige Handkarte des Spielers</returns>
         public Karte RandomHandkarte()
         {
-            Random rng = new Random();
-            int anzahl = GetHandKartenZahl();
-            int index = rng.Next(anzahl);
-            Karte ret = hand[index];
-            RemoveHandkarte(hand[index]);
-            return ret;
+                Random rng = new Random();
+                int anzahl = GetHandKartenZahl();
+                int index = rng.Next(anzahl);
+                Karte ret = hand[index];
+                RemoveHandkarte(hand[index]);
+                return ret;
         }
 
         public void RemoveHandkarte(Karte item)
@@ -90,6 +91,5 @@ namespace GameServer.App_Code
         {
             return hand.Count();
         }
-
     }
 }
