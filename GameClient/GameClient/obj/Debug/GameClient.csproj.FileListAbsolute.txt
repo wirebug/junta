@@ -28,3 +28,5 @@ C:\Users\downh\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\Spiel.baml
 C:\Users\downh\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\GameClient.g.resources
 C:\Users\downh\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\GameClient.Properties.Resources.resources
 C:\Users\downh\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\GameClient.csproj.GenerateResource.Cache
+C:\Users\downh\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\KampfWählenWindow.g.cs
+C:\Users\downh\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\KampfWählenWindow.baml

@@ -6,7 +6,5 @@
         xmlns:local="clr-namespace:GameClient"
         mc:Ignorable="d"
         Title="KampfWählenWindow" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    <Grid/>
 </Window>
