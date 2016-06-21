@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
+using GameServer.App_Code.Karten;
 
 namespace GameServer.App_Code {
     public class JuntaHub : Hub {
@@ -17,8 +18,8 @@ namespace GameServer.App_Code {
         //SIGNALR Hubs api guide server
         //in server code , you define methods that can be called by clients, and you call methods that run on the client.
 
-        public void KarteIdHinzu(Spieler spieler, int id) { 
-            
+        public void KarteIdHinzu(Spieler spieler, Karte karte) {
+            Clients.All.AddKarte(spieler.planet.würfelzahl, karte.ID, karte.kartenname, karte.kartenphase + " " + karte.kartentext);
         }
         public void VersprechenVerarbeiten(int[] ids, Spieler sp)
         {
