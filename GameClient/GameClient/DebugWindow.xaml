@@ -13,6 +13,7 @@
         <Button x:Name="KarteWeg" Content="Karte Weg" HorizontalAlignment="Left" Margin="28,109,0,0" VerticalAlignment="Top" Width="111" Click="KarteWeg_Click"/>
         <Button x:Name="spielerHinzu" Content="SpielerHinzu" HorizontalAlignment="Left" Height="20" Margin="28,141,0,0" VerticalAlignment="Top" Width="103" Click="spielerHinzu_Click"/>
         <Button x:Name="messageButton" Content="Nachricht senden" HorizontalAlignment="Left" Margin="40,182,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="KampfWählen" Content="Kampf wählen" HorizontalAlignment="Left" Height="18" Margin="40,213,0,0" VerticalAlignment="Top" Width="75" Click="KampfWählen_Click"/>
 
     </Grid>
 </Window>
