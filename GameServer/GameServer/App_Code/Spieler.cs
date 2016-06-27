@@ -9,7 +9,7 @@ namespace GameServer.App_Code
     public class Spieler
     {
         public static int spielerCount = 0;
-        public int ID;
+        public int ID { get; set; }
         public int Kampfmodifikator { get; set; }//Kampkarte InterplanetareGefechtsstations - bonus
         public List<Karte> versprechungen;//Versprechungen sind noch nicht in der Hand und werden als Karte(?) übergeben
         public int flotten { get; set; }
