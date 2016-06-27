@@ -73,6 +73,7 @@ namespace GameServer.App_Code
         {
             checkFlags();
             hand.Add(item);
+            spieler.sv._hub.KarteIdHinzu(spieler, item);
         }
         /// <summary>
         /// Gibt Anzahl der Handkarten zurück

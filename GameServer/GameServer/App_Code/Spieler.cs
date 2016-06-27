@@ -19,6 +19,7 @@ namespace GameServer.App_Code
         public Hand hand { get; set; }
         public Kampf kampf { get; set; }
         public int Credits { get; set; }
+        public Spielverwaltung sv { get; set; }
 
         //Konstruktor NICHT FERTIG!!!
         public Spieler(int flotten, int punkte, bool imperator, Planet planet, Hand hand)

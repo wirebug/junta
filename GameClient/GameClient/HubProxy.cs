@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using GameClient.Referenzen;
+using System.Windows;
 
 namespace GameClient {
     public class HubProxy {
@@ -96,6 +97,26 @@ namespace GameClient {
             }
         }
 
+        public void RemoveKarte(int ident, int id) {
+            if (IsPlayer(ident)) {
+                foreach(FakeKarte s in spiel.karten) {
+                    if(s.id == id) {
+                        spiel.karten.Remove(s);
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void VersprechenBekommen(int ident) {
+            if (IsPlayer(ident)){
+                foreach(FakeKarte s in spiel.versprechen) {
+                    spiel.versprechen.Remove(s);
+                    spiel.karten.Add(s);
+                }
+            }
+        }
+
         public void KampfWählen(int ident) {
             if (IsPlayer(ident)) {
                 /*Fenster öffnen und entsprechend Anzahl Milizen in
@@ -106,7 +127,40 @@ namespace GameClient {
             }
         }
         
-        
+        public void SpieleSpion(int ident) {
+            if (IsPlayer(ident)) {
+                string message = "Möchtest du den Spion spielen?";
+                string caption = "Junta";
+                MessageBoxResult result = MessageBox.Show(message, caption, MessageBoxButton.YesNo);
+                if(result == MessageBoxResult.Yes) {
+                    proxy.Invoke("SpionAntwort", true);
+                } else {
+                    proxy.Invoke("SpionAntwort", false);
+                }
+            }
+        }
+
+        public void SpieleEinbrecher(int ident) {
+            if (IsPlayer(ident)) {
+                string message = "Möchtest du den Einbrecher spielen?";
+                string caption = "Junta";
+                MessageBoxResult result = MessageBox.Show(message, caption, MessageBoxButton.YesNo);
+                if(result == MessageBoxResult.Yes) {
+                    proxy.Invoke("EinbrecherAntwort", true);
+                } else {
+                    proxy.Invoke("EinbrecherAntwort", false);
+                }
+            }
+        }
+
+        public  void ZeigeNachricht(int ident, string message) {
+            if (IsPlayer(ident)) {
+                string caption = "Junta";
+                MessageBox.Show(message, caption, MessageBoxButton.OK);
+            }
+        }
+
+
 
     }
 }
