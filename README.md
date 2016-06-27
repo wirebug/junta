@@ -1,8 +1,8 @@
 # Junta Galaxy
-Junta based Game with Science-Fiction Theme
+Junta based Game with Science-Fiction Theme*
 
 
-Project for Software-Engineering 2
+###Project for Software-Engineering 2
 
 **Team:** *0xSmashbr0thers*
 
