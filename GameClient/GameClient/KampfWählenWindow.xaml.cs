@@ -17,8 +17,16 @@ namespace GameClient {
     /// Interaktionslogik für KampfWählenWindow.xaml
     /// </summary>
     public partial class KampfWählenWindow : Window {
+
+        private bool sp1 =true;
+        private bool sp2 = true;
+        private bool sp3 = false;
+        private bool sp4 = true;
+        private bool sp5 = true;
         public KampfWählenWindow() {
             InitializeComponent();
+            rb1
+
         }
     }
 }
