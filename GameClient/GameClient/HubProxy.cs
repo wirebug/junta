@@ -76,6 +76,10 @@ namespace GameClient {
         }
 
         public void VersprechenWählen() {
+            if (spiel.selbst.präsident)
+            {
+                proxy.VersprechenVerarbeiten(/*idKarte, idSpieler*/);
+            }
             /*neues Fenster mit Liste von allen Karten die per JSON
              * Objekt übertragen wurden. Per Radio Button für alle den
              * entsprechenden Spieler auswählen und Ergebnis an Server senden.

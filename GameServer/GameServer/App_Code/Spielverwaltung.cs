@@ -71,9 +71,21 @@ namespace GameServer.App_Code
         /// <param name="sp">Spieler der Karte erhalten soll</param>
         public void VersprechungMachen(Spieler sp, Karte[] karten)
         {
+            //Imperator wird aufgerufen/ist am zug
+            //Imperator wählt Karten und Spieler
+            //Infos werden vom ClientProxyHub aufgenommen und von JuntaHubMehtode verarbeitet(Versprechen Verarbeiten) nimmt spielerID und KartenID an
+            //Spielverwaltung wandelt SpielerID in Spieler und KartenID in Karte um
+            //VersprechungMachen wird aufgerufen und dadurch dem Spieler das Karten[] übergeben + dem Imperator die Karten abgezogen.
+            //Nach VersprechungenMachen wird EinbrecherKarteSpielen abgefragt
+            //Versprechungen werden direkt verteilt wenn kein ImperatorKampf vorhanden ist.(Wenn niemand den Imperator angreift)
+            //Versprechungen werden nach der Kampfphase verteilt, wenn der Imperator überlebt.
+            //
+            //
+
             // mind 1 pro Spieler vom Imp.
             sp.versprechungen.AddRange(karten);
         }
+        
         /// <summary>
         /// Spielphase III: Flotten befehligen
         /// </summary>

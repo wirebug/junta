@@ -21,17 +21,21 @@ namespace GameServer.App_Code {
         public void KarteIdHinzu(Spieler spieler, Karte karte) {
             Clients.All.AddKarte(spieler.planet.würfelzahl, karte.ID, karte.kartenname, karte.kartenphase + " " + karte.kartentext);
         }
-        public void ImperatorVersprechenAuswählen(Spieler spieler)
-        {
-            Clients.All.
-        }
-        //Imperator hat seine Versprechen ausgewählt und schickt diese an die Spieler, welche dann wählen können
+        
+        //Imperator wählt seine Versprechen aus
         public void VersprechenAuswählen()
         {
             Clients.All.VersprechenWählen();
         }
-        public void VersprechenVerarbeiten(Karte[] k, Spieler sp)
+        public void VersprechenVerarbeiten(int idSpieler, int[] idKarten)
         {
+            Spieler tmp = sv.spieler[idSpieler];
+            for(int i = 0; i < idKarten.Length; i++)
+            {
+                //TODO imperator handkarte abziehen und idkarte noch der karte zuordnen
+                sv.imperator.hand.
+
+            }
             sv.VersprechungMachen(sp,k);
         }
         public void FlottenAuswahl(Spieler spieler)
