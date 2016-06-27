@@ -12,7 +12,7 @@ namespace GameServer.App_Code.Karten
         {
             kartenname = "Ablenkungsmanöver";
             kartenphase = "Spiele unmittelbar nach einem Würfelwurf.";
-            kartentext = "Entweder ein einzlener oder alle Würfel dieses Wurfs werden neue geworfen.";
+            kartentext = "Entweder ein einzelener oder alle Würfel dieses Wurfs werden neue geworfen.";
         }
 
         public override void Action()

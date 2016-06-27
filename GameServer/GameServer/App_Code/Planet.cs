@@ -15,6 +15,14 @@ namespace GameServer.App_Code {
         /// Spieler ID
         /// </summary>
         public int würfelzahl { get; set; }
+        public static int counter = 1;
         public Spieler spieler { get; set; }
+
+        public Planet(Spieler spieler)
+        {
+            this.spieler = spieler;
+            würfelzahl = counter++;
+            gebäude = 1;
+        }
     }
 }
