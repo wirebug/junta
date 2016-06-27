@@ -14,5 +14,7 @@ Coders:
 - [ogamibird] (https://github.com/ogamibird) aka KingDeDeDe
 - [wirebug] (https://github.com/wirebug) aka DonkeyKong
         
-Frameworks: [SignalR] (https://github.com/SignalR/SignalR) Incredibly simple real-time web for .NET
-            [WPF] (https://msdn.microsoft.com/de-de/library/aa970268(v=vs.110).aspx) .NET FrontEnd
+Frameworks:
+
+- [SignalR] (https://github.com/SignalR/SignalR) Incredibly simple real-time web for .NET
+- [WPF] (https://msdn.microsoft.com/de-de/library/aa970268(v=vs.110).aspx) .NET FrontEnd
