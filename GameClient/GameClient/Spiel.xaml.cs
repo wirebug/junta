@@ -46,7 +46,7 @@ namespace GameClient {
             //this.Loaded += (s,e) => { proxy = new HubProxy(this); };      
         }
 
-        private void istPräsidentChanged() {
+        public void IstPräsident() {
             if (selbst.präsident) {
                     präsidentLabel.Content = "Du bist Präsident";
                 } else {

@@ -11,10 +11,10 @@ namespace GameServer.App_Code
         public int[] reihenfolge { get; }
         public Spieler[] spieler;
         public Spieler imperator;
-        JuntaHub _hub;
+        public JuntaHub _hub { get; set; }
         public Deck deck { get; }
         public int rundenCount { get; set; }
-
+        
         //Phasen
         /// <summary>
         /// Spielphase I: KartenZiehen
@@ -27,8 +27,8 @@ namespace GameServer.App_Code
                 {
                     if (rundenCount < 1)
                     {
-                        //in der ersten Runde 2 Karten ziehen
-                        s.hand.AddHandkarte(deck.Ziehen());
+                        //in er ersten Runde 2 Karten ziehen
+                        s.hand.AddHandkarte(deck.Ziehen());                  
                         s.hand.AddHandkarte(deck.Ziehen());
                     }
                     else
@@ -45,9 +45,9 @@ namespace GameServer.App_Code
                         s.hand.AddHandkarte(deck.Ziehen());
                     }
                     s.hand.AddHandkarte(deck.Ziehen());
+                    
                     s.hand.AddHandkarte(deck.Ziehen());
                 }
-
             }
         }
         /// <summary>
