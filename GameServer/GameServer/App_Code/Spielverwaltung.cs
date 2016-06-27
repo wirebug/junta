@@ -11,7 +11,7 @@ namespace GameServer.App_Code
         public int[] reihenfolge { get; }
         public Spieler[] spieler;
         public Spieler imperator;
-        JuntaHub _hub;
+        public JuntaHub _hub { get; set; }
         public Deck deck { get; }
         public int rundenCount { get; set; }
         
@@ -21,28 +21,20 @@ namespace GameServer.App_Code
         /// </summary>
         public void KartenZiehen()
         {
-            Karte tmp = null;
             foreach (Spieler s in spieler)
             {
                 if (!s.imperator)
                 {
                     if (rundenCount < 1)
                     {
-                        tmp = deck.Ziehen();
-                        //in der ersten Runde 2 Karten ziehen
-                        s.hand.AddHandkarte(tmp);
-                        _hub.KarteIdHinzu(s, tmp);
-
-                        tmp = deck.Ziehen();
-                        s.hand.AddHandkarte(tmp);
-                        _hub.KarteIdHinzu(s, tmp);
+                        //in er ersten Runde 2 Karten ziehen
+                        s.hand.AddHandkarte(deck.Ziehen());                  
+                        s.hand.AddHandkarte(deck.Ziehen());
                     }
                     else
                     {
                         //1 Karte ziehen
-                        tmp = deck.Ziehen();
-                        s.hand.AddHandkarte(tmp);
-                        _hub.KarteIdHinzu(s, tmp);
+                        s.hand.AddHandkarte(deck.Ziehen());
                     }
                 }
                 else
@@ -50,17 +42,11 @@ namespace GameServer.App_Code
                     //Imperator, Spielerzahl + 2 Karten ziehen
                     for (int i = 0; i < reihenfolge.Count(); i++)
                     {
-                        tmp = deck.Ziehen();
-                        s.hand.AddHandkarte(tmp);
-                        _hub.KarteIdHinzu(s, tmp);
+                        s.hand.AddHandkarte(deck.Ziehen());
                     }
-                    tmp = deck.Ziehen();
-                    s.hand.AddHandkarte(tmp);
-                    _hub.KarteIdHinzu(s, tmp);
-
-                    tmp = deck.Ziehen();
-                    s.hand.AddHandkarte(tmp);
-                    _hub.KarteIdHinzu(s, tmp);
+                    s.hand.AddHandkarte(deck.Ziehen());
+                    
+                    s.hand.AddHandkarte(deck.Ziehen());
                 }
             }
         }
