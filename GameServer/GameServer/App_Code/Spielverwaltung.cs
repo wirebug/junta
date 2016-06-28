@@ -10,10 +10,12 @@ namespace GameServer.App_Code
     {
         public int[] reihenfolge { get; }
         public Spieler[] spieler;
-        JuntaHub _hub;
+        public Spieler imperator;
+        public JuntaHub _hub { get; set; }
         public Deck deck { get; }
         public int rundenCount { get; set; }
-
+        
+        //Phasen
         /// <summary>
         /// Spielphase I: KartenZiehen
         /// </summary>
@@ -25,8 +27,8 @@ namespace GameServer.App_Code
                 {
                     if (rundenCount < 1)
                     {
-                        //in der ersten Runde 2 Karten ziehen
-                        s.hand.AddHandkarte(deck.Ziehen());
+                        //in er ersten Runde 2 Karten ziehen
+                        s.hand.AddHandkarte(deck.Ziehen());                  
                         s.hand.AddHandkarte(deck.Ziehen());
                     }
                     else
@@ -43,27 +45,33 @@ namespace GameServer.App_Code
                         s.hand.AddHandkarte(deck.Ziehen());
                     }
                     s.hand.AddHandkarte(deck.Ziehen());
+                    
                     s.hand.AddHandkarte(deck.Ziehen());
                 }
-
             }
-        }
-        public void KarteKlauen(Spieler taeter, Spieler opfer)
-        {
-            Karte rndKarte = opfer.hand.RandomHandkarte();
-            opfer.hand.RemoveHandkarte(rndKarte);
-            taeter.hand.AddHandkarte(rndKarte);
         }
         /// <summary>
         /// Spielphase II: Versprechungen machen
         /// </summary>
         /// <param name="ids">ID der Karten</param>
         /// <param name="sp">Spieler der Karte erhalten soll</param>
-        public void VersprechungMachen(int[] ids, Spieler sp)
+        public void VersprechungMachen(Spieler sp, Karte[] karten)
         {
+            //Imperator wird aufgerufen/ist am zug
+            //Imperator wählt Karten und Spieler
+            //Infos werden vom ClientProxyHub aufgenommen und von JuntaHubMehtode verarbeitet(Versprechen Verarbeiten) nimmt spielerID und KartenID an
+            //Spielverwaltung wandelt SpielerID in Spieler und KartenID in Karte um
+            //VersprechungMachen wird aufgerufen und dadurch dem Spieler das Karten[] übergeben + dem Imperator die Karten abgezogen.
+            //Nach VersprechungenMachen wird EinbrecherKarteSpielen abgefragt
+            //Versprechungen werden direkt verteilt wenn kein ImperatorKampf vorhanden ist.(Wenn niemand den Imperator angreift)
+            //Versprechungen werden nach der Kampfphase verteilt, wenn der Imperator überlebt.
+            //
+            //
+
             // mind 1 pro Spieler vom Imp.
-            sp.versprechungen.AddRange(ids);
+            sp.versprechungen.AddRange(karten);
         }
+        
         /// <summary>
         /// Spielphase III: Flotten befehligen
         /// </summary>
@@ -72,6 +80,8 @@ namespace GameServer.App_Code
         public void FlottenBefehligen(Spieler sp, int[] würfel)
         {
             //Für jeden einzelnen VERTEIDIGENDEN Spieler wird ein Kampf erstellt
+            ImperatorKampf a;
+            int tmpw;
             if (sp.kampf == null)
             {
                 foreach (Spieler s in spieler)
@@ -79,7 +89,8 @@ namespace GameServer.App_Code
                     if (s.imperator)
                     {
                         s.kampf = new ImperatorKampf();
-                        s.kampf.addVerteidigung(s.flotten);//alle imp flotten verteidigen
+                        a = (ImperatorKampf)s.kampf;
+                        a.addVerteidigung(s, s.flotten);//alle Imp. flotten verteidigen
                     }
                     else
                     {
@@ -89,17 +100,96 @@ namespace GameServer.App_Code
             }
             if (!sp.imperator)
             {
-
+                for(int i=0;i<4;i++)
+                {
+                    tmpw = würfel[i];
+                    if (tmpw == sp.ID)//wenn der würfel die eigene ID zeigt, verteidigt man sich
+                    {
+                        sp.kampf.addVerteidigung(1);
+                    }
+                    else
+                    {
+                        if (tmpw == 6)//6 ist immer das verteidigen des Imperators
+                        {
+                            a = (ImperatorKampf)spieler[imperatorID].kampf;
+                            a.addVerteidigung(sp, 1);
+                        }
+                        else//angreifen des Spielers mit index seiner ID-1(da liste)
+                        {
+                            spieler[tmpw-1].kampf.addAngriff(sp, 1);
+                        }
+                    }
+                }
             }
         }
-
         /// <summary>
-        /// Spielpahse IV: Kampf austragen
+        /// Spielphase IV: Kampf austragen 
         /// </summary>
         public void KaempfeAustragen()
         {
-            //Spieler hat kampf opjekt was hier abgehandelt wird
-            //MUSS NACH ABHANDLUNG AUF NULL GESETZT WERDEN
+            //Spieler hat kampf opjekt was hier abgehandelt 
+            //ImperatorKampf zuerst, dann reihenfolge
+            List<Spieler> gewinner;
+            Spieler nImperator = imperator;
+
+            //Imperatorkampf
+            //NACH allen Kämpfen neuer Imperator (gewinner)
+            ImperatorKampf a;
+            a = (ImperatorKampf)imperator.kampf;
+            gewinner = a.ErgebnisBerechnen();
+            if (gewinner.Count != 0)//Imperator verliert, KEINE VERPRECHEN bei allen
+            {
+                foreach (Spieler s in spieler)
+                {
+                    if(gewinner.Contains(s))
+                    {
+                        KarteKlauen(s, imperator);
+                    }
+                    foreach (Karte k in s.versprechungen)
+                    {
+                        deck.Gespielt(k);
+                    }
+                    s.versprechungen.Clear();
+                }
+                gewinner[0] = nImperator;
+            }
+            else//Imperator gewinnt
+            {
+                foreach(Spieler s in spieler)
+                {
+                    if (a.angriffswürfel.ContainsKey(s))//Angreifer kriegen keine Versprechungen
+                    {
+                        foreach (Karte k in s.versprechungen)
+                        {
+                            deck.Gespielt(k);
+                        }
+                    }
+                    else//Alle anderen kriegen Versprechen instant auf die Hand
+                    {
+                        for (int i = s.versprechungen.Count; i > 0; i--)
+                        {
+                            s.hand.AddHandkarte(s.versprechungen[i - 1]);
+                        }
+                    }
+                    s.versprechungen.Clear();
+                }
+            }                       //das geht bestimmt effizienter...
+            
+            //normale Spielerkämpfe
+            foreach (Spieler s in spieler)
+            {
+                if (!s.imperator)
+                {
+                    gewinner = s.kampf.ErgebnisBerechnen();//Liste mit gewinnern als return(leer wenn vert. gewinnt)
+                    s.kampf = null;//da mithilfe != null bei flottenbefehligen neuer Kampf erstellt wird
+                    foreach (Spieler g in gewinner)
+                    {
+                        KarteKlauen(g, s);
+                    }
+                }
+            }
+            //der neue Imperator ist erst am Ende von allen Kämpfen gesetzt
+            neuerImperator(nImperator);
         }
         /// <summary>
         /// Spielphase V: Geld ausgeben
@@ -139,21 +229,39 @@ namespace GameServer.App_Code
                     break;
             }
         }
-
         /// <summary>
-        /// Spielpahse VI: Handkartenlimit prüfen
+        /// Spielphase VI: Handkartenlimit prüfen
         /// </summary>
         public void HandkartenlimitPrüfen()
         {
-            foreach (Spieler s in reihenfolge) //iterate through int or change reihenfolge to Spieler array
+            Karte tmp;
+            foreach (Spieler s in spieler)
             {
                 while (s.hand.GetHandKartenZahl() > 4)
                 {
-                    s.hand.RemoveHandkarte(s.hand.RandomHandkarte());
+                    tmp = s.hand.RandomHandkarte();
+                    deck.Gespielt(tmp);
                 }
             }
             rundenCount++;
         }
-    }
 
+
+        //Methoden
+        public void neuerImperator(Spieler s)
+        {
+            imperator.imperator = false;
+            imperator = s;
+            s.imperator = true;
+        }
+        public void KarteKlauen(Spieler taeter, Spieler opfer)
+        {
+            if (!opfer.hand.isEmpty)
+            {
+                Spieler henryk = opfer;
+                taeter.hand.AddHandkarte(henryk.hand.RandomHandkarte());
+            }
+        }
+
+    }
 }

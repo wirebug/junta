@@ -45,8 +45,13 @@ namespace GameClient {
             spiel.mitspieler.Add(new FakeSpieler(3, false));
         }
 
-        private  void button_Click(object sender, RoutedEventArgs e) {
-           
+        private void button_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void KampfWählen_Click(object sender, RoutedEventArgs e) {
+            KampfWählenWindow a = new KampfWählenWindow();
+            a.Show();
         }
     }
 }

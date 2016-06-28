@@ -18,7 +18,7 @@ namespace GameServer.App_Code.Karten
         public string kartenphase;
         public Karte(int id, Hand hand, Deck deck)
         {
-            this.ID = id;
+            ID = id;
             this.hand = hand;
             this.deck = deck;
         }
