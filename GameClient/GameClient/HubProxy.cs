@@ -133,19 +133,21 @@ namespace GameClient {
                 }
             }
         }
-
-        public void 
             /// <summary>
             /// FlottenAuswahl
             /// </summary>
             /// <param name="ident">idSpieler</param>
-        public void KampfWählen(int ident) {
+        public void KampfWählen(int ident,int flottenAnzahl) {
             if (IsPlayer(ident)) {
+                int[] würfel = new int[flottenAnzahl];
+
                 /*Fenster öffnen und entsprechend Anzahl Milizen in
                  * Liste einfügen und mit RadioButtons entsprechend
                  * Abfragen welches Ziel gewählt wurde*/
 
                 /*Invoke testen ob Methode weiterläuft oder auf Abarbeitung wartet*/
+
+                proxy.Invoke("FlottenBefehligen", ident, würfel);
             }
         }
         

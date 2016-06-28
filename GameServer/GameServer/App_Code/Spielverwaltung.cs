@@ -14,6 +14,22 @@ namespace GameServer.App_Code
         public JuntaHub _hub { get; set; }
         public Deck deck { get; }
         public int rundenCount { get; set; }
+        public int ImperatorID
+        {
+            get
+            {
+                for(int i = 0; i < spieler.Length; i++)
+                {
+                    if (spieler[i] == imperator)
+                        return i;
+                }
+                return -1;
+            }
+            set
+            {
+                ImperatorID = value;
+            }
+        }
         
         //Phasen
         /// <summary>
@@ -127,17 +143,32 @@ namespace GameServer.App_Code
                 }
             }
         }
+        /// <summary>
+        /// Spielphase III Flotten befehligen
+        /// Jeder Spieler wählt jetzt seine Flotten
+        /// </summary>
+        public void FlottenStart()
+        {
+            foreach(Spieler s in spieler)
+            {
+                if (s != imperator)
+                {
+                    _hub.FlottenAuswahl(s,s.flotten);
+                }
+            }
+        }
         
         /// <summary>
         /// Spielphase III: Flotten befehligen
         /// </summary>
         /// <param name="sp">Spieler der sich verteidigt</param>
         /// <param name="würfel">einzelne Würfelwerte des Spielers</param>
-        public void FlottenBefehligen(Spieler sp, int[] würfel)
+        public void FlottenBefehligen(int idSpieler, int[] würfel)
         {
             //Für jeden einzelnen VERTEIDIGENDEN Spieler wird ein Kampf erstellt
             ImperatorKampf a;
             int tmpw;
+            Spieler sp = spieler[idSpieler];
             if (sp.kampf == null)
             {
                 foreach (Spieler s in spieler)
@@ -151,6 +182,7 @@ namespace GameServer.App_Code
                     else
                     {
                         s.kampf = new Kampf();
+                        
                     }
                 }
             }
@@ -167,7 +199,7 @@ namespace GameServer.App_Code
                     {
                         if (tmpw == 6)//6 ist immer das verteidigen des Imperators
                         {
-                            a = (ImperatorKampf)spieler[imperatorID].kampf;
+                            a = (ImperatorKampf)spieler[ImperatorID].kampf;
                             a.addVerteidigung(sp, 1);
                         }
                         else//angreifen des Spielers mit index seiner ID-1(da liste)
