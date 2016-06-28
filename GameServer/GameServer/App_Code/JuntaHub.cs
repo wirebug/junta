@@ -33,10 +33,14 @@ namespace GameServer.App_Code {
         {
             sv.VersprechungMachen(idSpieler,idKarten);
         }
-        public void FlottenAuswahl(Spieler spieler)
+        /// <summary>
+        /// KampfWählen ist gleich Flotte festlegen wer wen angreift
+        /// </summary>
+        /// <param name="spieler">Spieler ist der Spieler welcher an der reihe ist</param>
+        /// <param name="flottenAnzahl">Anzahl der Milizen die der Spieler besitzt</param>
+        public void FlottenAuswahl(Spieler spieler,int flottenAnzahl)
         {
-            //TODO im hubproxy
-            //Clients.All.FlotteWählen(Spieler spieler, int[] wrfl);
+            Clients.All.KampfWählen(spieler.ID,flottenAnzahl);
         }
         public void FlottenVerarbeiten(Spieler spieler,int[] wrfl)
         {
