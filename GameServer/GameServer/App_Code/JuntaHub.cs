@@ -21,22 +21,17 @@ namespace GameServer.App_Code {
         public void KarteIdHinzu(Spieler spieler, Karte karte) {
             Clients.All.AddKarte(spieler.planet.würfelzahl, karte.ID, karte.kartenname, karte.kartenphase + " " + karte.kartentext);
         }
-        
-        //Imperator wählt seine Versprechen aus
+
+        /// <summary>
+        /// Imperator wählt seine Versprechen aus
+        /// </summary>
         public void VersprechenAuswählen()
         {
             Clients.All.VersprechenWählen();
         }
         public void VersprechenVerarbeiten(int idSpieler, int[] idKarten)
         {
-            Spieler tmp = sv.spieler[idSpieler];
-            for(int i = 0; i < idKarten.Length; i++)
-            {
-                //TODO imperator handkarte abziehen und idkarte noch der karte zuordnen
-                sv.imperator.hand.
-
-            }
-            sv.VersprechungMachen(sp,k);
+            sv.VersprechungMachen(idSpieler,idKarten);
         }
         public void FlottenAuswahl(Spieler spieler)
         {
@@ -65,11 +60,19 @@ namespace GameServer.App_Code {
         }
         public void SpionAntwort(bool b)
         {
-            //TODO sv.verarbeiteSpionAntwort
+            sv.verarbeiteSpionAntwort(b);
         }
         public void SpieleEinbrecher(Spieler spieler)
         {
-
+            Clients.All.SpieleEinbrecher(spieler.planet.würfelzahl);
+        }
+        public void EinbrecherAntwort(bool b)
+        {
+            sv.verarbeiteEinbrecherAntwort(b,-1);
+        }
+        public void EinbrecherAntwort(bool b,int idSpieler)
+        {
+            sv.verarbeiteEinbrecherAntwort(b,idSpieler);
         }
         public void SpieleVorkampfkarte(Spieler spieler)
         {

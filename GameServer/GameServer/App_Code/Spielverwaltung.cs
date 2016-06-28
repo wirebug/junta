@@ -51,25 +51,81 @@ namespace GameServer.App_Code
             }
         }
         /// <summary>
-        /// Spielphase II: Versprechungen machen
+        /// Spielphase II 
+        /// 
+        /// Imperator wird aufgerufen und über JuntaHub und ClientHub
+        /// zur Auswahl der Versprechungen aufgerufen
+        /// Imperator wählt Karten und Spieler
         /// </summary>
-        /// <param name="ids">ID der Karten</param>
-        /// <param name="sp">Spieler der Karte erhalten soll</param>
-        public void VersprechungMachen(Spieler sp, Karte[] karten)
+        public void VersprechungStart()
         {
-            //Imperator wird aufgerufen/ist am zug
-            //Imperator wählt Karten und Spieler
-            //Infos werden vom ClientProxyHub aufgenommen und von JuntaHubMehtode verarbeitet(Versprechen Verarbeiten) nimmt spielerID und KartenID an
-            //Spielverwaltung wandelt SpielerID in Spieler und KartenID in Karte um
-            //VersprechungMachen wird aufgerufen und dadurch dem Spieler das Karten[] übergeben + dem Imperator die Karten abgezogen.
-            //Nach VersprechungenMachen wird EinbrecherKarteSpielen abgefragt
-            //Versprechungen werden direkt verteilt wenn kein ImperatorKampf vorhanden ist.(Wenn niemand den Imperator angreift)
-            //Versprechungen werden nach der Kampfphase verteilt, wenn der Imperator überlebt.
-            //
-            //
+            _hub.VersprechenAuswählen();
+        }
+        /// <summary>
+        /// Spielphase II 
+        /// Versprechungen Machen
+        /// Imperator hat Karten und Spieler gewählt
+        /// Infos werden vom ClientProxyHub aufgenommen und von JuntaHubMehtode verarbeitet(Versprechen Verarbeiten) nimmt spielerID und KartenID an
+        /// Spielverwaltung wandelt SpielerID in Spieler und KartenID in Karte um
+        /// VersprechungMachen wird aufgerufen und dadurch dem Spieler das Karten[] übergeben + dem Imperator die Karten abgezogen.
+        /// Nach VersprechungenMachen wird EinbrecherKarteSpielen abgefragt
+        /// Versprechungen werden direkt verteilt wenn kein ImperatorKampf vorhanden ist.(Wenn niemand den Imperator angreift)
+        /// Versprechungen werden nach der Kampfphase verteilt, wenn der Imperator überlebt.
+        /// </summary>
+        /// <param name="idSpieler"></param>
+        /// <param name="idKarten"></param>
+        public void VersprechungMachen(int idSpieler, int[] idKarten)
+        {
+            Spieler tmp = spieler[idSpieler];
+            Karte[] ktmp = new Karte[idKarten.Length];
+            for (int i = 0; i < idKarten.Length; i++)
+            {
+                ktmp[i] = imperator.hand.getKarteById(i);
+                imperator.hand.RemoveHandkarte(ktmp[i]);
 
-            // mind 1 pro Spieler vom Imp.
-            sp.versprechungen.AddRange(karten);
+                
+            }
+            tmp.versprechungen.AddRange(ktmp);
+            
+            foreach(Spieler s in spieler)
+            {
+                if (s.hand.hatEinbrecher)
+                {
+                    EinbrecherKarteSpielen(s);
+                }
+            }
+        }
+        /// <summary>
+        /// Falls der Spieler eine EinbrecherKarte hat, wird die Methode aufgerufen.
+        /// Die Methode übergibt den Spieler mit der Karte an den Hub
+        /// Der Spieler kann sich aussuchen ob er den Einbrecher spielen möchte
+        /// </summary>
+        public void EinbrecherKarteSpielen(Spieler spieler)
+        {
+            _hub.SpieleEinbrecher(spieler);
+        }
+        public void verarbeiteEinbrecherAntwort(bool b,int idSpieler)
+        {
+            if (b && idSpieler>=0)
+            {
+                foreach(Spieler s in spieler)
+                {
+                    if (s.hand.hatEinbrecher)
+                    {
+                        foreach (Spieler sp in spieler)
+                        {
+                            Spieler tmp = null;
+                            if (idSpieler == sp.ID)
+                            {
+                                tmp = sp;
+                            }
+                            KarteKlauen(s, tmp);
+                        }
+                        //TODO EinbrecherAntwortAntwort
+                        //Welchem spieler soll eine karte geklaut werden ?
+                    }
+                }
+            }
         }
         
         /// <summary>
@@ -121,6 +177,10 @@ namespace GameServer.App_Code
                     }
                 }
             }
+        }
+        public void verarbeiteSpionAntwort(bool b)
+        {
+
         }
         /// <summary>
         /// Spielphase IV: Kampf austragen 
