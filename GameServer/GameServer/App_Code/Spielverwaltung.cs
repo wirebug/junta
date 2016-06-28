@@ -120,29 +120,6 @@ namespace GameServer.App_Code
         {
             _hub.SpieleEinbrecher(spieler);
         }
-        public void verarbeiteEinbrecherAntwort(bool b,int idSpieler)
-        {
-            if (b && idSpieler>=0)
-            {
-                foreach(Spieler s in spieler)
-                {
-                    if (s.hand.hatEinbrecher)
-                    {
-                        foreach (Spieler sp in spieler)
-                        {
-                            Spieler tmp = null;
-                            if (idSpieler == sp.ID)
-                            {
-                                tmp = sp;
-                            }
-                            KarteKlauen(s, tmp);
-                        }
-                        //TODO EinbrecherAntwortAntwort
-                        //Welchem spieler soll eine karte geklaut werden ?
-                    }
-                }
-            }
-        }
         /// <summary>
         /// Spielphase III Flotten befehligen
         /// Jeder Spieler wählt jetzt seine Flotten
@@ -157,7 +134,6 @@ namespace GameServer.App_Code
                 }
             }
         }
-        
         /// <summary>
         /// Spielphase III: Flotten befehligen
         /// </summary>
@@ -209,10 +185,6 @@ namespace GameServer.App_Code
                     }
                 }
             }
-        }
-        public void verarbeiteSpionAntwort(bool b)
-        {
-
         }
         /// <summary>
         /// Spielphase IV: Kampf austragen 
@@ -338,7 +310,6 @@ namespace GameServer.App_Code
             rundenCount++;
         }
 
-
         //Methoden
         public void neuerImperator(Spieler s)
         {
@@ -354,6 +325,32 @@ namespace GameServer.App_Code
                 taeter.hand.AddHandkarte(henryk.hand.RandomHandkarte());
             }
         }
+        public void verarbeiteSpionAntwort(bool b)
+        {
 
+        }
+        public void verarbeiteEinbrecherAntwort(bool b, int idSpieler)
+        {
+            if (b && idSpieler >= 0)
+            {
+                foreach (Spieler s in spieler)
+                {
+                    if (s.hand.hatEinbrecher)
+                    {
+                        foreach (Spieler sp in spieler)
+                        {
+                            Spieler tmp = null;
+                            if (idSpieler == sp.ID)
+                            {
+                                tmp = sp;
+                            }
+                            KarteKlauen(s, tmp);
+                        }
+                        //TODO EinbrecherAntwortAntwort
+                        //Welchem spieler soll eine karte geklaut werden ?
+                    }
+                }
+            }
+        }
     }
 }
