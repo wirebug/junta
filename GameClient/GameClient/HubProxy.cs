@@ -113,6 +113,17 @@ namespace GameClient {
                 spiel.karten.Add(temp);
             }
         }
+        public void AddVersprechung(int ident, int id, string titel, string text)
+        {
+            if (IsPlayer(ident))
+            {
+                FakeKarte temp = new FakeKarte();
+                temp.id = id;
+                temp.text = text;
+                temp.titel = titel;
+                spiel.versprechen.Add(temp);
+            }
+        }
 
         public void RemoveKarte(int ident, int id) {
             if (IsPlayer(ident)) {
@@ -147,7 +158,7 @@ namespace GameClient {
 
                 /*Invoke testen ob Methode weiterläuft oder auf Abarbeitung wartet*/
 
-                proxy.Invoke("FlottenBefehligen", ident, würfel);
+                proxy.Invoke("FlottenVerarbeiten", ident, würfel);
             }
         }
         
