@@ -59,6 +59,20 @@ namespace GameServer.App_Code
                 RemoveHandkarte(hand[index]);
                 return ret;
         }
+        public Karte getKarteById(int idKarte)
+        {
+            foreach(Karte k in hand)
+            {
+                if(k.ID == idKarte)
+                {
+                    return k;
+                }else
+                {
+                    throw new Exception("Karte nicht gefunden");
+                }
+            }
+            throw new Exception("Karte nicht gefunden");
+        }
 
         public void RemoveHandkarte(Karte item)
         {
@@ -73,6 +87,7 @@ namespace GameServer.App_Code
         {
             checkFlags();
             hand.Add(item);
+            spieler.sv._hub.KarteIdHinzu(spieler, item);
         }
         /// <summary>
         /// Gibt Anzahl der Handkarten zurück

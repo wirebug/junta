@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Christoph\Documents\Github\junta\GameClient\GameClient\obj\Debug\
+C:\Users\Sebastian\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\
 GameClient
 none
 false
 DEBUG;TRACE
-C:\Users\Christoph\Documents\Github\junta\GameClient\GameClient\App.xaml
-41493663448
+C:\Users\Sebastian\Documents\GitHub\junta\GameClient\GameClient\App.xaml
+51898070965
 
-15-1969628218
-13738642453
-Anmelden.xaml;DebugWindow.xaml;MainWindow.xaml;Spiel.xaml;
+16307993687
+15-1147671849
+Anmelden.xaml;DebugWindow.xaml;KampfWählenWindow.xaml;MainWindow.xaml;Spiel.xaml;
 
-True
+False
 
