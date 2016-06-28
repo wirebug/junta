@@ -50,8 +50,10 @@ namespace GameClient {
         }
 
         private void KampfWählen_Click(object sender, RoutedEventArgs e) {
-            KampfWählenWindow a = new KampfWählenWindow();
-            a.Show();
+            KampfWählenWindow a = new KampfWählenWindow(5);
+            if(a.ShowDialog() == false) {
+                a.Show();
+            }
         }
     }
 }
