@@ -19,21 +19,17 @@ namespace GameClient {
     /// </summary>
     public partial class VersprechenWählenWindow : Window {
 
-        private bool[] sp  = new bool[5];
-        public Dictionary<int,int> versprechen = new Dictionary<int,int>();
+        private bool[] sp = new bool[5];
+        public Dictionary<int, int> versprechen = new Dictionary<int, int>();
         private List<ValueItem> valueList = new List<ValueItem>();
         private int[] spieler;
 
-        public VersprechenWählenWindow(List<FakeKarte> karten,Spiel spiel) {
+        public VersprechenWählenWindow(List<FakeKarte> karten, Spiel spiel) {
             InitializeComponent();
             spieler = new int[karten.Count];
-            
+
             ValueItem temp;
-            for(int sd = 0; sd < sp.Length; sd++) {
-                sp[sd] = true;
-            }
-            sp[2] = false;
-        /*
+
             for (int i = 0; i <= spiel.mitspieler.Count; i++) {
                 FakeSpieler check;
                 if (i == 0) {
@@ -48,9 +44,9 @@ namespace GameClient {
                     case 4: sp[3] = true; break;
                     case 5: sp[4] = true; break;
                 }
-            }*/
+            }
             int r = 0;
-            foreach(FakeKarte n in karten) {
+            foreach (FakeKarte n in karten) {
                 temp = new ValueItem(sp[0], sp[1], sp[2], sp[3], sp[4], r++, n.titel, n.text, n.id);
                 valueList.Add(temp);
             }
@@ -82,24 +78,25 @@ namespace GameClient {
 
         private void okButton_Click(object sender, RoutedEventArgs e) {
             int i = 0;
-            foreach(ValueItem d in valueList) {
+            foreach (ValueItem d in valueList) {
                 versprechen.Add(d.id, spieler[i++]);
             }
 
             i = 1;
-            while(i <= 5) {
-                if (sp[i-1]) {
+            while (i <= 5) {
+                if (sp[i - 1]) {
                     bool set = false;
                     foreach (KeyValuePair<int, int> q in versprechen) {
                         if (q.Value == i) {
                             set = true;
                             break;
                         }
-                        
+
                     }
                     if (!set) {
                         versprechen.Clear();
-                        return; }
+                        return;
+                    }
                 }
                 i++;
             }
