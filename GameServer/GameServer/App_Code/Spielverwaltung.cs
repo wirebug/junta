@@ -11,10 +11,26 @@ namespace GameServer.App_Code
         public int[] reihenfolge { get; }
         public Spieler[] spieler;
         public Spieler imperator;
-        JuntaHub _hub;
+        public JuntaHub _hub { get; set; }
         public Deck deck { get; }
         public int rundenCount { get; set; }
-
+        public int ImperatorID
+        {
+            get
+            {
+                for(int i = 0; i < spieler.Length; i++)
+                {
+                    if (spieler[i] == imperator)
+                        return i;
+                }
+                return -1;
+            }
+            set
+            {
+                ImperatorID = value;
+            }
+        }
+        
         //Phasen
         /// <summary>
         /// Spielphase I: KartenZiehen
@@ -27,8 +43,8 @@ namespace GameServer.App_Code
                 {
                     if (rundenCount < 1)
                     {
-                        //in der ersten Runde 2 Karten ziehen
-                        s.hand.AddHandkarte(deck.Ziehen());
+                        //in er ersten Runde 2 Karten ziehen
+                        s.hand.AddHandkarte(deck.Ziehen());                  
                         s.hand.AddHandkarte(deck.Ziehen());
                     }
                     else
@@ -45,31 +61,90 @@ namespace GameServer.App_Code
                         s.hand.AddHandkarte(deck.Ziehen());
                     }
                     s.hand.AddHandkarte(deck.Ziehen());
+                    
                     s.hand.AddHandkarte(deck.Ziehen());
                 }
-
             }
         }
         /// <summary>
-        /// Spielphase II: Versprechungen machen
+        /// Spielphase II 
+        /// 
+        /// Imperator wird aufgerufen und über JuntaHub und ClientHub
+        /// zur Auswahl der Versprechungen aufgerufen
+        /// Imperator wählt Karten und Spieler
         /// </summary>
-        /// <param name="ids">ID der Karten</param>
-        /// <param name="sp">Spieler der Karte erhalten soll</param>
-        public void VersprechungMachen(Spieler sp, Karte[] karten)
+        public void VersprechungStart()
         {
-            // mind 1 pro Spieler vom Imp.
-            sp.versprechungen.AddRange(karten);
+            _hub.VersprechenAuswählen();
+        }
+        /// <summary>
+        /// Spielphase II 
+        /// Versprechungen Machen
+        /// Imperator hat Karten und Spieler gewählt
+        /// Infos werden vom ClientProxyHub aufgenommen und von JuntaHubMehtode verarbeitet(Versprechen Verarbeiten) nimmt spielerID und KartenID an
+        /// Spielverwaltung wandelt SpielerID in Spieler und KartenID in Karte um
+        /// VersprechungMachen wird aufgerufen und dadurch dem Spieler das Karten[] übergeben + dem Imperator die Karten abgezogen.
+        /// Nach VersprechungenMachen wird EinbrecherKarteSpielen abgefragt
+        /// Versprechungen werden direkt verteilt wenn kein ImperatorKampf vorhanden ist.(Wenn niemand den Imperator angreift)
+        /// Versprechungen werden nach der Kampfphase verteilt, wenn der Imperator überlebt.
+        /// </summary>
+        /// <param name="idSpieler"></param>
+        /// <param name="idKarten"></param>
+        public void VersprechungMachen(int idSpieler, int[] idKarten)
+        {
+            Spieler tmp = spieler[idSpieler];
+            Karte[] ktmp = new Karte[idKarten.Length];
+            for (int i = 0; i < idKarten.Length; i++)
+            {
+                ktmp[i] = imperator.hand.getKarteById(i);
+                imperator.hand.RemoveHandkarte(ktmp[i]);
+
+                
+            }
+            tmp.versprechungen.AddRange(ktmp);
+            
+            foreach(Spieler s in spieler)
+            {
+                if (s.hand.hatEinbrecher)
+                {
+                    EinbrecherKarteSpielen(s);
+                }
+            }
+        }
+        /// <summary>
+        /// Falls der Spieler eine EinbrecherKarte hat, wird die Methode aufgerufen.
+        /// Die Methode übergibt den Spieler mit der Karte an den Hub
+        /// Der Spieler kann sich aussuchen ob er den Einbrecher spielen möchte
+        /// </summary>
+        public void EinbrecherKarteSpielen(Spieler spieler)
+        {
+            _hub.SpieleEinbrecher(spieler);
+        }
+        /// <summary>
+        /// Spielphase III Flotten befehligen
+        /// Jeder Spieler wählt jetzt seine Flotten
+        /// </summary>
+        public void FlottenStart()
+        {
+            foreach(Spieler s in spieler)
+            {
+                if (s != imperator)
+                {
+                    _hub.FlottenAuswahl(s,s.flotten);
+                }
+            }
         }
         /// <summary>
         /// Spielphase III: Flotten befehligen
         /// </summary>
         /// <param name="sp">Spieler der sich verteidigt</param>
         /// <param name="würfel">einzelne Würfelwerte des Spielers</param>
-        public void FlottenBefehligen(Spieler sp, int[] würfel)
+        public void FlottenBefehligen(int idSpieler, int[] würfel)
         {
             //Für jeden einzelnen VERTEIDIGENDEN Spieler wird ein Kampf erstellt
             ImperatorKampf a;
             int tmpw;
+            Spieler sp = spieler[idSpieler];
             if (sp.kampf == null)
             {
                 foreach (Spieler s in spieler)
@@ -83,6 +158,7 @@ namespace GameServer.App_Code
                     else
                     {
                         s.kampf = new Kampf();
+                        
                     }
                 }
             }
@@ -99,7 +175,7 @@ namespace GameServer.App_Code
                     {
                         if (tmpw == 6)//6 ist immer das verteidigen des Imperators
                         {
-                            a = (ImperatorKampf)spieler[imperatorID].kampf;
+                            a = (ImperatorKampf)spieler[ImperatorID].kampf;
                             a.addVerteidigung(sp, 1);
                         }
                         else//angreifen des Spielers mit index seiner ID-1(da liste)
@@ -234,7 +310,6 @@ namespace GameServer.App_Code
             rundenCount++;
         }
 
-
         //Methoden
         public void neuerImperator(Spieler s)
         {
@@ -250,6 +325,32 @@ namespace GameServer.App_Code
                 taeter.hand.AddHandkarte(henryk.hand.RandomHandkarte());
             }
         }
+        public void verarbeiteSpionAntwort(bool b)
+        {
 
+        }
+        public void verarbeiteEinbrecherAntwort(bool b, int idSpieler)
+        {
+            if (b && idSpieler >= 0)
+            {
+                foreach (Spieler s in spieler)
+                {
+                    if (s.hand.hatEinbrecher)
+                    {
+                        foreach (Spieler sp in spieler)
+                        {
+                            Spieler tmp = null;
+                            if (idSpieler == sp.ID)
+                            {
+                                tmp = sp;
+                            }
+                            KarteKlauen(s, tmp);
+                        }
+                        //TODO EinbrecherAntwortAntwort
+                        //Welchem spieler soll eine karte geklaut werden ?
+                    }
+                }
+            }
+        }
     }
 }

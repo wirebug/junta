@@ -21,17 +21,30 @@ namespace GameServer.App_Code {
         public void KarteIdHinzu(Spieler spieler, Karte karte) {
             Clients.All.AddKarte(spieler.planet.würfelzahl, karte.ID, karte.kartenname, karte.kartenphase + " " + karte.kartentext);
         }
-        public void VersprechenVerarbeiten(int[] ids, Spieler sp)
-        {
-            sv.VersprechungMachen(ids, sp);
-        }
-        public void FlottenAuswahl(Spieler spieler)
-        {
 
-        }
-        public void FlottenVerarbeiten(Spieler spieler)
+        /// <summary>
+        /// Imperator wählt seine Versprechen aus
+        /// </summary>
+        public void VersprechenAuswählen()
         {
-
+            Clients.All.VersprechenWählen();
+        }
+        public void VersprechenVerarbeiten(int idSpieler, int[] idKarten)
+        {
+            sv.VersprechungMachen(idSpieler,idKarten);
+        }
+        /// <summary>
+        /// KampfWählen ist gleich Flotte festlegen wer wen angreift
+        /// </summary>
+        /// <param name="spieler">Spieler ist der Spieler welcher an der reihe ist</param>
+        /// <param name="flottenAnzahl">Anzahl der Milizen die der Spieler besitzt</param>
+        public void FlottenAuswahl(Spieler spieler,int flottenAnzahl)
+        {
+            Clients.All.KampfWählen(spieler.ID,flottenAnzahl);
+        }
+        public void FlottenVerarbeiten(Spieler spieler,int[] wrfl)
+        {
+            sv.FlottenBefehligen(spieler, wrfl);
         }
         public void KarteIDEntfernen(Spieler spieler)
         {
@@ -51,11 +64,19 @@ namespace GameServer.App_Code {
         }
         public void SpionAntwort(bool b)
         {
-            //TODO sv.verarbeiteSpionAntwort
+            sv.verarbeiteSpionAntwort(b);
         }
         public void SpieleEinbrecher(Spieler spieler)
         {
-
+            Clients.All.SpieleEinbrecher(spieler.planet.würfelzahl);
+        }
+        public void EinbrecherAntwort(bool b)
+        {
+            sv.verarbeiteEinbrecherAntwort(b,-1);
+        }
+        public void EinbrecherAntwort(bool b,int idSpieler)
+        {
+            sv.verarbeiteEinbrecherAntwort(b,idSpieler);
         }
         public void SpieleVorkampfkarte(Spieler spieler)
         {

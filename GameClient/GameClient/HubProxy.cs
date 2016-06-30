@@ -75,14 +75,35 @@ namespace GameClient {
                 }
             }
         }
-
+        /// <summary>
+        /// Nimmt Antwort des Imperators entgegen und schickt die Infos an JuntaHub zu VersprechenVerarbeiten
+        /// </summary>
+        /// <param name="idSpieler">ident Spieler</param>
+        /// <param name="idKarte">id Karte</param>
         public void VersprechenWählen() {
-            /*neues Fenster mit Liste von allen Karten die per JSON
-             * Objekt übertragen wurden. Per Radio Button für alle den
-             * entsprechenden Spieler auswählen und Ergebnis an Server senden.
-             * TODO Custom List Objekte hearusfinden*/
-        }
+            if (spiel.selbst.präsident)
+            {
+                //TODO
+                // Methode liefert 
+                // int idSpieler, int[] idKarte
+                //TODO 
+                /*neues Fenster mit Liste von allen Karten die per JSON
+                 * Objekt übertragen wurden. Per Radio Button für alle den
+                 * entsprechenden Spieler auswählen und Ergebnis an Server senden.
+                 * TODO Custom List Objekte hearusfinden*/
+                //TODO
 
+                proxy.Invoke("VersprechenVerarbeiten",idSpieler,idKarte);
+            }
+            
+        }
+        /// <summary>
+        /// fügt dem Spiel eine neue FakeKarte hinzu
+        /// </summary>
+        /// <param name="ident">Würfelzahl bzw ID des Spielers</param>
+        /// <param name="id">ID der Karte</param>
+        /// <param name="titel">Titel der Karte</param>
+        /// <param name="text">Text der Karte</param>
         public void AddKarte(int ident,int id, string titel, string text) {
             if (IsPlayer(ident)){
                 FakeKarte temp = new FakeKarte();
@@ -90,6 +111,17 @@ namespace GameClient {
                 temp.text = text;
                 temp.titel = titel;
                 spiel.karten.Add(temp);
+            }
+        }
+        public void AddVersprechung(int ident, int id, string titel, string text)
+        {
+            if (IsPlayer(ident))
+            {
+                FakeKarte temp = new FakeKarte();
+                temp.id = id;
+                temp.text = text;
+                temp.titel = titel;
+                spiel.versprechen.Add(temp);
             }
         }
 
@@ -112,14 +144,21 @@ namespace GameClient {
                 }
             }
         }
-
-        public void KampfWählen(int ident) {
+            /// <summary>
+            /// FlottenAuswahl
+            /// </summary>
+            /// <param name="ident">idSpieler</param>
+        public void KampfWählen(int ident,int flottenAnzahl) {
             if (IsPlayer(ident)) {
+                int[] würfel = new int[flottenAnzahl];
+
                 /*Fenster öffnen und entsprechend Anzahl Milizen in
                  * Liste einfügen und mit RadioButtons entsprechend
                  * Abfragen welches Ziel gewählt wurde*/
 
                 /*Invoke testen ob Methode weiterläuft oder auf Abarbeitung wartet*/
+
+                proxy.Invoke("FlottenVerarbeiten", ident, würfel);
             }
         }
         
@@ -142,7 +181,16 @@ namespace GameClient {
                 string caption = "Junta";
                 MessageBoxResult result = MessageBox.Show(message, caption, MessageBoxButton.YesNo);
                 if(result == MessageBoxResult.Yes) {
-                    proxy.Invoke("EinbrecherAntwort", true);
+                    //Fenster mit spieleranzahl an radiobuttons
+                    //EinbrecherWindow
+                    EinbrecherWindow ew = new EinbrecherWindow();
+                    if (ew.ShowDialog() == false)
+                    {
+                        proxy.Invoke("EinbrecherAntwort", true, ew.zahl);
+                    }
+                    //Methode im EW auswahl eines spielers der beklaut werden soll.
+
+                    
                 } else {
                     proxy.Invoke("EinbrecherAntwort", false);
                 }

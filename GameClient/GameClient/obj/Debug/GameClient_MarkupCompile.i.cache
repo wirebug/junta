@@ -4,16 +4,24 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 F:\Development\GameClient\GameClient\obj\Debug\
+=======
+C:\Users\Sebastian\Documents\GitHub\junta\GameClient\GameClient\obj\Debug\
+>>>>>>> bfcc7a03c1d4476183d783ab110551886291a51a
 GameClient
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 F:\Development\GameClient\GameClient\App.xaml
+=======
+C:\Users\Sebastian\Documents\GitHub\junta\GameClient\GameClient\App.xaml
+>>>>>>> bfcc7a03c1d4476183d783ab110551886291a51a
 51898070965
 
-16-781281348
-15-1710134036
+16307993687
+15-1147671849
 Anmelden.xaml;DebugWindow.xaml;KampfWählenWindow.xaml;MainWindow.xaml;Spiel.xaml;
 
 False
