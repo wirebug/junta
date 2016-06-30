@@ -60,11 +60,20 @@ namespace GameClient {
             a.titel = "sfs";
             FakeKarte b = new FakeKarte("dsd", "sdsd", 32);
             FakeKarte c = new FakeKarte("sdsd", "sds", 34343);
-            List<FakeKarte> d = new List<FakeKarte>();
-            d.Add(a);
-            d.Add(b);
-            d.Add(c);
-            VersprechenWählenWindow e = new VersprechenWählenWindow()
+            FakeKarte d = new FakeKarte("sd", "sd", 2);
+            FakeKarte f = new FakeKarte("sdaa", "sds", 5);
+            FakeKarte g = new FakeKarte("sds", "qq", 54);
+            FakeKarte h = new FakeKarte("fd", "sds", 3423);
+            List<FakeKarte> z = new List<FakeKarte>();
+            z.Add(a);
+            z.Add(b);
+            z.Add(c);
+            z.Add(d);
+            z.Add(f);
+            z.Add(g);
+            z.Add(h);
+            VersprechenWählenWindow ac = new VersprechenWählenWindow(z, spiel);
+            ac.Show();
         }
     }
 }

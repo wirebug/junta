@@ -56,3 +56,5 @@ F:\Development\GameClient\GameClient\obj\Debug\Spiel.baml
 F:\Development\GameClient\GameClient\obj\Debug\GameClient.g.resources
 F:\Development\GameClient\GameClient\obj\Debug\GameClient.Properties.Resources.resources
 F:\Development\GameClient\GameClient\obj\Debug\GameClient.csproj.GenerateResource.Cache
+F:\Development\GameClient\GameClient\obj\Debug\VersprechenWählenWindow.g.cs
+F:\Development\GameClient\GameClient\obj\Debug\VersprechenWählenWindow.baml

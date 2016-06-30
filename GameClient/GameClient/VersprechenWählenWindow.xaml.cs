@@ -88,7 +88,7 @@ namespace GameClient {
 
             i = 1;
             while(i <= 5) {
-                if (sp[i]) {
+                if (sp[i-1]) {
                     bool set = false;
                     foreach (KeyValuePair<int, int> q in versprechen) {
                         if (q.Value == i) {
