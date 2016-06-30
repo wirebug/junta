@@ -80,12 +80,17 @@ namespace GameClient {
         /// </summary>
         /// <param name="idSpieler">ident Spieler</param>
         /// <param name="idKarte">id Karte</param>
-        public void VersprechenWählen() {
+        public void VersprechenWählen(int idSpieler, string json) {
             if (spiel.selbst.präsident)
             {
+                //json ist die fakekarte
+                //PArse den json
+                //fakekarte in liste einfügen
+                //liste als parameter an das fenster übergeben
+
                 //TODO
                 // Methode liefert 
-                // int idSpieler, int[] idKarte
+                // dict
                 //TODO 
                 /*neues Fenster mit Liste von allen Karten die per JSON
                  * Objekt übertragen wurden. Per Radio Button für alle den

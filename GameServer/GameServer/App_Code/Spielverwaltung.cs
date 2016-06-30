@@ -102,6 +102,8 @@ namespace GameServer.App_Code
                 
             }
             tmp.versprechungen.AddRange(ktmp);
+
+           
             
             foreach(Spieler s in spieler)
             {
@@ -209,6 +211,10 @@ namespace GameServer.App_Code
                     }
                 }
             }
+        }
+        public void FlottenBefehligenErgebnisAusgabe()
+        {
+
         }
         public void verarbeiteSpionAntwort(bool b)
         {
