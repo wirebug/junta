@@ -42,9 +42,9 @@ namespace GameServer.App_Code {
         {
             Clients.All.KampfWählen(spieler.ID,flottenAnzahl);
         }
-        public void FlottenVerarbeiten(Spieler spieler,int[] wrfl)
+        public void FlottenVerarbeiten(int idSpieler,int[] wrfl)
         {
-            sv.FlottenBefehligen(spieler, wrfl);
+            sv.FlottenBefehligen(idSpieler, wrfl);
         }
         public void KarteIDEntfernen(Spieler spieler)
         {
