@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameClient"
         mc:Ignorable="d"
-        Title="VersprechenWählenWindow" Height="300" Width="300">
+        Title="VersprechenWählenWindow" Height="500" Width="500">
     <Grid>
-        
+        <ListBox x:Name="versprechenListBox" Margin="10,10,0,0" Height="400" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton x:Name="rb1" Grid.Column="0" GroupName="{Binding group}" Content="1" IsHitTestVisible="{Binding sp1}" Checked="radioButton_Checked"/>
+                        <RadioButton x:Name="rb2" Grid.Column="1" GroupName="{Binding group}" Content="2" IsHitTestVisible="{Binding sp2}" Checked="radioButton_Checked"/>
+                        <RadioButton x:Name="rb3" Grid.Column="2" GroupName="{Binding group}" Content="3" IsHitTestVisible="{Binding sp3}" Checked="radioButton_Checked"/>
+                        <RadioButton x:Name="rb4" Grid.Column="3" GroupName="{Binding group}" Content="4" IsHitTestVisible="{Binding sp4}" Checked="radioButton_Checked"/>
+                        <RadioButton x:Name="rb5" Grid.Column="4" GroupName="{Binding group}" Content="5" IsHitTestVisible="{Binding sp5}" Checked="radioButton_Checked"/>
+                        <RadioButton Grid.Column="5" GroupName="{Binding group}" Content="6" Checked="radioButton_Checked"/>
+                        <Label Grid.Column="5" Content="{Binding titel}"/>
+                        <Label Grid.Column="6" Content="{Binding text}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="okButton" Content="Ok" HorizontalAlignment="Left" Height="20" Margin="10,430,0,0" VerticalAlignment="Top" Width="68" Click="okButton_Click"/>
+
     </Grid>
 </Window>
