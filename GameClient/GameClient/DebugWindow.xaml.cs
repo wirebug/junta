@@ -50,10 +50,21 @@ namespace GameClient {
         }
 
         private void KampfWählen_Click(object sender, RoutedEventArgs e) {
-            KampfWählenWindow a = new KampfWählenWindow(5);
-            if(a.ShowDialog() == false) {
-                a.Show();
-            }
+            
+        }
+
+        private void versprechenWählen_Click(object sender, RoutedEventArgs e) {
+            FakeKarte a = new FakeKarte();
+            a.id =3;
+            a.text = "ds";
+            a.titel = "sfs";
+            FakeKarte b = new FakeKarte("dsd", "sdsd", 32);
+            FakeKarte c = new FakeKarte("sdsd", "sds", 34343);
+            List<FakeKarte> d = new List<FakeKarte>();
+            d.Add(a);
+            d.Add(b);
+            d.Add(c);
+            VersprechenWählenWindow e = new VersprechenWählenWindow()
         }
     }
 }

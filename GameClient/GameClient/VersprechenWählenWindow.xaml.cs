@@ -19,12 +19,7 @@ namespace GameClient {
     /// </summary>
     public partial class VersprechenWählenWindow : Window {
 
-        private bool sp1 = false;
-        private bool sp2 = false;
-        private bool sp3 = false;
-        private bool sp4 = false;
-        private bool sp5 = false;
-
+        private bool[] sp  = new bool[5];
         public Dictionary<int,int> versprechen = new Dictionary<int,int>();
         private List<ValueItem> valueList = new List<ValueItem>();
         private int[] spieler;
@@ -34,7 +29,11 @@ namespace GameClient {
             spieler = new int[karten.Count];
             
             ValueItem temp;
-        
+            for(int sd = 0; sd < sp.Length; sd++) {
+                sp[sd] = true;
+            }
+            sp[2] = false;
+        /*
             for (int i = 0; i <= spiel.mitspieler.Count; i++) {
                 FakeSpieler check;
                 if (i == 0) {
@@ -43,16 +42,16 @@ namespace GameClient {
                     check = spiel.mitspieler[i];
                 }
                 switch (check.würfelzahl) {
-                    case 1: sp1 = true; break;
-                    case 2: sp2 = true; break;
-                    case 3: sp3 = true; break;
-                    case 4: sp4 = true; break;
-                    case 5: sp5 = true; break;
+                    case 1: sp[0] = true; break;
+                    case 2: sp[1] = true; break;
+                    case 3: sp[2] = true; break;
+                    case 4: sp[3] = true; break;
+                    case 5: sp[4] = true; break;
                 }
-            }
+            }*/
             int r = 0;
             foreach(FakeKarte n in karten) {
-                temp = new ValueItem(sp1, sp2, sp3, sp4, sp5, r++, n.titel, n.text, n.id);
+                temp = new ValueItem(sp[0], sp[1], sp[2], sp[3], sp[4], r++, n.titel, n.text, n.id);
                 valueList.Add(temp);
             }
             versprechenListBox.ItemsSource = valueList;
@@ -82,6 +81,29 @@ namespace GameClient {
         }
 
         private void okButton_Click(object sender, RoutedEventArgs e) {
+            int i = 0;
+            foreach(ValueItem d in valueList) {
+                versprechen.Add(d.id, spieler[i++]);
+            }
+
+            i = 1;
+            while(i <= 5) {
+                if (sp[i]) {
+                    bool set = false;
+                    foreach (KeyValuePair<int, int> q in versprechen) {
+                        if (q.Value == i) {
+                            set = true;
+                            break;
+                        }
+                        
+                    }
+                    if (!set) {
+                        versprechen.Clear();
+                        return; }
+                }
+                i++;
+            }
+            this.Hide();
 
         }
 
