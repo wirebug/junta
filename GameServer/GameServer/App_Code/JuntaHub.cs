@@ -19,19 +19,19 @@ namespace GameServer.App_Code {
         //in server code , you define methods that can be called by clients, and you call methods that run on the client.
 
         public void KarteIdHinzu(Spieler spieler, Karte karte) {
-            Clients.All.AddKarte(spieler.planet.würfelzahl, karte.ID, karte.kartenname, karte.kartenphase + " " + karte.kartentext);
+            Clients.All.AddKarte(spieler.planet.würfelzahl, karte.id, karte.titel, karte.kartenphase + " " + karte.text);
         }
 
         /// <summary>
         /// Imperator wählt seine Versprechen aus
         /// </summary>
-        public void VersprechenAuswählen()
+        public void VersprechenAuswählen(int idSpieler,string json)
         {
-            Clients.All.VersprechenWählen();
+            Clients.All.VersprechenWählen(idSpieler,json);
         }
-        public void VersprechenVerarbeiten(int idSpieler, int[] idKarten)
+        public void VersprechenVerarbeiten(Dictionary<int,int> versprechung)
         {
-            sv.VersprechungMachen(idSpieler,idKarten);
+            sv.VersprechungMachen(versprechung);
         }
         /// <summary>
         /// KampfWählen ist gleich Flotte festlegen wer wen angreift

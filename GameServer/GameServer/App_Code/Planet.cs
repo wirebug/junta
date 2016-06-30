@@ -12,7 +12,7 @@ namespace GameServer.App_Code {
         public int gebäude{get;set;}
 
         /// <summary>
-        /// Spieler ID
+        /// Spieler id
         /// </summary>
         public int würfelzahl { get; set; }
         public static int counter = 1;

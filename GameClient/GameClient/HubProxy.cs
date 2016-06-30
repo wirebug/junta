@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using GameClient.Referenzen;
 using System.Windows;
+using Newtonsoft.Json;
 
 namespace GameClient {
     public class HubProxy {
@@ -83,6 +84,14 @@ namespace GameClient {
         public void VersprechenWählen(int idSpieler, string json) {
             if (spiel.selbst.präsident)
             {
+                List<FakeKarte> FKarteListe = new List<FakeKarte>();
+                FKarteListe = JsonConvert.DeserializeObject<List<FakeKarte>>(json);
+
+                VersprechenWählenWindow vww = new VersprechenWählenWindow(FKarteListe, spiel);
+
+
+
+
                 //json ist die fakekarte
                 //PArse den json
                 //fakekarte in liste einfügen
@@ -91,14 +100,15 @@ namespace GameClient {
                 //TODO
                 // Methode liefert 
                 // dict
+                // 
                 //TODO 
                 /*neues Fenster mit Liste von allen Karten die per JSON
                  * Objekt übertragen wurden. Per Radio Button für alle den
                  * entsprechenden Spieler auswählen und Ergebnis an Server senden.
                  * TODO Custom List Objekte hearusfinden*/
                 //TODO
-
-                proxy.Invoke("VersprechenVerarbeiten",idSpieler,idKarte);
+                Dictionary<int, int> versprechung = new Dictionary<int, int>();
+                proxy.Invoke("VersprechenVerarbeiten",versprechung);
             }
             
         }

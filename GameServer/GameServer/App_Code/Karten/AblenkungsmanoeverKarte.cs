@@ -10,9 +10,9 @@ namespace GameServer.App_Code.Karten
         
         public AblenkungsmanoeverKarte(int value,Hand hand,Deck deck) : base(value,hand,deck) 
         {
-            kartenname = "Ablenkungsmanöver";
+            titel = "Ablenkungsmanöver";
             kartenphase = "Spiele unmittelbar nach einem Würfelwurf.";
-            kartentext = "Entweder ein einzelener oder alle Würfel dieses Wurfs werden neue geworfen.";
+            text = "Entweder ein einzelener oder alle Würfel dieses Wurfs werden neue geworfen.";
         }
 
         public override void Action()

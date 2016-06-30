@@ -9,9 +9,9 @@ namespace GameServer.App_Code.Karten
     {
         public SpionKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-            kartenname = "Spion";
+            titel = "Spion";
             kartenphase = "Spiele unmittelbar, nachdem alle Spieler Ihre Milizen befehligt haben.";
-            kartentext = "Schau dir die Milizen aller Mitspieler an, bevor du deine eigenen befehligst. Die Mitspieler dürfen ihre Milizen nicht emhr ändern.";
+            text = "Schau dir die Milizen aller Mitspieler an, bevor du deine eigenen befehligst. Die Mitspieler dürfen ihre Milizen nicht emhr ändern.";
         }
         override public void Action()
         {

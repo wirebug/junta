@@ -9,9 +9,9 @@ namespace GameServer.App_Code.Karten
     {
         public EinbrecherKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-            kartenname = "Einbrecher";
+            titel = "Einbrecher";
             kartenphase = "Spiele unmittelbar, nachdem der Imperator seine Versprechungen gemacht hat.";
-            kartentext = "Schau dir die Handkarten eines Spielers deineer Wahl an und nimm eine davon auf die Hand.";
+            text = "Schau dir die Handkarten eines Spielers deineer Wahl an und nimm eine davon auf die Hand.";
         }
         override public void Action()
         {

@@ -9,16 +9,16 @@ namespace GameServer.App_Code.Karten
     public abstract class Karte
     {
         private int value;
-        public int ID { get; set; }
+        public int id { get; set; }
         public Hand hand { get; set; }
 
         public Deck deck { get; set; }
-        public string kartenname;
-        public string kartentext;
+        public string titel;
+        public string text;
         public string kartenphase;
         public Karte(int id, Hand hand, Deck deck)
         {
-            ID = id;
+            this.id = id;
             this.hand = hand;
             this.deck = deck;
         }

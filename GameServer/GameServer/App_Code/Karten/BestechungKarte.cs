@@ -9,9 +9,9 @@ namespace GameServer.App_Code.Karten
     {
         public BestechungKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-            kartenname = "Bestechung";
+            titel = "Bestechung";
             kartenphase = "Spiele vor einem Kampf.";
-            kartentext = "Ignoriere in diesem Kampf die Flotten des Imperators.";
+            text = "Ignoriere in diesem Kampf die Flotten des Imperators.";
         }
         override public void Action()
         {

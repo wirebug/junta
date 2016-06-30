@@ -13,9 +13,9 @@ namespace GameServer.App_Code.Karten
     {
         public ArtefaktKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-            kartenname = "Artefakt";
+            titel = "Artefakt";
             kartenphase = "Solange du diese Karte auf der Hand hast gilt ihr Bonus.";
-            kartentext = "Du erhälst einen Bonuspunkt.";
+            text = "Du erhälst einen Bonuspunkt.";
         }
         override public void Action()
         {
