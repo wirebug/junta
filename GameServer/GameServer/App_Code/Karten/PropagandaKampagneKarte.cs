@@ -9,9 +9,9 @@ namespace GameServer.App_Code.Karten
     {
         public PropagandaKampagneKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-            kartenname = "Propaganda";
+            titel = "Propaganda";
             kartenphase = "Spiele vor einem Kampf.";
-            kartentext = "Alle verteidigenden Milizen haben in diesem Kampf den Wert 2.";
+            text = "Alle verteidigenden Milizen haben in diesem Kampf den Wert 2.";
         }
         override public void Action()
         {

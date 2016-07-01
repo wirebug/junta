@@ -12,34 +12,42 @@ namespace GameServer.App_Code
         public bool hatEinbrecher { get; set; }
         public bool hatKampfkarte { get; set; }
         public Spieler spieler { get; set; }
-        public bool isEmpty { get { return hand.Count == 0; } }
+        public bool isEmpty { get { return handKarten.Count == 0; } }
 
         /// <summary>
         /// Handkarten
         /// </summary>
-        List<Karte> hand = new List<Karte>();
+        public List<Karte> handKarten { get; set; }
         
+        public Hand(Spieler spieler)
+        {
+            this.spieler = spieler;
+            handKarten = new List<Karte>();
+            hatEinbrecher = false;
+            hatKampfkarte = false;
+            hatSpion = false;
+        }
         /// <summary>
         /// überprüft die flags hatSpion, hat Einbrecher, hatKampfkarte auf korrektheit
         /// </summary>
         void checkFlags()
         {
             hatKampfkarte = false;
-            foreach (Karte k in hand)
+            foreach (Karte k in handKarten)
             {
-                if (k.ID == 0)
+                if (k.id == 0)
                 {
                     hatSpion = true;
                 }
                 else
                     hatSpion = false;
-                if (k.ID == 1)
+                if (k.id == 1)
                 {
                     hatEinbrecher = true;
                 }
                 else
                     hatEinbrecher = false;
-                if (k.ID > 1 && k.ID < 14)
+                if (k.id > 1 && k.id < 14)
                 {
                     hatKampfkarte = true;
                 }
@@ -55,15 +63,15 @@ namespace GameServer.App_Code
                 Random rng = new Random();
                 int anzahl = GetHandKartenZahl();
                 int index = rng.Next(anzahl);
-                Karte ret = hand[index];
-                RemoveHandkarte(hand[index]);
+                Karte ret = handKarten[index];
+                RemoveHandkarte(handKarten[index]);
                 return ret;
         }
         public Karte getKarteById(int idKarte)
         {
-            foreach(Karte k in hand)
+            foreach(Karte k in handKarten)
             {
-                if(k.ID == idKarte)
+                if(k.id == idKarte)
                 {
                     return k;
                 }else
@@ -77,7 +85,7 @@ namespace GameServer.App_Code
         public void RemoveHandkarte(Karte item)
         {
             checkFlags();
-            hand.Remove(item);
+            handKarten.Remove(item);
         }
         /// <summary>
         /// Legt Karte auf Hand
@@ -86,7 +94,7 @@ namespace GameServer.App_Code
         public void AddHandkarte(Karte item)
         {
             checkFlags();
-            hand.Add(item);
+            handKarten.Add(item);
             spieler.sv._hub.KarteIdHinzu(spieler, item);
         }
         /// <summary>
@@ -95,7 +103,7 @@ namespace GameServer.App_Code
         /// <returns></returns>
         public int GetHandkartenAnzahl()
         {
-            return hand.Count();
+            return handKarten.Count();
         }
 
         /// <summary>
@@ -104,7 +112,7 @@ namespace GameServer.App_Code
         /// <returns>Anzahl der Handkarten</returns>
         public int GetHandKartenZahl()
         {
-            return hand.Count();
+            return handKarten.Count();
         }
     }
 }

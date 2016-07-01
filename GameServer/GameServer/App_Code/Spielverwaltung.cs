@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using GameServer.App_Code.Karten;
+using Newtonsoft.Json;
 
 namespace GameServer.App_Code
 {
@@ -73,9 +74,13 @@ namespace GameServer.App_Code
         /// zur Auswahl der Versprechungen aufgerufen
         /// Imperator wählt Karten und Spieler
         /// </summary>
-        public void VersprechungStart()
+        /// <param name="spieler">Der Imperator muss übergeben werden</param>
+        public void VersprechungStart(Spieler spieler)
         {
-            _hub.VersprechenAuswählen();
+            int idSpieler = spieler.ID;
+            string json = JsonConvert.SerializeObject(spieler.hand.handKarten);
+
+            _hub.VersprechenAuswählen(idSpieler,json);
         }
         /// <summary>
         /// Spielphase II 
@@ -90,12 +95,28 @@ namespace GameServer.App_Code
         /// </summary>
         /// <param name="idSpieler"></param>
         /// <param name="idKarten"></param>
-        public void VersprechungMachen(int idSpieler, int[] idKarten)
+        public void VersprechungMachen(Dictionary<int,int> versprechung) //1.key = karte, 2.value = spieler
         {
-            Spieler tmp = spieler[idSpieler];
-            Karte[] ktmp = new Karte[idKarten.Length];
-            for (int i = 0; i < idKarten.Length; i++)
+
+            foreach(KeyValuePair<int,int> pair in versprechung)
             {
+                Spieler tmp = spieler[pair.Value - 1];
+                
+            }
+
+
+           /* foreach(Karte k in imperator.hand.handKarten)
+            {
+                imperator.hand.RemoveHandkarte(k);
+                spieler
+                versprechung[k.id];
+            }
+
+            /*for (int i = 0; i < versprechung.Count; i++)
+            {
+
+                Spieler tmp = versprechung[];
+                    versprechung[i]
                 ktmp[i] = imperator.hand.getKarteById(i);
                 imperator.hand.RemoveHandkarte(ktmp[i]);
 
@@ -111,7 +132,8 @@ namespace GameServer.App_Code
                 {
                     EinbrecherKarteSpielen(s);
                 }
-            }
+            
+    }*/
         }
         /// <summary>
         /// Falls der Spieler eine EinbrecherKarte hat, wird die Methode aufgerufen.
@@ -170,7 +192,7 @@ namespace GameServer.App_Code
             //Für jeden einzelnen VERTEIDIGENDEN Spieler wird ein Kampf erstellt
             ImperatorKampf a;
             int tmpw;
-            Spieler sp = spieler[idSpieler];
+            Spieler sp = spieler[idSpieler - 1];
             if (sp.kampf == null)
             {
                 foreach (Spieler s in spieler)
@@ -193,7 +215,7 @@ namespace GameServer.App_Code
                 for(int i=0;i<4;i++)
                 {
                     tmpw = würfel[i];
-                    if (tmpw == sp.ID)//wenn der würfel die eigene ID zeigt, verteidigt man sich
+                    if (tmpw == sp.ID)//wenn der würfel die eigene id zeigt, verteidigt man sich
                     {
                         sp.kampf.addVerteidigung(1);
                     }
@@ -204,7 +226,7 @@ namespace GameServer.App_Code
                             a = (ImperatorKampf)spieler[ImperatorID].kampf;
                             a.addVerteidigung(sp, 1);
                         }
-                        else//angreifen des Spielers mit index seiner ID-1(da liste)
+                        else//angreifen des Spielers mit index seiner id-1(da liste)
                         {
                             spieler[tmpw-1].kampf.addAngriff(sp, 1);
                         }

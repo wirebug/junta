@@ -10,9 +10,9 @@ namespace GameServer.App_Code.Karten
         
         public AnexionKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-            kartenname = "Annexion";
+            titel = "Annexion";
             kartenphase = "Spiele als Angreifer vor einem Kampf, wenn der Verteidiger mehr Gebäude hat als du.";
-            kartentext = "Ist dein Angriff erfolgreich, übernimm 1 Gebäude des Verteidigers und verzichte auf seine Handkarte.";
+            text = "Ist dein Angriff erfolgreich, übernimm 1 Gebäude des Verteidigers und verzichte auf seine Handkarte.";
         }
         override public void Action()
         {

@@ -9,9 +9,9 @@ namespace GameServer.App_Code.Karten
     {
         public PRKampagneKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-            kartenname = "PRKampagne";
+            titel = "PRKampagne";
             kartenphase = "Spiele beim Geld ausgeben.";
-            kartentext = "Du erhälst 1 Miliz gratis.";
+            text = "Du erhälst 1 Miliz gratis.";
         }
         override public void Action()
         {

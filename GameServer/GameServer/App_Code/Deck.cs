@@ -11,13 +11,13 @@ namespace GameServer.App_Code {
         List<Karte> ablage;
 
         /// <summary>
-        /// 45 Karten von ID 0 bis ID 44
-        /// ID 0 ist Spion
-        /// ID 1 ist Einbrecher
-        /// ID 2 bis 13 sind KAMPFPHASE KARTEN
-        /// ID 14 ist KEINE AUSWIRKUNGEN
-        /// ID 15,16 BONUSPUNKTE
-        /// ID 17 - 44 sind GELDPHASE KARTEN
+        /// 45 Karten von id 0 bis id 44
+        /// id 0 ist Spion
+        /// id 1 ist Einbrecher
+        /// id 2 bis 13 sind KAMPFPHASE KARTEN
+        /// id 14 ist KEINE AUSWIRKUNGEN
+        /// id 15,16 BONUSPUNKTE
+        /// id 17 - 44 sind GELDPHASE KARTEN
         /// </summary>
         public Deck() {
             //ToDo Adde anstatt der 45 Kartenobjekte, die exakten Objekttypen dem stapel hinzufügen

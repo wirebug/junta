@@ -9,9 +9,9 @@ namespace GameServer.App_Code.Karten
     {
         public NeuwahlenKarte(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-            kartenname = "Neuwahlen";
+            titel = "Neuwahlen";
             kartenphase = "Diese Karte ist nicht Ausspielbar.";
-            kartentext = "Wahlen...was für ein Altmodischer Quatsch.";
+            text = "Wahlen...was für ein Altmodischer Quatsch.";
         }
         override public void Action()
         {
