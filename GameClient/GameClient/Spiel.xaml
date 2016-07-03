@@ -24,7 +24,7 @@
                 <DataGridTextColumn Header="Beschreibung" Binding="{Binding text}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="versprechenGrid" HorizontalAlignment="Left" Height="169" Margin="1013,37,0,0" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="versprechenGrid" HorizontalAlignment="Left" Height="169" Margin="1013,37,0,0" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding title}" MinWidth="100"/>
                 <DataGridTextColumn Header="Beschreibung" Binding="{Binding text}" Width="*"/>

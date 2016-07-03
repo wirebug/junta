@@ -9,5 +9,12 @@ namespace GameClient.Referenzen {
         public string titel { get; set; }
         public string text { get; set; }
         public int id { get; set; }
+
+        public FakeKarte() { }
+        public FakeKarte(string titel, string text, int id) {
+            this.titel = titel;
+            this.text = text;
+            this.id = id;
+        }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GameClient.Referenzen;
 
 namespace GameClient {
     /// <summary>
@@ -19,18 +20,33 @@ namespace GameClient {
     /// </summary>
     public partial class KampfWählenWindow : Window {
 
-        private bool sp1 =true;
-        private bool sp2 = true;
+        private bool sp1 = false;
+        private bool sp2 = false;
         private bool sp3 = false;
-        private bool sp4 = true;
-        private bool sp5 = true;
+        private bool sp4 = false;
+        private bool sp5 = false;
 
         public int[] würfel;
-        public KampfWählenWindow(int milizen) {
+        public KampfWählenWindow(int milizen, Spiel spiel) {
             InitializeComponent();
             List<ValueItem> valueList = new List<ValueItem>();
             ValueItem temp;
             würfel = new int[milizen];
+            for(int i = 0; i <= spiel.mitspieler.Count; i++) {
+                FakeSpieler check;
+                if(i == 0) {
+                    check = spiel.selbst;
+                } else {
+                    check = spiel.mitspieler[i];
+                }
+                switch (check.würfelzahl) {
+                    case 1: sp1 = true;break;
+                    case 2: sp2 = true;break;
+                    case 3: sp3 = true;break;
+                    case 4: sp4 = true;break;
+                    case 5: sp5 = true;break;             
+                }
+            }
             for(int i = 0; i < milizen; i++) {
                 temp = new ValueItem(sp1, sp2, sp3, sp4, sp5, i);
                 valueList.Add(temp);

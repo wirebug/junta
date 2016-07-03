@@ -14,6 +14,7 @@
         <Button x:Name="spielerHinzu" Content="SpielerHinzu" HorizontalAlignment="Left" Height="20" Margin="28,141,0,0" VerticalAlignment="Top" Width="103" Click="spielerHinzu_Click"/>
         <Button x:Name="messageButton" Content="Nachricht senden" HorizontalAlignment="Left" Margin="40,182,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="KampfWählen" Content="Kampf wählen" HorizontalAlignment="Left" Height="18" Margin="40,213,0,0" VerticalAlignment="Top" Width="75" Click="KampfWählen_Click"/>
+        <Button x:Name="versprechenWählen" Content="Versprechen Wählen" HorizontalAlignment="Left" Height="23" Margin="40,236,0,0" VerticalAlignment="Top" Width="75" Click="versprechenWählen_Click"/>
 
     </Grid>
 </Window>
