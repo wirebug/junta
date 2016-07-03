@@ -33,11 +33,17 @@ namespace GameServer.App_Code {
         {
             sv.VersprechungMachen(versprechung);
         }
-        /// <summary>
-        /// KampfWählen ist gleich Flotte festlegen wer wen angreift
-        /// </summary>
-        /// <param name="spieler">Spieler ist der Spieler welcher an der reihe ist</param>
-        /// <param name="flottenAnzahl">Anzahl der Milizen die der Spieler besitzt</param>
+
+        public void VersprechenHinzu(int ident, int id, string titel, string text) {
+            Clients.All.AddVerspprechung(ident, id, titel, text);
+        }
+
+        public void VersprechenEntfernen(Spieler spieler) {
+            Clients.All.RemoveVersprechen(spieler.ID);
+        }
+        public void AlleVersprechenEnfernen() {
+            Clients.All.RemoveAllVersprechen();
+        }
         public void FlottenAuswahl(Spieler spieler,int flottenAnzahl)
         {
             Clients.All.KampfWählen(spieler.ID,flottenAnzahl);
@@ -46,17 +52,17 @@ namespace GameServer.App_Code {
         {
             sv.FlottenBefehligen(idSpieler, wrfl);
         }
-        public void KarteIDEntfernen(Spieler spieler)
+        public void KarteIDEntfernen(Spieler spieler, Karte karte)
         {
 
         }
-        public void ZeigeNachticht(Spieler spieler, string nachricht)
+        public void ZeigeNachricht(Spieler spieler, string nachricht)
         {
 
         }
-        public void SetzeImperator(Spieler spieler)
+        public void SetzeImperator(Spieler spieler, Spieler alt)
         {
-
+            Clients.All.SetImperator(spieler.ID, alt.ID);
         }
         public void SpieleSpion(Spieler spieler)
         {
@@ -72,11 +78,11 @@ namespace GameServer.App_Code {
         }
         public void EinbrecherAntwort(bool b)
         {
-            sv.verarbeiteEinbrecherAntwort(b,-1);
+            sv.verarbeiteEinbrecherAntwort(b,0,0);
         }
-        public void EinbrecherAntwort(bool b,int idSpieler)
+        public void EinbrecherAntwort(bool b,int idSpielerWeg, int idSpielerHinzu)
         {
-            sv.verarbeiteEinbrecherAntwort(b,idSpieler);
+            sv.verarbeiteEinbrecherAntwort(b,idSpielerWeg, idSpielerHinzu);
         }
         public void SpieleVorkampfkarte(Spieler spieler)
         {
@@ -96,9 +102,9 @@ namespace GameServer.App_Code {
         }
         public void Kaufen(Spieler spieler)
         {
-
+            Clients.All.Kaufen(spieler.ID, spieler.Credits);
         }
-        public void KaufBearbeiten(Spieler spieler,int i)
+        public void KaufenAntwort(Spieler spieler,int i)
         {
 
         }

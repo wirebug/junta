@@ -64,18 +64,6 @@ namespace GameClient {
             }
         }
 
-        public void UpdatePräsident(int ident, bool präs) {
-            if (IsPlayer(ident)) {
-                spiel.selbst.präsident = präs;
-            } else {
-                foreach(FakeSpieler s in spiel.mitspieler) {
-                    if(s.würfelzahl == ident) {
-                        s.präsident = präs;
-                        return;
-                    }
-                }
-            }
-        }
         /// <summary>
         /// Nimmt Antwort des Imperators entgegen und schickt die Infos an JuntaHub zu VersprechenVerarbeiten
         /// </summary>
@@ -88,27 +76,9 @@ namespace GameClient {
                 FKarteListe = JsonConvert.DeserializeObject<List<FakeKarte>>(json);
 
                 VersprechenWählenWindow vww = new VersprechenWählenWindow(FKarteListe, spiel);
-
-
-
-
-                //json ist die fakekarte
-                //PArse den json
-                //fakekarte in liste einfügen
-                //liste als parameter an das fenster übergeben
-
-                //TODO
-                // Methode liefert 
-                // dict
-                // 
-                //TODO 
-                /*neues Fenster mit Liste von allen Karten die per JSON
-                 * Objekt übertragen wurden. Per Radio Button für alle den
-                 * entsprechenden Spieler auswählen und Ergebnis an Server senden.
-                 * TODO Custom List Objekte hearusfinden*/
-                //TODO
-                Dictionary<int, int> versprechung = new Dictionary<int, int>();
-                proxy.Invoke("VersprechenVerarbeiten",versprechung);
+                if (vww.ShowDialog() == false) {
+                    proxy.Invoke("VersprechenVerarbeiten", vww.versprechen);
+                }               
             }
             
         }
@@ -159,21 +129,24 @@ namespace GameClient {
                 }
             }
         }
-            /// <summary>
-            /// FlottenAuswahl
-            /// </summary>
-            /// <param name="ident">idSpieler</param>
+        
+        public void RemoveVersprechen(int ident) {
+            if (IsPlayer(ident)) {
+                spiel.versprechen.Clear();
+            }
+        }
+
+        public void RemoveAllVersprechen() {
+            spiel.versprechen.Clear();
+        }
+
         public void KampfWählen(int ident,int flottenAnzahl) {
             if (IsPlayer(ident)) {
-                int[] würfel = new int[flottenAnzahl];
-
-                /*Fenster öffnen und entsprechend Anzahl Milizen in
-                 * Liste einfügen und mit RadioButtons entsprechend
-                 * Abfragen welches Ziel gewählt wurde*/
-
-                /*Invoke testen ob Methode weiterläuft oder auf Abarbeitung wartet*/
-
-                proxy.Invoke("FlottenVerarbeiten", ident, würfel);
+                KampfWählenWindow kww = new KampfWählenWindow(flottenAnzahl, spiel);
+                if(kww.ShowDialog() == false) {
+                    proxy.Invoke("FlottenVerarbeiten", ident, kww.würfel);
+                }
+                
             }
         }
         
@@ -198,10 +171,10 @@ namespace GameClient {
                 if(result == MessageBoxResult.Yes) {
                     //Fenster mit spieleranzahl an radiobuttons
                     //EinbrecherWindow
-                    EinbrecherWindow ew = new EinbrecherWindow();
+                    EinbrecherWindow ew = new EinbrecherWindow(spiel);
                     if (ew.ShowDialog() == false)
                     {
-                        proxy.Invoke("EinbrecherAntwort", true, ew.zahl);
+                        proxy.Invoke("EinbrecherAntwort", true, ew.erg);
                     }
                     //Methode im EW auswahl eines spielers der beklaut werden soll.
 
@@ -216,6 +189,31 @@ namespace GameClient {
             if (IsPlayer(ident)) {
                 string caption = "Junta";
                 MessageBox.Show(message, caption, MessageBoxButton.OK);
+            }
+        }
+
+        public void SetImperator(int ident, int alt) {
+            if (IsPlayer(ident)) {
+                spiel.selbst.präsident = true;
+            } else if (IsPlayer(alt)) {
+                spiel.selbst.präsident = false;
+            } else {
+                foreach(FakeSpieler y in spiel.mitspieler) {
+                    if(y.würfelzahl == ident) {
+                        y.präsident = true;
+                    } else if(y.würfelzahl == alt) {
+                        y.präsident = false;
+                    }
+                }
+            }
+        }
+
+        public void Kaufen(int ident, int money) {
+            if (IsPlayer(ident)) {
+                KaufenFenster kw = new KaufenFenster(money);
+                if(kw.ShowDialog() == false) {
+                    proxy.Invoke("KaufenAntwort", ident, kw.option);
+                }
             }
         }
 

@@ -61,7 +61,7 @@ namespace GameServer.App_Code
         public Karte RandomHandkarte()
         {
                 Random rng = new Random();
-                int anzahl = GetHandKartenZahl();
+                int anzahl = GetHandkartenAnzahl();
                 int index = rng.Next(anzahl);
                 Karte ret = handKarten[index];
                 RemoveHandkarte(handKarten[index]);
@@ -102,15 +102,6 @@ namespace GameServer.App_Code
         /// </summary>
         /// <returns></returns>
         public int GetHandkartenAnzahl()
-        {
-            return handKarten.Count();
-        }
-
-        /// <summary>
-        /// Gibt die Anzahl der auf der Hand befindlichen Karten zurück
-        /// </summary>
-        /// <returns>Anzahl der Handkarten</returns>
-        public int GetHandKartenZahl()
         {
             return handKarten.Count();
         }

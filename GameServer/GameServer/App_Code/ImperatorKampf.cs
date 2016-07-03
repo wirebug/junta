@@ -8,8 +8,20 @@ namespace GameServer.App_Code {
 
         public new Dictionary<Spieler, int> verteidigungswürfel { get; set; }
 
+        public void addVerteidigung(Spieler spieler) {
+            try {
+                this.verteidigungswürfel.Add(spieler, 1);
+            } catch(ArgumentException e) {
+                verteidigungswürfel[spieler]++;
+            }
+        }
+
         public void addVerteidigung(Spieler spieler, int verteidigungswürfel) {
-            this.verteidigungswürfel.Add(spieler, verteidigungswürfel);
+            try {
+                this.verteidigungswürfel.Add(spieler, verteidigungswürfel);
+            } catch(ArgumentException e) {
+                this.verteidigungswürfel[spieler] += verteidigungswürfel;
+            }
         }
 
         private bool Würfeln() {

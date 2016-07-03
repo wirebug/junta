@@ -14,16 +14,28 @@ namespace GameServer.App_Code {
             angriffswürfel = new Dictionary<Spieler, int>();
             verteidigungswürfel += zuordnung.planet.gebäude;
         }
+
+        public void addVerteidigung() {
+            this.verteidigungswürfel++;
+        }
         public void addVerteidigung(int verteidigungswürfel) {
             this.verteidigungswürfel = verteidigungswürfel;
         }
 
-        public void addAngriff(Spieler spieler, int angriffswürfel) {
-            this.angriffswürfel.Add(spieler, angriffswürfel);
+        public void addAngriff(Spieler spieler) {
+            try {
+                this.angriffswürfel.Add(spieler, 1);
+            } catch (ArgumentException e) {
+                addAngriffWert(spieler, 1);
+            }
         }
 
         public void addAngriffWert(Spieler spieler, int value) {
-            this.angriffswürfel[spieler] += value;
+            try {
+                this.angriffswürfel.Add(spieler, value);
+            } catch(ArgumentException e) {
+                this.angriffswürfel[spieler] += value;
+            }
         }
 
         private bool Würfeln() { 

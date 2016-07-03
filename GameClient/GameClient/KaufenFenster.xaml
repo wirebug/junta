@@ -1,0 +1,21 @@
+﻿<Window x:Class="GameClient.KaufenFenster"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameClient"
+        mc:Ignorable="d"
+        Title="KaufenFenster" Height="300" Width="300">
+    <Grid>
+        <Label x:Name="moneyLabel" Content="0" HorizontalAlignment="Left" Height="25" Margin="16,15,0,0" VerticalAlignment="Top" Width="133"/>
+        <RadioButton x:Name="rb0" GroupName="kauf" Content="0" Checked="radioButton_Checked" Margin="25,71,-25,-71"/>
+        <RadioButton x:Name="rb1" GroupName="kauf" Content="1" Checked="radioButton_Checked" Margin="25,87,-25,-87"/>
+        <RadioButton x:Name="rb2" GroupName="kauf" Content="2" Checked="radioButton_Checked" Margin="25,106,-25,-106"/>
+        <RadioButton x:Name="rb3" GroupName="kauf" Content="3" Checked="radioButton_Checked" Margin="25,124,-25,-124"/>
+        <Label x:Name="label" Content="Karte kaufen 1000" HorizontalAlignment="Left" Height="21" Margin="66,83,0,0" VerticalAlignment="Top" Width="109" FontSize="10"/>
+        <Label x:Name="label_Copy" Content="Flotte kaufen 2000" HorizontalAlignment="Left" Height="21" Margin="66,102,0,0" VerticalAlignment="Top" Width="109" FontSize="10"/>
+        <Label x:Name="label_Copy1" Content="Gebäude kaufen 4000" HorizontalAlignment="Left" Height="21" Margin="66,120,0,0" VerticalAlignment="Top" Width="109" FontSize="10"/>
+        <Button x:Name="button" Content="Ok&#xD;&#xA;" HorizontalAlignment="Left" Height="23" Margin="25,216,0,0" VerticalAlignment="Top" Width="52" Click="button_Click"/>
+        <Label x:Name="label_Copy2" Content="nichts kaufen" HorizontalAlignment="Left" Height="21" Margin="66,67,0,0" VerticalAlignment="Top" Width="109" FontSize="10"/>
+    </Grid>
+</Window>
