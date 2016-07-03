@@ -18,7 +18,7 @@ namespace GameClient {
     /// </summary>
     public partial class KaufenFenster : Window {
         public int option =-1;
-        public KaufenFenster(int money) {
+        public KaufenFenster(int money, bool second) {
             InitializeComponent();
             moneyLabel.Content = money;
             if(money < 4000) {
@@ -29,6 +29,9 @@ namespace GameClient {
             } else if(money < 1000) {
                 rb3.IsHitTestVisible = false;
                 rb2.IsHitTestVisible = false;
+                rb1.IsHitTestVisible = false;
+            }
+            if (second) {
                 rb1.IsHitTestVisible = false;
             }
         }

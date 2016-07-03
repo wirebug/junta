@@ -208,9 +208,9 @@ namespace GameClient {
             }
         }
 
-        public void Kaufen(int ident, int money) {
+        public void Kaufen(int ident, int money, bool second) {
             if (IsPlayer(ident)) {
-                KaufenFenster kw = new KaufenFenster(money);
+                KaufenFenster kw = new KaufenFenster(money, second);
                 if(kw.ShowDialog() == false) {
                     proxy.Invoke("KaufenAntwort", ident, kw.option);
                 }

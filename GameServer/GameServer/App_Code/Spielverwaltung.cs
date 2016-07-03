@@ -119,6 +119,9 @@ namespace GameServer.App_Code
             if (b)
             {
                 KarteKlauen(GetSpieleraById(idSpielerHinzu), GetSpieleraById(idSpielerWeg));
+                Karte k = GetSpieleraById(idSpielerHinzu).hand.getKarteById(1);
+                GetSpieleraById(idSpielerHinzu).hand.RemoveHandkarte(k);
+                _hub.KarteIDEntfernen(GetSpieleraById(idSpielerHinzu), k);
             }
         }
         /// <summary>
@@ -203,38 +206,37 @@ namespace GameServer.App_Code
             neuerImperator(nImperator);
         }
 
+        public void Kaufen() {
+            foreach(Spieler v in spieler) {
+                _hub.Kaufen(v);
+            }
+        }
 
-        public void GeldAusgeben(Spieler sp, int kauf)
+        private void KaufenSpieler(Spieler spieler, bool second) {
+            _hub.Kaufen2(spieler, second);
+        }
+        public void GeldAusgeben(int idSpieler, int kauf)
         {
-            switch (kauf)
-            {
-                case 1://Handkarte hinzufügen
-                    if (sp.Credits >= 1000)
-                    {
-                        sp.hand.AddHandkarte(deck.Ziehen());
-                        sp.Credits -= 1000;
-                    }
-                    break;
-                case 2://Flotte hinzufügen
-                    if (sp.Credits >= 2000)
-                    {
-                        if (sp.flotten < 4000)
-                        {
-                            sp.flotten++;
-                            sp.Credits -= 2000;
-                        }
-                    }
-                    break;
-                case 3://Gebäude hinzufügen
-                    if (sp.Credits >= 4000)
-                    {
-                        if (sp.planet.gebäude < 5000)
-                            sp.planet.gebäude++;
-                        sp.Credits -= 4000;
-                    }
-                    break;
-                default:
-                    break;
+            Spieler temp = GetSpieleraById(idSpieler);
+            switch (kauf) {
+                case 1: temp.GeldZuSchreiben += 1000;
+                        Karte k = deck.Ziehen();
+                        temp.hand.AddHandkarte(k);
+                        _hub.KarteIdHinzu(temp, k);
+                        break;
+                case 2: temp.GeldZuSchreiben += 2000;
+                        temp.flotten++;
+                        break;
+                case 3: temp.GeldZuSchreiben += 3000;
+                        temp.planet.addGebäude();
+                        break;
+            }
+            if(kauf > 1 && temp.Credits - temp.GeldZuSchreiben >= 1000) {
+                KaufenSpieler(temp, false);
+            } else if(kauf > 0 && temp.Credits - temp.GeldZuSchreiben >= 2000) {
+                KaufenSpieler(temp, true);
+            } else {
+                temp.schreibeAusgaben();
             }
         }
         /// <summary>

@@ -84,6 +84,9 @@ namespace GameServer.App_Code
 
         public void RemoveHandkarte(Karte item)
         {
+            if (item.id >= 19) {
+                spieler.decreaseGuthaben((item as CreditsKarte).Credits);
+            }
             checkFlags();
             handKarten.Remove(item);
         }
@@ -93,9 +96,11 @@ namespace GameServer.App_Code
         /// <param name="item">Karte die auf die Hand kommt</param>
         public void AddHandkarte(Karte item)
         {
+            if(item.id >= 19) {
+                spieler.increaseGuthaben((item as CreditsKarte).Credits);
+            }
             checkFlags();
             handKarten.Add(item);
-            spieler.sv._hub.KarteIdHinzu(spieler, item);
         }
         /// <summary>
         /// Gibt Anzahl der Handkarten zurück

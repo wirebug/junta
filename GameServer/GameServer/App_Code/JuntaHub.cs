@@ -102,11 +102,14 @@ namespace GameServer.App_Code {
         }
         public void Kaufen(Spieler spieler)
         {
-            Clients.All.Kaufen(spieler.ID, spieler.Credits);
+            Clients.All.Kaufen(spieler.ID, spieler.Credits, false);
         }
-        public void KaufenAntwort(Spieler spieler,int i)
+        public void Kaufen2(Spieler spieler, bool second) {
+            Clients.All.Kaufen(spieler.ID, (spieler.Credits - spieler.GeldZuSchreiben), second);
+        }
+        public void KaufenAntwort(int id,int i)
         {
-
+            sv.GeldAusgeben(id, i);
         }
     }
 }

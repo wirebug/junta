@@ -24,5 +24,10 @@ namespace GameServer.App_Code {
             würfelzahl = counter++;
             gebäude = 1;
         }
+
+        public void addGebäude() {
+            gebäude++;
+            spieler.punkte++;
+        }
     }
 }
