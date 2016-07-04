@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GameServer.App_Code.Karten;
+using GameServer.Code.Karten;
 
-namespace GameServer.App_Code {
+namespace GameServer.Code {
     public class Kampf {
         public Dictionary<Spieler, int> angriffswürfel { get; set; } //Würfel pro Spieler
         public int verteidigungswürfel { get; set; } //Würfel des Verteidigungsspieler
@@ -25,7 +25,7 @@ namespace GameServer.App_Code {
         public void addAngriff(Spieler spieler) {
             try {
                 this.angriffswürfel.Add(spieler, 1);
-            } catch (ArgumentException e) {
+            } catch (ArgumentException) {
                 addAngriffWert(spieler, 1);
             }
         }
@@ -33,7 +33,7 @@ namespace GameServer.App_Code {
         public void addAngriffWert(Spieler spieler, int value) {
             try {
                 this.angriffswürfel.Add(spieler, value);
-            } catch(ArgumentException e) {
+            } catch(ArgumentException) {
                 this.angriffswürfel[spieler] += value;
             }
         }

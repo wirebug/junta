@@ -30,7 +30,7 @@ namespace GameClient {
 
             ValueItem temp;
 
-            for (int i = 0; i <= spiel.mitspieler.Count; i++) {
+            for (int i = 0; i < spiel.mitspieler.Count; i++) {
                 FakeSpieler check;
                 if (i == 0) {
                     check = spiel.selbst;

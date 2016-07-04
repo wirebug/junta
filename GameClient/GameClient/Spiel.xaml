@@ -10,7 +10,7 @@
 
     <Grid>
         <Button x:Name="debugButton" Content="debug" HorizontalAlignment="Left" Margin="10,689,0,0" VerticalAlignment="Top" Width="75" Click="debugButton_Click"/>
-        <Ellipse x:Name="gebäude1" Fill="Lime" HorizontalAlignment="Left" Height="100" Margin="744,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Ellipse x:Name="gebäude1" Fill="LimeGreen" HorizontalAlignment="Left" Height="100" Margin="744,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Ellipse x:Name="gebäude2" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="655,239,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Ellipse x:Name="gebäude3" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="581,474,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Ellipse x:Name="gebäude6" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="883,214,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
@@ -31,9 +31,12 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="würfelzahlLabel" Content="Label" HorizontalAlignment="Left" Height="66" Margin="639,28,0,0" VerticalAlignment="Top" Width="82"/>
-        <DataGrid x:Name="mitspielerGrid" HorizontalAlignment="Left" Height="120" Margin="1319,338,0,0" VerticalAlignment="Top" Width="100" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="mitspielerGrid" HorizontalAlignment="Left" Height="120" Margin="1073,335,0,0" VerticalAlignment="Top" Width="300" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Zahl" Binding="{Binding würfelzahl}" MinWidth="40"/>
+                <DataGridTextColumn Header="Imperator" Binding="{Binding präs}" MinWidth="50"/>
+                <DataGridTextColumn Header="Flotten" Binding="{Binding milizen}" MinWidth="50"/>
+                <DataGridTextColumn Header="Karten" Binding="{Binding anzKarten}" MinWidth="50"/>
                 <DataGridTextColumn Header="Punkte" Binding="{Binding punktzahl}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

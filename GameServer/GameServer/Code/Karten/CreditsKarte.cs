@@ -1,11 +1,10 @@
-﻿using GameServer.App_Code;
+﻿using GameServer.Code;
 using System;
-using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GameServer.App_Code.Karten
+namespace GameServer.Code.Karten
 {
     public class CreditsKarte : Karte
     {

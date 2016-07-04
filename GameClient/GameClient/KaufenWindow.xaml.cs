@@ -14,19 +14,19 @@ using System.Windows.Shapes;
 
 namespace GameClient {
     /// <summary>
-    /// Interaktionslogik für KaufenFenster.xaml
+    /// Interaktionslogik für KaufenWindow.xaml
     /// </summary>
-    public partial class KaufenFenster : Window {
-        public int option =-1;
-        public KaufenFenster(int money, bool second) {
+    public partial class KaufenWindow : Window {
+        public int option = -1;
+        public KaufenWindow(int money, bool second) {
             InitializeComponent();
             moneyLabel.Content = money;
-            if(money < 4000) {
+            if (money < 4000) {
                 rb3.IsHitTestVisible = false;
-            } else if(money < 2000) {
+            } else if (money < 2000) {
                 rb3.IsHitTestVisible = false;
                 rb2.IsHitTestVisible = false;
-            } else if(money < 1000) {
+            } else if (money < 1000) {
                 rb3.IsHitTestVisible = false;
                 rb2.IsHitTestVisible = false;
                 rb1.IsHitTestVisible = false;
@@ -37,7 +37,7 @@ namespace GameClient {
         }
 
         private void button_Click(object sender, RoutedEventArgs e) {
-            if(option > -1) {
+            if (option > -1) {
                 this.Hide();
             }
         }

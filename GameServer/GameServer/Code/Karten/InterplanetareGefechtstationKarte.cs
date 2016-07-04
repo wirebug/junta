@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GameServer.App_Code.Karten
+namespace GameServer.Code.Karten
 {
     /*
      * SPIELE VOR EINEM KAMPF 
@@ -19,7 +19,7 @@ namespace GameServer.App_Code.Karten
         }
         override public void Action()
         {
-            hand.spieler.kampf.AddAngriffWert(hand.spieler,3);
+            hand.spieler.kampf.addAngriffWert(hand.spieler,3);
             //ACHTUNG KARTE WIRD VOR DEM KAMPF GESPIELT ABER ERST BEIM WÜRFELN VERRECHNET !
 
             //spiele vor einem Kampf

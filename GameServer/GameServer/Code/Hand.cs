@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GameServer.App_Code.Karten;
+using GameServer.Code.Karten;
 
-namespace GameServer.App_Code
-{
+namespace GameServer.Code {
     public class Hand
     {
         public bool hatSpion { get; set; }
@@ -19,9 +18,8 @@ namespace GameServer.App_Code
         /// </summary>
         public List<Karte> handKarten { get; set; }
         
-        public Hand(Spieler spieler)
+        public Hand()
         {
-            this.spieler = spieler;
             handKarten = new List<Karte>();
             hatEinbrecher = false;
             hatKampfkarte = false;

@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GameServer.App_Code.Karten;
+using GameServer.Code.Karten;
 
-namespace GameServer.App_Code
+namespace GameServer.Code
 {
     public class Spieler
     {
         public static int spielerCount = 0;
         public int ID { get; set; }
         public int Kampfmodifikator { get; set; }//Kampkarte InterplanetareGefechtsstations - bonus
-        public List<Karte> versprechungen;//Versprechungen sind noch nicht in der Hand und werden als Karte(?) übergeben
+        public List<Karte> versprechungen;
         public int flotten { get; set; }
         public int punkte { get; set; } = 1;
         public bool imperator { get; set; }
@@ -23,14 +23,22 @@ namespace GameServer.App_Code
         public int GeldZuSchreiben { get; set; } =0;
 
         //Konstruktor NICHT FERTIG!!!
-        public Spieler(int flotten, int punkte, bool imperator, Planet planet, Hand hand)
+        public Spieler(int flotten, int punkte, bool imperator, Planet planet, Hand hand, Spielverwaltung sv)
         {
             Kampfmodifikator = 0;
+            this.flotten = flotten;
+            this.punkte = punkte;
+            this.imperator = imperator;
+            this.planet = planet;
+            this.hand = hand;
+            this.sv = sv;
+            ID = ++spielerCount;
         }
         public Spieler()
         {
-            spielerCount++;
-            ID = spielerCount;
+            ID = ++spielerCount;
+            versprechungen = new List<Karte>();
+            Credits = 0;
         }
 
         /// <summary>
@@ -72,6 +80,7 @@ namespace GameServer.App_Code
                 foreach(Karte v in remove) {
                     hand.RemoveHandkarte(v);
                     sv._hub.KarteIDEntfernen(this, v);
+                    sv.deck.Ablegen(v);
                 }
                 GeldZuSchreiben = 0;
             }

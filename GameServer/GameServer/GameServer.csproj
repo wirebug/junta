@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
@@ -112,32 +113,39 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\Deck.cs" />
-    <Content Include="App_Code\Hand.cs" />
-    <Content Include="App_Code\JuntaHub.cs" />
-    <Content Include="App_Code\Kampf.cs" />
-    <Content Include="App_Code\Karten\AblenkungsmanoeverKarte.cs" />
-    <Content Include="App_Code\Karten\AnexionKarte.cs" />
-    <Content Include="App_Code\Karten\ArtefaktKarte.cs" />
-    <Content Include="App_Code\Karten\AttentatKarte.cs" />
-    <Content Include="App_Code\Karten\BestechungKarte.cs" />
-    <Content Include="App_Code\Karten\CreditsKarte.cs" />
-    <Content Include="App_Code\Karten\EinbrecherKarte.cs" />
-    <Content Include="App_Code\Karten\InterplanetareGefechtstationKarte.cs" />
-    <Content Include="App_Code\Karten\Karte.cs" />
-    <Content Include="App_Code\Karten\NeuwahlenKarte.cs" />
-    <Content Include="App_Code\Karten\PRKampagneKarte.cs" />
-    <Content Include="App_Code\Karten\PropagandaKampagneKarte.cs" />
-    <Content Include="App_Code\Karten\SpendeKarte.cs" />
-    <Content Include="App_Code\Karten\SpionKarte.cs" />
-    <Content Include="App_Code\Karten\UeberraschungsangriffKarte.cs" />
-    <Content Include="App_Code\Planet.cs" />
-    <Content Include="App_Code\Spieler.cs" />
-    <Content Include="App_Code\Spielverwaltung.cs" />
-    <Content Include="App_Code\ImperatorKampf.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Deck.cs" />
+    <Compile Include="Code\Hand.cs" />
+    <Compile Include="Code\JuntaHub.cs" />
+    <Compile Include="Code\Kampf.cs" />
+    <Compile Include="Code\Karten\AblenkungsmanoeverKarte.cs" />
+    <Compile Include="Code\Karten\AnexionKarte.cs" />
+    <Compile Include="Code\Karten\ArtefaktKarte.cs" />
+    <Compile Include="Code\Karten\AttentatKarte.cs" />
+    <Compile Include="Code\Karten\BestechungKarte.cs" />
+    <Compile Include="Code\Karten\CreditsKarte.cs" />
+    <Compile Include="Code\Karten\EinbrecherKarte.cs" />
+    <Compile Include="Code\Karten\InterplanetareGefechtstationKarte.cs" />
+    <Compile Include="Code\Karten\Karte.cs" />
+    <Compile Include="Code\Karten\NeuwahlenKarte.cs" />
+    <Compile Include="Code\Karten\PRKampagneKarte.cs" />
+    <Compile Include="Code\Karten\PropagandaKampagneKarte.cs" />
+    <Compile Include="Code\Karten\SpendeKarte.cs" />
+    <Compile Include="Code\Karten\SpionKarte.cs" />
+    <Compile Include="Code\Karten\UeberraschungsangriffKarte.cs" />
+    <Compile Include="Code\Planet.cs" />
+    <Compile Include="Code\Spieler.cs" />
+    <Compile Include="Code\Spielverwaltung.cs" />
+    <Compile Include="Code\ImperatorKampf.cs" />
+    <Compile Include="Code\GameLoop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

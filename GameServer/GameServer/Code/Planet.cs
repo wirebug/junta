@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GameServer.App_Code {
+namespace GameServer.Code {
     public class Planet {
 
         /// <summary>
@@ -18,9 +18,8 @@ namespace GameServer.App_Code {
         public static int counter = 1;
         public Spieler spieler { get; set; }
 
-        public Planet(Spieler spieler)
+        public Planet()
         {
-            this.spieler = spieler;
             würfelzahl = counter++;
             gebäude = 1;
         }

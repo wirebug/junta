@@ -25,39 +25,61 @@ namespace GameClient {
         public HubProxy proxy;
         public ObservableCollection<FakeKarte> karten = new ObservableCollection<FakeKarte>();
         public ObservableCollection<FakeKarte> versprechen = new ObservableCollection<FakeKarte>();
-        private bool istPräsident = false;
-
         private int milizen;
         public int Milizen {
             get { return milizen; }
             set { milizen = value;
-                milizenLabel.Content = milizen;
+                Dispatcher.BeginInvoke(new Action(() => milizenLabel.Content = milizen));           
             }
         }
 
         public FakeSpieler selbst;
         public ObservableCollection<FakeSpieler> mitspieler = new ObservableCollection<FakeSpieler>();
+        private List<Ellipse> gebäude = new List<Ellipse>();
+        private int gebäudeCount = 1;
 
         public Spiel() {          
             InitializeComponent();
+            gebäude.Add(gebäude1);
+            gebäude.Add(gebäude2);
+            gebäude.Add(gebäude3);
+            gebäude.Add(gebäude4);
+            gebäude.Add(gebäude5);
+            gebäude.Add(gebäude6);
             handGrid.DataContext = karten;
             versprechenGrid.DataContext = versprechen;
             mitspielerGrid.DataContext = mitspieler;
-            //this.Loaded += (s,e) => { proxy = new HubProxy(this); };      
+            this.Loaded += (s,e) => { proxy = new HubProxy(this); proxy.addSpieler(); };
+            
         }
 
         public void IstPräsident() {
-            if (selbst.präsident) {
-                    präsidentLabel.Content = "Du bist Präsident";
-                } else {
-                    präsidentLabel.Content = "Du bist nicht Präsident";
-                }
+            if (selbst.präsident) {               
+                    Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist Präsident"));
+            } else {
+                Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist nicht Präsident"));
+            }
             
         }
 
         private void debugButton_Click(object sender, RoutedEventArgs e) {
             DebugWindow debug = new DebugWindow(this);
             debug.Show();
+        }
+
+        public void addGebäude() {
+            gebäude[gebäudeCount++].Fill = Brushes.LimeGreen;
+        }
+
+        public void removeGebäude() {
+            gebäude[gebäudeCount-- - 1].Fill = Brushes.Red;
+        }
+
+        public void initGUI() {
+            
+            Dispatcher.BeginInvoke(new Action(() => würfelzahlLabel.Content = selbst.würfelzahl));
+            IstPräsident();
+            Milizen = selbst.milizen;
         }
     }
 }

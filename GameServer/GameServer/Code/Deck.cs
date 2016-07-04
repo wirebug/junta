@@ -1,14 +1,14 @@
-﻿using GameServer.App_Code.Karten;
+﻿using GameServer.Code.Karten;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GameServer.App_Code {
+namespace GameServer.Code {
     public class Deck {
-        List<Karte> stapel;
-        List<Karte> ablage;
+        List<Karte> stapel = new List<Karte>();
+        List<Karte> ablage = new List<Karte>();
 
         /// <summary>
         /// 45 Karten von id 0 bis id 44
@@ -100,6 +100,10 @@ namespace GameServer.App_Code {
                 ablage.Remove(i);
             }
             Shuffle();
+        }
+
+        public void Ablegen(Karte karte) {
+            ablage.Add(karte);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GameServer.App_Code {
+namespace GameServer.Code {
     public class ImperatorKampf : Kampf {
 
         public new Dictionary<Spieler, int> verteidigungswürfel { get; set; }
@@ -11,7 +11,7 @@ namespace GameServer.App_Code {
         public void addVerteidigung(Spieler spieler) {
             try {
                 this.verteidigungswürfel.Add(spieler, 1);
-            } catch(ArgumentException e) {
+            } catch(ArgumentException) {
                 verteidigungswürfel[spieler]++;
             }
         }
@@ -19,7 +19,7 @@ namespace GameServer.App_Code {
         public void addVerteidigung(Spieler spieler, int verteidigungswürfel) {
             try {
                 this.verteidigungswürfel.Add(spieler, verteidigungswürfel);
-            } catch(ArgumentException e) {
+            } catch(ArgumentException) {
                 this.verteidigungswürfel[spieler] += verteidigungswürfel;
             }
         }

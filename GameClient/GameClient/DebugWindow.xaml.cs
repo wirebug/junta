@@ -25,16 +25,11 @@ namespace GameClient {
         }
 
         private void PräsidentÄndern_Click(object sender, RoutedEventArgs e) {
-            
+            spiel.proxy.addSpieler();
         }
 
         private void KarteHinzu_Click(object sender, RoutedEventArgs e) {
-            FakeKarte a = new FakeKarte();
-            Random b = new Random();
-            a.id = b.Next(99);
-            a.text = b.Next(342632543).ToString();
-            a.titel = b.Next(34423).ToString();
-            spiel.karten.Add(a);
+           
         }
 
         private void KarteWeg_Click(object sender, RoutedEventArgs e) {
@@ -42,7 +37,7 @@ namespace GameClient {
         }
 
         private void spielerHinzu_Click(object sender, RoutedEventArgs e) {
-            spiel.mitspieler.Add(new FakeSpieler(3, false));
+            spiel.mitspieler.Add(new FakeSpieler(3, 1, true, 3,5));
         }
 
         private void button_Click(object sender, RoutedEventArgs e) {
@@ -50,7 +45,8 @@ namespace GameClient {
         }
 
         private void KampfWählen_Click(object sender, RoutedEventArgs e) {
-            
+            spiel.mitspieler[0].punktzahl = 2;
+           spiel.mitspielerGrid.GetBindingExpression(DataGrid.ItemsSourceProperty).UpdateSource();
         }
 
         private void versprechenWählen_Click(object sender, RoutedEventArgs e) {
@@ -74,6 +70,10 @@ namespace GameClient {
             z.Add(h);
             VersprechenWählenWindow ac = new VersprechenWählenWindow(z, spiel);
             ac.Show();
+        }
+
+        private void startButton_Click(object sender, RoutedEventArgs e) {
+            spiel.proxy.Start();
         }
     }
 }

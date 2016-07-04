@@ -8,29 +8,42 @@ using System.Windows.Controls;
 using GameClient.Referenzen;
 using System.Windows;
 using Newtonsoft.Json;
+using System.IO;
+using System.Windows.Threading;
 
 namespace GameClient {
     public class HubProxy {
         IHubProxy proxy;
         Spiel spiel;
-
-        public HubProxy(Spiel v) {
-            spiel = v;
-            string url = @"http://localhost:58523/";
+        public HubProxy(Spiel spiel) {
+            this.spiel = spiel;
+            string url = @"http://localhost:3204/signalr/hubs";
             var connection = new HubConnection(url);
             proxy = connection.CreateHubProxy("JuntaHub");
 
-            proxy.On<int, bool>("SetSelf", (ident, präs) => SetSelf(ident, präs));
-
-            proxy.On<int, bool>("AddOtherPlayer", (ident, präs) => AddOtherPlayers(ident, präs));
-
-            proxy.On<int, int>("UpdatePunkteMitspieler", (ident, pktzl) => UpdatePunkteMitspieler(ident, pktzl));
-
-            proxy.On<int, bool>("UpdatePräsident", (ident, präs) => UpdatePräsident(ident, präs));
-
+            proxy.On<int, int, string, string>("AddKarte", (ident, id, titel, text) => AddKarte(ident, id, titel, text));
+            proxy.On<int, string>("VersprechenWählen", (idSpieler, json) => VersprechenWählen(idSpieler, json));
+            proxy.On<int, int, string, string>("AddVerspprechung", (ident, id, titel, text) => AddVersprechung(ident, id, titel, text));
+            proxy.On<int>("RemoveVersprechen", (idSpieler) => RemoveVersprechen(idSpieler));
+            proxy.On<int>("AlleVersprechenEnfernen", (id) => RemoveAllVersprechen());
+            proxy.On<int, int>("KampfWählen", (idSpieler, flotten) => KampfWählen(idSpieler, flotten));
+            proxy.On<int, int>("RemoveKarte", (idSpieler, id) => RemoveKarte(idSpieler, id));
+            proxy.On<int, int>("SetImperator", (neu, alt) => SetImperator(neu, alt));
+            proxy.On<int>("SpieleSpion", (idSpieler) => SpieleSpion(idSpieler));
+            proxy.On<int>("SpieleEinbrecher", (idSpieler) => SpieleEinbrecher(idSpieler));
+            proxy.On<int, int, bool>("Kaufen", (idSpieler, credits, second) => Kaufen(idSpieler, credits, second));
+            proxy.On<int>("AddGebäude", (idSpieler) => AddGebäude(idSpieler));
+            proxy.On<int>("RemoveGebäude", (idSpieler) => RemoveGebäude(idSpieler));
+            proxy.On<int>("addMiliz", (idSpieler) => addMiliz(idSpieler));
+            proxy.On<int>("removeMiliz", (idSpieler) => removeMiliz(idSpieler));
+            proxy.On<int, int, bool, int, int>("setSpieler", (idSpieler, punkte, imp, flotten, anzK) => setSpieler(idSpieler, punkte, imp, flotten, anzK));
+            proxy.On<int, bool>("AddOtherPlayer", (ident, imp) => AddOtherPlayers(ident, imp));
+            proxy.On<string>("message", (text) => message(text));          
             connection.Start().Wait();
         }
-
+        public void message(string ab) {
+            MessageBox.Show(ab, "Message", MessageBoxButton.OK);
+        }
         public bool IsPlayer(int ident) {
             if(spiel.selbst.würfelzahl == ident) {
                 return true;
@@ -39,19 +52,16 @@ namespace GameClient {
             }
         }
 
-        public void SetSelf(int ident, bool präs) {
-            if(spiel.selbst == null) {
-                spiel.selbst = new FakeSpieler(ident, präs);
-            }
-        }
-
         public void AddOtherPlayers(int ident, bool präs) {
-            foreach(FakeSpieler s in spiel.mitspieler) {
-                if(ident == s.würfelzahl) {
-                    return;
+            if (!IsPlayer(ident)) {
+                foreach (FakeSpieler s in spiel.mitspieler) {
+                    if (ident == s.würfelzahl) {
+                        return;
+                    }
                 }
+                
+                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.mitspieler.Add(new FakeSpieler(ident, präs))));
             }
-            spiel.mitspieler.Add(new FakeSpieler(ident, präs));
         }
 
         public void UpdatePunkteMitspieler(int ident, int pktzl) {
@@ -75,7 +85,10 @@ namespace GameClient {
                 List<FakeKarte> FKarteListe = new List<FakeKarte>();
                 FKarteListe = JsonConvert.DeserializeObject<List<FakeKarte>>(json);
 
-                VersprechenWählenWindow vww = new VersprechenWählenWindow(FKarteListe, spiel);
+                VersprechenWählenWindow vww = null;
+                spiel.Dispatcher.BeginInvoke(new Action(() => vww =  new VersprechenWählenWindow(FKarteListe, spiel))).Wait();
+
+
                 if (vww.ShowDialog() == false) {
                     proxy.Invoke("VersprechenVerarbeiten", vww.versprechen);
                 }               
@@ -95,9 +108,16 @@ namespace GameClient {
                 temp.id = id;
                 temp.text = text;
                 temp.titel = titel;
-                spiel.karten.Add(temp);
+                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.karten.Add(temp)));
+            } else {
+                foreach (FakeSpieler f in spiel.mitspieler) {
+                    if (f.würfelzahl == ident) {
+                        f.anzKarten++;
+                    }
+                }
             }
         }
+        
         public void AddVersprechung(int ident, int id, string titel, string text)
         {
             if (IsPlayer(ident))
@@ -106,16 +126,27 @@ namespace GameClient {
                 temp.id = id;
                 temp.text = text;
                 temp.titel = titel;
-                spiel.versprechen.Add(temp);
+                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.versprechen.Add(temp)));
+                
             }
+        }
+
+        public void updateMoney(int money) {
+
         }
 
         public void RemoveKarte(int ident, int id) {
             if (IsPlayer(ident)) {
                 foreach(FakeKarte s in spiel.karten) {
                     if(s.id == id) {
-                        spiel.karten.Remove(s);
+                        spiel.Dispatcher.BeginInvoke(new Action(() => spiel.karten.Remove(s)));
                         return;
+                    }
+                }
+            } else {
+                foreach (FakeSpieler f in spiel.mitspieler) {
+                    if (f.würfelzahl == ident) {
+                        f.anzKarten--;
                     }
                 }
             }
@@ -206,18 +237,79 @@ namespace GameClient {
                     }
                 }
             }
+            spiel.IstPräsident();
         }
 
         public void Kaufen(int ident, int money, bool second) {
             if (IsPlayer(ident)) {
-                KaufenFenster kw = new KaufenFenster(money, second);
+                KaufenWindow kw = new KaufenWindow(money, second);
                 if(kw.ShowDialog() == false) {
                     proxy.Invoke("KaufenAntwort", ident, kw.option);
                 }
             }
         }
 
+        public void AddGebäude(int ident) {
+            if (IsPlayer(ident)) {
+                spiel.addGebäude();
+            } else {
+                foreach(FakeSpieler f in spiel.mitspieler) {
+                    if(f.würfelzahl == ident) {
+                        f.punktzahl++;
+                    }
+                }
+            }
+        }
 
+        public void RemoveGebäude(int ident) {
+            if (IsPlayer(ident)){
+                spiel.removeGebäude();
+            } else {
+                foreach (FakeSpieler f in spiel.mitspieler) {
+                    if (f.würfelzahl == ident) {
+                        f.punktzahl--;
+                    }
+                }
+            }
+        }
 
+        public void addMiliz(int ident) {
+            if (IsPlayer(ident)) {
+                spiel.Milizen++;
+            } else {
+                foreach (FakeSpieler f in spiel.mitspieler) {
+                    if (f.würfelzahl == ident) {
+                        f.milizen++;
+                    }
+                }
+            }
+        }
+
+        public void removeMiliz(int ident) {
+            if (IsPlayer(ident)) {
+                spiel.Milizen--;
+            } else {
+                foreach (FakeSpieler f in spiel.mitspieler) {
+                    if (f.würfelzahl == ident) {
+                        f.milizen--;
+                    }
+                }
+            }
+        }
+
+        public void addSpieler() {
+            proxy.Invoke("addSpieler");
+        }
+
+        public void setSpieler(int ident, int punkte, bool imperator, int flotten, int anzK) {
+            if (spiel.selbst == null) {
+                spiel.selbst = new FakeSpieler(ident, punkte, imperator, flotten, anzK);
+                spiel.initGUI();
+            }
+        }
+
+        public void Start() {
+            proxy.Invoke("Start");
+        }
     }
 }

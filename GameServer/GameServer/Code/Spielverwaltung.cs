@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using GameServer.App_Code.Karten;
+using GameServer.Code.Karten;
 using Newtonsoft.Json;
 
-namespace GameServer.App_Code
+namespace GameServer.Code
 {
     public class Spielverwaltung
     {
-        public int[] reihenfolge { get; }
-        public Spieler[] spieler;
+        public List<Spieler> spieler;
         public Spieler imperator;
         public JuntaHub _hub { get; set; }
-        public Deck deck { get; }
-        public int rundenCount { get; set; }
+        public Deck deck { get; set; }
+        public int rundenCount { get; set; } = 0;
         public int ImperatorID{
             get{return imperator.ID;}
         }
@@ -25,6 +24,7 @@ namespace GameServer.App_Code
         /// </summary>
         public void KartenZiehen()
         {
+            Karte k;
             foreach (Spieler s in spieler)
             {
                 if (!s.imperator)
@@ -32,25 +32,37 @@ namespace GameServer.App_Code
                     if (rundenCount < 1)
                     {
                         //in er ersten Runde 2 Karten ziehen
-                        s.hand.AddHandkarte(deck.Ziehen());                  
-                        s.hand.AddHandkarte(deck.Ziehen());
+                        k = deck.Ziehen();
+                        s.hand.AddHandkarte(k);
+                        _hub.KarteIdHinzu(s, k);
+                        k = deck.Ziehen();
+                        s.hand.AddHandkarte(k);
+                        _hub.KarteIdHinzu(s, k);
                     }
                     else
                     {
                         //1 Karte ziehen
-                        s.hand.AddHandkarte(deck.Ziehen());
+                        k = deck.Ziehen();
+                        s.hand.AddHandkarte(k);
+                        _hub.KarteIdHinzu(s, k);
                     }
                 }
                 else
                 {
                     //Imperator, Spielerzahl + 2 Karten ziehen
-                    for (int i = 0; i < reihenfolge.Count(); i++)
+                    for (int i = 0; i < spieler.Count(); i++)
                     {
-                        s.hand.AddHandkarte(deck.Ziehen());
+                        k = deck.Ziehen();
+                        s.hand.AddHandkarte(k);
+                        _hub.KarteIdHinzu(s, k);
                     }
-                    s.hand.AddHandkarte(deck.Ziehen());
-                    
-                    s.hand.AddHandkarte(deck.Ziehen());
+                    k = deck.Ziehen();
+                    s.hand.AddHandkarte(k);
+                    _hub.KarteIdHinzu(s, k);
+
+                    k = deck.Ziehen();
+                    s.hand.AddHandkarte(k);
+                    _hub.KarteIdHinzu(s, k);
                 }
             }
         }
@@ -94,6 +106,7 @@ namespace GameServer.App_Code
                     _hub.VersprechenHinzu(pair.Value, pair.Key, temp.titel, temp.text);
                 }
             }
+            GameLoop.waitForVersprechen = false;
            /*
             foreach(Spieler s in spieler)
             {
@@ -122,6 +135,7 @@ namespace GameServer.App_Code
                 Karte k = GetSpieleraById(idSpielerHinzu).hand.getKarteById(1);
                 GetSpieleraById(idSpielerHinzu).hand.RemoveHandkarte(k);
                 _hub.KarteIDEntfernen(GetSpieleraById(idSpielerHinzu), k);
+                deck.Ablegen(k);
             }
         }
         /// <summary>
@@ -159,6 +173,7 @@ namespace GameServer.App_Code
                     GetSpieleraById(i).kampf.addAngriff(temp);
                 }
             }
+            GameLoop.waitForFlotten++;
         }
         
         /// <summary>
@@ -180,7 +195,7 @@ namespace GameServer.App_Code
                         }
                     } else {
                         foreach(KeyValuePair<Spieler,int> s in i.kampf.angriffswürfel) {
-                            s.Key.versprechungen.Clear();
+                            AlleVersprechenEntfernen(s.Key);
                             _hub.VersprechenEntfernen(s.Key);
                         }
                     }
@@ -226,9 +241,11 @@ namespace GameServer.App_Code
                         break;
                 case 2: temp.GeldZuSchreiben += 2000;
                         temp.flotten++;
+                        _hub.AddMiliz(temp);
                         break;
                 case 3: temp.GeldZuSchreiben += 3000;
                         temp.planet.addGebäude();
+                        _hub.AddGebäude(temp);
                         break;
             }
             if(kauf > 1 && temp.Credits - temp.GeldZuSchreiben >= 1000) {
@@ -237,6 +254,7 @@ namespace GameServer.App_Code
                 KaufenSpieler(temp, true);
             } else {
                 temp.schreibeAusgaben();
+                GameLoop.waitForKaufen++;
             }
         }
         /// <summary>
@@ -291,9 +309,20 @@ namespace GameServer.App_Code
 
         private void AlleVersprechenEntfernen() {
             foreach(Spieler c in spieler) {
+                foreach(Karte k in c.versprechungen) {
+                    deck.Ablegen(k);
+                }
                 c.versprechungen.Clear();
             }
         }
+        private void AlleVersprechenEntfernen(Spieler c) {
+            foreach (Karte k in c.versprechungen) {
+                deck.Ablegen(k);
+            }
+            c.versprechungen.Clear();
+        }
+        
+
 
     }
 }
