@@ -6,5 +6,4 @@
         xmlns:local="clr-namespace:GameClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1500" ShowsNavigationUI="False"
-        Source="Anmelden.xaml">
-</NavigationWindow>
+        Source="Anmelden.xaml" ResizeMode="NoResize" MinHeight="800"/>
