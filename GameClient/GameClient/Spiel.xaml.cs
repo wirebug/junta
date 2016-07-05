@@ -68,11 +68,11 @@ namespace GameClient {
         }
 
         public void addGebäude() {
-            gebäude[gebäudeCount++].Fill = Brushes.LimeGreen;
+            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount++].Fill = Brushes.LimeGreen)).Wait();           
         }
 
         public void removeGebäude() {
-            gebäude[gebäudeCount-- - 1].Fill = Brushes.Red;
+            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount-- - 1].Fill = Brushes.Red)).Wait();           
         }
 
         public void initGUI() {

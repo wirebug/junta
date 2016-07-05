@@ -38,7 +38,8 @@ namespace GameClient {
             proxy.On<int>("removeMiliz", (idSpieler) => removeMiliz(idSpieler));
             proxy.On<int, int, bool, int, int>("setSpieler", (idSpieler, punkte, imp, flotten, anzK) => setSpieler(idSpieler, punkte, imp, flotten, anzK));
             proxy.On<int, bool>("AddOtherPlayer", (ident, imp) => AddOtherPlayers(ident, imp));
-            proxy.On<string>("message", (text) => message(text));          
+            proxy.On<string>("message", (text) => message(text));
+            proxy.On<int>("won", (ident) => won(ident));          
             connection.Start().Wait();
         }
         public void message(string ab) {
@@ -320,6 +321,10 @@ namespace GameClient {
 
         public void Start() {
             proxy.Invoke("Start");
+        }
+
+        public void won(int ident) {
+            spiel.Dispatcher.BeginInvoke(new Action(() => MessageBox.Show("Spieler " + ident + "hat gewonnen"))).Wait();
         }
     }
 }

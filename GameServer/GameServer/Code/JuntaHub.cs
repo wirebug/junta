@@ -71,7 +71,7 @@ namespace GameServer.Code {
         }
         public void SpionAntwort(bool b)
         {
-            sv.verarbeiteSpionAntwort(b);
+     //       sv.verarbeiteSpionAntwort(b);
         }
         public void SpieleEinbrecher(Spieler spieler)
         {
@@ -138,6 +138,10 @@ namespace GameServer.Code {
 
         public void AddOtherPlayer(Spieler spieler) {
             context.Clients.All.AddOtherPlayer(spieler.ID, spieler.imperator);
+        }
+
+        public void won(Spieler spieler) {
+            context.Clients.All.won(spieler.ID);
         }
     }
 }

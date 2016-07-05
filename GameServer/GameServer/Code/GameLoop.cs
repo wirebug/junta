@@ -22,6 +22,10 @@ namespace GameServer.Code {
             foreach (Spieler s in sv.spieler) {
                 sv._hub.AddOtherPlayer(s);
             }
+            Next();
+        }
+
+        public static void Next() { 
            // while (true) {
                 sv.KartenZiehen();
                 sv.VersprechungStart(sv.imperator);
@@ -70,6 +74,7 @@ namespace GameServer.Code {
             waitForVersprechen = true;
             waitForFlotten = 0;
             waitForKaufen = 0;
+            Next();
         }
 
 
