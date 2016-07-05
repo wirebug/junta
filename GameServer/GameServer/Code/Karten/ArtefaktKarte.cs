@@ -15,7 +15,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Artefakt";
             kartenphase = "Solange du diese Karte auf der Hand hast gilt ihr Bonus.";
-            text = "Du erhälst einen Bonuspunkt.";
+            text = "Du erhälst einen Bonuspunkt";
         }
         override public void Action()
         {

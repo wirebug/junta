@@ -11,7 +11,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Spende";
             kartenphase = "Spiele beim Geld ausgeben.";
-            text = "Du erhälst ein Gebäude gratis.";
+            text = "Du erhälst ein Gebäude gratis";
         }
         override public void Action()
         {

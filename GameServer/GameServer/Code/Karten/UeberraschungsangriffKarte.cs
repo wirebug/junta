@@ -9,9 +9,9 @@ namespace GameServer.Code.Karten
     {
         public Ueberraschungsangriff(int value, Hand hand, Deck deck) : base(value, hand, deck)
         {
-            titel = "Überraschungsangriff";
+            titel = "Hinterhalt";
             kartenphase = "Spiele als Angreifer vor einem Kampf.";
-            text = "Ignoriere in diesem Kampf alle &#A;Gebäude des Verteidigers.";
+            text = "Ignoriere in diesem Kampf alle\nGebäude des Verteidigers";
         }
         override public void Action()
         {

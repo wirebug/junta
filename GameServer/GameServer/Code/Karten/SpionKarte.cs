@@ -11,7 +11,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Spion";
             kartenphase = "Spiele unmittelbar, nachdem alle Spieler Ihre Milizen befehligt haben.";
-            text = "Schau dir die Milizen aller &#A;Mitspieler an, bevor du deine eigenen &#A;befehligst. Die Mitspieler dürfen &#A;ihre Milizen nicht emhr ändern.";
+            text = "Schau dir die Milizen aller\nMitspieler an, bevor du deine\neigenen befehligst. Die Mitspieler\ndürfenihre Milizen nicht mehr ändern";
         }
         override public void Action()
         {

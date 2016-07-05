@@ -11,7 +11,7 @@ namespace GameServer.Code.Karten
         {
             titel = "PRKampagne";
             kartenphase = "Spiele beim Geld ausgeben.";
-            text = "Du erhälst 1 Miliz gratis.";
+            text = "Du erhälst 1 Miliz gratis";
         }
         override public void Action()
         {

@@ -157,7 +157,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\background.jpg" />
     <Resource Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +165,9 @@
     <Resource Include="Resources\neptun.png" />
     <Resource Include="Resources\uranus.png" />
     <Resource Include="Resources\venus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

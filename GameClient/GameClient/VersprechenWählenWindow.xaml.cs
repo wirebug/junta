@@ -19,10 +19,11 @@ namespace GameClient {
     /// </summary>
     public partial class VersprechenWählenWindow : Window {
 
-        private bool[] sp = new bool[5];
+        private int[] sp = new int[5];
         public Dictionary<int, int> versprechen = new Dictionary<int, int>();
         private List<ValueItem> valueList = new List<ValueItem>();
         private int[] spieler;
+        private static readonly int COLUMN_WIDTH = 40;
 
         public VersprechenWählenWindow(List<FakeKarte> karten, Spiel spiel) {
             InitializeComponent();
@@ -38,11 +39,11 @@ namespace GameClient {
                     check = spiel.mitspieler[i-1];
                 }
                 switch (check.würfelzahl) {
-                    case 1: sp[0] = true; break;
-                    case 2: sp[1] = true; break;
-                    case 3: sp[2] = true; break;
-                    case 4: sp[3] = true; break;
-                    case 5: sp[4] = true; break;
+                    case 1: sp[0] = COLUMN_WIDTH; break;
+                    case 2: sp[1] = COLUMN_WIDTH; break;
+                    case 3: sp[2] = COLUMN_WIDTH; break;
+                    case 4: sp[3] = COLUMN_WIDTH; break;
+                    case 5: sp[4] = COLUMN_WIDTH; break;
                 }
             }
             int r = 0;
@@ -54,7 +55,7 @@ namespace GameClient {
         }
 
         private class ValueItem {
-            public ValueItem(bool sp1, bool sp2, bool sp3, bool sp4, bool sp5, int group, string titel, string text, int id) {
+            public ValueItem(int sp1, int sp2, int sp3, int sp4, int sp5, int group, string titel, string text, int id) {
                 this.sp1 = sp1;
                 this.sp2 = sp2;
                 this.sp3 = sp3;
@@ -65,11 +66,11 @@ namespace GameClient {
                 this.text = text;
                 this.id = id;
             }
-            public bool sp1 { get; set; }
-            public bool sp2 { get; set; }
-            public bool sp3 { get; set; }
-            public bool sp4 { get; set; }
-            public bool sp5 { get; set; }
+            public int sp1 { get; set; }
+            public int sp2 { get; set; }
+            public int sp3 { get; set; }
+            public int sp4 { get; set; }
+            public int sp5 { get; set; }
             public int group { get; set; }
             public string titel { get; set; }
             public string text { get; set; }
@@ -84,7 +85,7 @@ namespace GameClient {
 
             i = 1;
             while (i <= 5) {
-                if (sp[i - 1]) {
+                if (sp[i - 1] > 0) {
                     bool set = false;
                     foreach (KeyValuePair<int, int> q in versprechen) {
                         if (q.Value == i) {
@@ -114,6 +115,14 @@ namespace GameClient {
             }
             int index = versprechenListBox.ItemContainerGenerator.IndexFromContainer(dep);
             spieler[index] = Int32.Parse((string)(sender as RadioButton).Content);
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e) {
+            if(hilfeLabel.Visibility == Visibility.Hidden) {
+                hilfeLabel.Visibility = Visibility.Visible;
+            } else {
+                hilfeLabel.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

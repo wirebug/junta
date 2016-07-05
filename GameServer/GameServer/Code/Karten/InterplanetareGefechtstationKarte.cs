@@ -13,9 +13,9 @@ namespace GameServer.Code.Karten
     {
         public InterplanetareGefechtstationKarte(int value,Hand hand,Deck deck) : base(value,hand,deck)
         {
-            titel = "Interplanetare Gefechtsstation";
+            titel = "Raumstation";
             kartenphase = "Spiele vor einem Kampf.";
-            text = "Dein Kampfwert erhöht sich beim &#A;nächsten Kampf um +3.";
+            text = "Dein Kampfwert erhöht sich beim\nnächsten Kampf um +3";
         }
         override public void Action()
         {

@@ -14,9 +14,9 @@
         <Button x:Name="debugButton" Content="" HorizontalAlignment="Left" Margin="10,770,0,0" VerticalAlignment="Top" Width="20" Click="debugButton_Click" Background="#FF231F20"/>
         <Label x:Name="präsidentLabel" Content="Du bist nicht Imperator" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="41" Width="287" FontSize="24" FontWeight="Bold" Foreground="#FFF77123" Background="#FF231F20"/>
         <Label x:Name="milizenLabel" Content="0" HorizontalAlignment="Left" Height="34" Margin="106,90,0,0" VerticalAlignment="Top" Width="42" FontSize="20" Foreground="White" RenderTransformOrigin="0.635,1.461"/>
-        <DataGrid x:Name="handGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="438" Margin="20,187,0,0" VerticalAlignment="Top" Width="356" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" Foreground="White" Background="#FF231F20" BorderBrush="#FF231F20" HeadersVisibility="Column" RowHeaderWidth="0" GridLinesVisibility="None">
+        <DataGrid x:Name="handGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="438" Margin="20,187,0,0" VerticalAlignment="Top" Width="310" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" Foreground="White" Background="#FF231F20" BorderBrush="#FF231F20" HeadersVisibility="Column" RowHeaderWidth="0" GridLinesVisibility="None">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding titel}" MinWidth="170"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding titel}" MinWidth="105"/>
                 <DataGridTextColumn Header="Beschreibung" Binding="{Binding text}" Width="*"/>
             </DataGrid.Columns>
             <DataGrid.Resources>
@@ -32,9 +32,9 @@
                 </Style>
             </DataGrid.RowStyle>
         </DataGrid>
-        <DataGrid x:Name="versprechenGrid" HorizontalAlignment="Left" Height="438" Margin="1110,187,0,0" VerticalAlignment="Top" Width="356" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" RowHeaderWidth="0" HeadersVisibility="Column" Background="#FF231F20" Foreground="White" BorderBrush="#FF231F20">
+        <DataGrid x:Name="versprechenGrid" HorizontalAlignment="Left" Height="438" Margin="1183,187,0,0" VerticalAlignment="Top" Width="310" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" RowHeaderWidth="0" HeadersVisibility="Column" Background="#FF231F20" Foreground="White" BorderBrush="#FF231F20" GridLinesVisibility="None">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding titel}" MinWidth="170"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding titel}" MinWidth="105"/>
                 <DataGridTextColumn Header="Beschreibung" Binding="{Binding text}" Width="*"/>
             </DataGrid.Columns>
             <DataGrid.Resources>
@@ -51,10 +51,10 @@
             </DataGrid.RowStyle>
         </DataGrid>
         <Label x:Name="würfelzahlLabel" Content="!" HorizontalAlignment="Left" Height="33" Margin="139,51,0,0" VerticalAlignment="Top" Width="31" Foreground="White" FontSize="20" FontWeight="Bold"/>
-        <DataGrid x:Name="mitspielerGrid" HorizontalAlignment="Left" Height="120" Margin="599,666,0,0" VerticalAlignment="Top" Width="300" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" BorderBrush="#FF231F20" Background="#FF231F20" Foreground="White" RowHeaderWidth="0" HeadersVisibility="Column">
+        <DataGrid x:Name="mitspielerGrid" HorizontalAlignment="Left" Height="143" Margin="623,670,0,0" VerticalAlignment="Top" Width="263" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" BorderBrush="#FF231F20" Background="#FF231F20" Foreground="White" RowHeaderWidth="0" HeadersVisibility="Column" GridLinesVisibility="None">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Zahl" Binding="{Binding würfelzahl}" MinWidth="40"/>
-                <DataGridTextColumn Header="Imperator" Binding="{Binding präs}" MinWidth="50"/>
+                <DataGridTextColumn Header="Imperator" Binding="{Binding präs}" MinWidth="70"/>
                 <DataGridTextColumn Header="Flotten" Binding="{Binding milizen}" MinWidth="50"/>
                 <DataGridTextColumn Header="Karten" Binding="{Binding anzKarten}" MinWidth="50"/>
                 <DataGridTextColumn Header="Punkte" Binding="{Binding punktzahl}" Width="*"/>
@@ -100,7 +100,7 @@
                 <ImageBrush ImageSource="Resources/venus.png" Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Label x:Name="präsidentLabel_Copy3" Content="Versprechen:" HorizontalAlignment="Left" Margin="1110,144,0,0" VerticalAlignment="Top" Height="38" Width="136" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
+        <Label x:Name="präsidentLabel_Copy3" Content="Versprechen:" HorizontalAlignment="Left" Margin="1183,144,0,0" VerticalAlignment="Top" Height="38" Width="136" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
 
     </Grid>
 </Page>

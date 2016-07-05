@@ -15,7 +15,7 @@ namespace GameServer.Code.Karten
             this.Credits = credits;
             titel = "Credits";
             kartenphase = "Spiele in der Geld Ausgeben Phase.";
-            text = "Diese Karte gibt dir " + Credits + " Credits.";
+            text = "Diese Karte gibt dir " + Credits + " Credits";
         }
         public override void Action()
         {

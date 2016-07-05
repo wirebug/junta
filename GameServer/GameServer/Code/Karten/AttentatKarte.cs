@@ -15,7 +15,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Attentat";
             kartenphase = "Spiele vor einem Kampf.";
-            text = "Zerstöre eine gegnerische Flotte &#A;eines Gegners deiner Wahl.";
+            text = "Zerstöre eine gegnerische Flotte\neines Gegners deiner Wahl";
         }
         override public void Action()
         {

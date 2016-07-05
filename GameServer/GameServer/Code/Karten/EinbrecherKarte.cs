@@ -11,7 +11,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Einbrecher";
             kartenphase = "Spiele unmittelbar, nachdem der Imperator seine Versprechungen gemacht hat.";
-            text = "Schau dir die Handkarten eines &#A;Spielers deiner Wahl an und nimm eine &#A;davon auf die Hand.";
+            text = "Schau dir die Handkarten eines\nSpielers deiner Wahl an und nimm eine\ndavon auf die Hand";
         }
         override public void Action()
         {
