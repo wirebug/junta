@@ -11,7 +11,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Überraschungsangriff";
             kartenphase = "Spiele als Angreifer vor einem Kampf.";
-            text = "Ignoriere in diesem Kampf alle Gebäude des Verteidigers.";
+            text = "Ignoriere in diesem Kampf alle &#A;Gebäude des Verteidigers.";
         }
         override public void Action()
         {
