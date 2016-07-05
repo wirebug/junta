@@ -45,5 +45,13 @@ namespace GameClient {
         private void radioButton_Checked(object sender, RoutedEventArgs e) {
             option = Int32.Parse((string)(sender as RadioButton).Content);
         }
+
+        private void button_Click2(object sender, RoutedEventArgs e) {
+            if (hilfeLabel.Visibility == Visibility.Hidden) {
+                hilfeLabel.Visibility = Visibility.Visible;
+            } else {
+                hilfeLabel.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }

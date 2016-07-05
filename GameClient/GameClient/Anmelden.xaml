@@ -6,12 +6,13 @@
       xmlns:local="clr-namespace:GameClient"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1500"
-      Title="Anmelden" WindowHeight="800" WindowTitle="1500">
+      Title="Anmelden" Height="850" WindowHeight="850" MinHeight="844" WindowTitle="Junta Viva Imperator">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/background2.png" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Button x:Name="anmeldenButton" Content="Anmelden" HorizontalAlignment="Left" Margin="688,384,0,0" VerticalAlignment="Top" Width="75" Click="anmeldenButton_Click"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="688,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247"/>
-        <Label x:Name="nameLabel" Content="Name:" HorizontalAlignment="Left" Margin="612,310,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

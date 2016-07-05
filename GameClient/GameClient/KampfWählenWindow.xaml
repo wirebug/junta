@@ -7,40 +7,49 @@
         
         xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
         
-        mc:Ignorable="d"
-        Title="KampfWählenWindow" Height="300" Width="300">
+        mc:Ignorable="d" Height="300" Width="340" Title="Junta Viva Imperator">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/background2.png" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="kampfListBox" Margin="10,10,0,0" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2">
+        <ListBox x:Name="kampfListBox" Margin="10,10,0,0" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Background="#FF231F20" BorderBrush="#FF231F20" Foreground="White">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="25"/>
-                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="{Binding sp1}"/>
+                            <ColumnDefinition Width="{Binding sp2}"/>
+                            <ColumnDefinition Width="{Binding sp3}"/>
+                            <ColumnDefinition Width="{Binding sp4}"/>
+                            <ColumnDefinition Width="{Binding sp5}"/>
+                            <ColumnDefinition Width="{Binding sp6}"/>
                         </Grid.ColumnDefinitions>
-                        <RadioButton x:Name="rb1" Grid.Column="0" GroupName="{Binding group}" Content="1" IsHitTestVisible="{Binding sp1}" Checked="radioButton_Checked"/>
-                        <RadioButton x:Name="rb2" Grid.Column="1" GroupName="{Binding group}" Content="2" IsHitTestVisible="{Binding sp2}" Checked="radioButton_Checked"/>
-                        <RadioButton x:Name="rb3" Grid.Column="2" GroupName="{Binding group}" Content="3" IsHitTestVisible="{Binding sp3}" Checked="radioButton_Checked"/>
-                        <RadioButton x:Name="rb4" Grid.Column="3" GroupName="{Binding group}" Content="4" IsHitTestVisible="{Binding sp4}" Checked="radioButton_Checked"/>
-                        <RadioButton x:Name="rb5" Grid.Column="4" GroupName="{Binding group}" Content="5" IsHitTestVisible="{Binding sp5}" Checked="radioButton_Checked"/>
-                        <RadioButton Grid.Column="5" GroupName="{Binding group}" Content="6" Checked="radioButton_Checked"/>
+                        <RadioButton x:Name="rb1" Grid.Column="0" GroupName="{Binding group}" Content="1" Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
+                        <RadioButton x:Name="rb2" Grid.Column="1" GroupName="{Binding group}" Content="2" Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
+                        <RadioButton x:Name="rb3" Grid.Column="2" GroupName="{Binding group}" Content="3" Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
+                        <RadioButton x:Name="rb4" Grid.Column="3" GroupName="{Binding group}" Content="4" Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
+                        <RadioButton x:Name="rb5" Grid.Column="4" GroupName="{Binding group}" Content="5" Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
+                        <RadioButton x:Name="rb6" Grid.Column="5" GroupName="{Binding group}" Content="6" Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Focusable" Value="False"/>
+                    <Setter Property="Padding" Value="0,10,0,10"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
         </ListBox>
-        <Button x:Name="okButton" Content="Ok" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top" Width="75" Click="okButton_Click"/>
-        <Label x:Name="label" Content="Wähle für jede deiner Milizen die Aktion die du mit dieser ausführen möchtest" HorizontalAlignment="Left" Height="26" Margin="89,225,0,0" VerticalAlignment="Top" Width="189"/>
+        <Button x:Name="okButton" Content="Bestätigen" HorizontalAlignment="Left" Height="29" Margin="10,222,0,0" VerticalAlignment="Top" Width="109" Click="okButton_Click" Background="#FF231F20" Foreground="White" BorderBrush="White" BorderThickness="3"/>
+        <Button x:Name="button" Content="?" HorizontalAlignment="Left" Height="29" Margin="294,222,0,0" VerticalAlignment="Top" Width="29" Background="#FF231F20" Foreground="White" BorderBrush="White" Click="button_Click"/>
+        <Label x:Name="hilfeLabel" Content="Wähle für jede deiner Flotten eine&#xA;Aktion. Wähle die Nummer eines&#xA;anderen Spielers um diesen&#xA;anzugreifen. Wähle die sechs um&#xA;den Imperator zu verteidigen und&#xA;deine eigene Nummer um dich&#xA;selbst zu Verteidigen." HorizontalAlignment="Left" Height="103" Margin="130,148,0,0" VerticalAlignment="Top" Width="164" FontSize="10" Foreground="#FFF77123" Background="#FF231F20" Visibility="Hidden"/>
     </Grid>
-    
-    
+
+
 </Window>

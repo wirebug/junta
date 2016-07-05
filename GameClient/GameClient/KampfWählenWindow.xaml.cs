@@ -20,13 +20,14 @@ namespace GameClient {
     /// </summary>
     public partial class KampfWählenWindow : Window {
 
-        private bool sp1 = false;
-        private bool sp2 = false;
-        private bool sp3 = false;
-        private bool sp4 = false;
-        private bool sp5 = false;
+        private int sp1 = 0;
+        private int sp2 = 0;
+        private int sp3 = 0;
+        private int sp4 = 0;
+        private int sp5 = 0;
 
         public int[] würfel;
+        private static readonly int COLUMN_WIDTH = 40;
         public KampfWählenWindow(int milizen, Spiel spiel) {
             InitializeComponent();
             List<ValueItem> valueList = new List<ValueItem>();
@@ -40,11 +41,11 @@ namespace GameClient {
                     check = spiel.mitspieler[i-1];
                 }
                 switch (check.würfelzahl) {
-                    case 1: sp1 = true;break;
-                    case 2: sp2 = true;break;
-                    case 3: sp3 = true;break;
-                    case 4: sp4 = true;break;
-                    case 5: sp5 = true;break;             
+                    case 1: sp1 = COLUMN_WIDTH; break;
+                    case 2: sp2 = COLUMN_WIDTH; break;
+                    case 3: sp3 = COLUMN_WIDTH; break;
+                    case 4: sp4 = COLUMN_WIDTH; break;
+                    case 5: sp5 = COLUMN_WIDTH; break;
                 }
             }
             for(int i = 0; i < milizen; i++) {
@@ -56,7 +57,7 @@ namespace GameClient {
         }
 
         private class ValueItem {
-            public ValueItem(bool sp1, bool sp2, bool sp3, bool sp4, bool sp5, int group) {
+            public ValueItem(int sp1, int sp2, int sp3, int sp4, int sp5, int group) {
                 this.sp1 = sp1;
                 this.sp2 = sp2;
                 this.sp3 = sp3;
@@ -64,11 +65,11 @@ namespace GameClient {
                 this.sp5 = sp5;
                 this.group = group;
             }
-            public bool sp1 { get; set; }
-            public bool sp2 { get; set; }
-            public bool sp3 { get; set; }
-            public bool sp4 { get; set; }
-            public bool sp5 { get; set; }
+            public int sp1 { get; set; }
+            public int sp2 { get; set; }
+            public int sp3 { get; set; }
+            public int sp4 { get; set; }
+            public int sp5 { get; set; }
             public int group { get; set; }
         }
 
@@ -91,6 +92,14 @@ namespace GameClient {
             }
             int index = kampfListBox.ItemContainerGenerator.IndexFromContainer(dep);
             würfel[index] = Int32.Parse((string)(sender as RadioButton).Content);
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e) {
+            if (hilfeLabel.Visibility == Visibility.Hidden) {
+                hilfeLabel.Visibility = Visibility.Visible;
+            } else {
+                hilfeLabel.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

@@ -5,17 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameClient"
         mc:Ignorable="d"
-        Title="KaufenWindow" Height="300" Width="300">
+        Title="Junta Viva Imperator" Height="285" Width="300">
     <Grid>
-        <Label x:Name="moneyLabel" Content="0" HorizontalAlignment="Left" Height="25" Margin="16,15,0,0" VerticalAlignment="Top" Width="133"/>
-        <RadioButton x:Name="rb0" GroupName="kauf" Content="0" Checked="radioButton_Checked" Margin="25,71,-25,-71"/>
-        <RadioButton x:Name="rb1" GroupName="kauf" Content="1" Checked="radioButton_Checked" Margin="25,87,-25,-87"/>
-        <RadioButton x:Name="rb2" GroupName="kauf" Content="2" Checked="radioButton_Checked" Margin="25,106,-25,-106"/>
-        <RadioButton x:Name="rb3" GroupName="kauf" Content="3" Checked="radioButton_Checked" Margin="25,124,-25,-124"/>
-        <Label x:Name="label" Content="Karte kaufen 1000" HorizontalAlignment="Left" Height="21" Margin="66,83,0,0" VerticalAlignment="Top" Width="109" FontSize="10"/>
-        <Label x:Name="label_Copy" Content="Flotte kaufen 2000" HorizontalAlignment="Left" Height="21" Margin="66,102,0,0" VerticalAlignment="Top" Width="109" FontSize="10"/>
-        <Label x:Name="label_Copy1" Content="Gebäude kaufen 4000" HorizontalAlignment="Left" Height="21" Margin="66,120,0,0" VerticalAlignment="Top" Width="109" FontSize="10"/>
-        <Button x:Name="button" Content="Ok&#xD;&#xA;" HorizontalAlignment="Left" Height="23" Margin="25,216,0,0" VerticalAlignment="Top" Width="52" Click="button_Click"/>
-        <Label x:Name="label_Copy2" Content="nichts kaufen" HorizontalAlignment="Left" Height="21" Margin="66,67,0,0" VerticalAlignment="Top" Width="109" FontSize="10"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/background2.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Label x:Name="moneyLabel" Content="0" HorizontalAlignment="Left" Height="30" Margin="73,18,0,0" VerticalAlignment="Top" Width="70" FontSize="16" FontWeight="Bold" Foreground="#FFF77123"/>
+        <RadioButton x:Name="rb0" GroupName="kauf" Content="0" Checked="radioButton_Checked" Margin="-256,60,256,-60" Foreground="White" FlowDirection="RightToLeft"/>
+        <RadioButton x:Name="rb1" GroupName="kauf" Content="1" Checked="radioButton_Checked" Margin="-256,90,256,-90" Foreground="White" FlowDirection="RightToLeft"/>
+        <RadioButton x:Name="rb2" GroupName="kauf" Content="2" Checked="radioButton_Checked" Margin="-256,120,256,-120" Foreground="White" FlowDirection="RightToLeft"/>
+        <RadioButton x:Name="rb3" GroupName="kauf" Content="3" Checked="radioButton_Checked" Margin="-256,150,256,-150" Foreground="White" FlowDirection="RightToLeft"/>
+        <Label x:Name="label" Content="1000 Credits: Karte" HorizontalAlignment="Left" Height="17" Margin="36,89,0,0" VerticalAlignment="Top" Width="109" Foreground="White" Padding="5,0"/>
+        <Label x:Name="label_Copy" Content="2000 Credits: Flotte" HorizontalAlignment="Left" Height="17" Margin="36,119,0,0" VerticalAlignment="Top" Width="118" Foreground="White" Padding="5,0"/>
+        <Label x:Name="label_Copy1" Content="4000 Credits: Planet" HorizontalAlignment="Left" Height="17" Margin="36,149,0,0" VerticalAlignment="Top" Width="128" Foreground="White" Padding="5,0"/>
+        <Button x:Name="okButton" Content="Bestätigen" HorizontalAlignment="Left" Height="29" Margin="10,201,0,0" VerticalAlignment="Top" Width="79" Click="button_Click" Background="#FF231F20" Foreground="White" BorderBrush="White" BorderThickness="3"/>
+        <Button x:Name="button" Content="?" HorizontalAlignment="Left" Height="29" Margin="258,201,0,0" VerticalAlignment="Top" Width="29" Background="#FF231F20" Foreground="White" BorderBrush="White" Click="button_Click2"/>
+        <Label x:Name="label_Copy2" Content="passen" HorizontalAlignment="Left" Height="17" Margin="36,59,0,0" VerticalAlignment="Top" Width="109" Foreground="White" Padding="5,0"/>
+        <Label x:Name="label1" Content="Credits:" HorizontalAlignment="Left" Height="30" Margin="10,18,0,0" VerticalAlignment="Top" Width="69" FontWeight="Bold" FontSize="16" Foreground="White" Padding="1,5,5,5"/>
+        <Label x:Name="hilfeLabel" Content="Wähle aus was du kaufen möchtest.&#xA;Hast du anschließend noch genug Credits&#xA;um dir etwas weiteres zu leisten, dann&#xA;kannst du nochmal kaufen." HorizontalAlignment="Left" Margin="94,176,0,0" VerticalAlignment="Top" Height="54" Width="159" Background="#FF231F20" Foreground="#FFF77123" FontSize="8" Visibility="Hidden"/>
     </Grid>
 </Window>

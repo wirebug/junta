@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameClient"
         mc:Ignorable="d"
-        Title="VersprechenWählenWindow" Height="500" Width="615">
+        Title="Junta Viva Imperator" Height="500" Width="615">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/background2.png" Stretch="UniformToFill"/>
@@ -27,10 +27,10 @@
                         <Label Grid.Column="0" Content="{Binding titel}" Foreground="White"/>
                         <Label Grid.Column="1" Content="{Binding text}" Foreground="White"/>
                         <RadioButton x:Name="rb1" Grid.Column="2" GroupName="{Binding group}" Content="1"  Checked="radioButton_Checked" VerticalAlignment="Center" Margin="10,4,0,0" Foreground="White"/>
-                        <RadioButton x:Name="rb2" Grid.Column="3" GroupName="{Binding group}" Content="2"  Checked="radioButton_Checked" VerticalAlignment="Center" Margin="10,4,0,0" Foreground="White"/>
-                        <RadioButton x:Name="rb3" Grid.Column="4" GroupName="{Binding group}" Content="3"  Checked="radioButton_Checked" VerticalAlignment="Center" Margin="10,4,0,0" Foreground="White"/>
-                        <RadioButton x:Name="rb4" Grid.Column="5" GroupName="{Binding group}" Content="4"  Checked="radioButton_Checked" VerticalAlignment="Center" Margin="10,4,0,0" Foreground="White"/>
-                        <RadioButton x:Name="rb5" Grid.Column="6" GroupName="{Binding group}" Content="5"  Checked="radioButton_Checked" VerticalAlignment="Center" Margin="10,4,0,0" Foreground="White"/>
+                        <RadioButton x:Name="rb2" Grid.Column="3" GroupName="{Binding group}" Content="2"  Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
+                        <RadioButton x:Name="rb3" Grid.Column="4" GroupName="{Binding group}" Content="3"  Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
+                        <RadioButton x:Name="rb4" Grid.Column="5" GroupName="{Binding group}" Content="4"  Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
+                        <RadioButton x:Name="rb5" Grid.Column="6" GroupName="{Binding group}" Content="5"  Checked="radioButton_Checked" VerticalAlignment="Center" Margin="0,4,0,0" Foreground="White"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -41,8 +41,8 @@
             </ListBox.ItemContainerStyle>
         </ListBox>
         <Button x:Name="okButton" Content="Bestätigen" HorizontalAlignment="Left" Height="29" Margin="10,410,0,0" VerticalAlignment="Top" Width="109" Click="okButton_Click" Background="#FF231F20" Foreground="White" BorderBrush="White" BorderThickness="3"/>
-        <Button x:Name="button" Content="?" HorizontalAlignment="Left" Height="29" Margin="568,410,0,0" VerticalAlignment="Top" Width="29" Background="#FF231F20" Foreground="White" BorderBrush="White" Click="button_Click"/>
-        <Label x:Name="label" Content="Verteile deine Versprechen an deine Mitspieler. Jeder deiner Mitspieler muss&#xA;mindestens ein Versprechen erhalten. Willst du eine Karte selber behalten so&#xA;wähle deine eigene Zahl." HorizontalAlignment="Left" Height="60" Margin="124,379,0,0" VerticalAlignment="Top" Width="439" Foreground="#FFF77123" Visibility="Hidden"/>
+        <Button x:Name="button" Content="?" HorizontalAlignment="Left" Height="29" Margin="563,410,0,0" VerticalAlignment="Top" Width="29" Background="#FF231F20" Foreground="White" BorderBrush="White" Click="button_Click" RenderTransformOrigin="-0.207,0.483"/>
+        <Label x:Name="hilfeLabel" Content="Verteile deine Versprechen an deine Mitspieler. Jeder deiner Mitspieler muss&#xA;mindestens ein Versprechen erhalten. Willst du eine Karte selber behalten so&#xA;wähle deine eigene Zahl." HorizontalAlignment="Left" Height="60" Margin="124,379,0,0" VerticalAlignment="Top" Width="439" Foreground="#FFF77123" Visibility="Hidden"/>
     </Grid>
 </Window>
     
