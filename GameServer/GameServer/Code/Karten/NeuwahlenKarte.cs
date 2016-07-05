@@ -11,7 +11,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Neuwahlen";
             kartenphase = "Diese Karte ist nicht Ausspielbar.";
-            text = "Wahlen...was für ein Altmodischer Quatsch.";
+            text = "Wahlen...was für ein Altmodischer &#A;Quatsch.";
         }
         override public void Action()
         {

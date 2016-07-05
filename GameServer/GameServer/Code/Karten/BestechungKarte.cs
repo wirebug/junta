@@ -11,7 +11,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Bestechung";
             kartenphase = "Spiele vor einem Kampf.";
-            text = "Ignoriere in diesem Kampf die Flotten des Imperators.";
+            text = "Ignoriere in diesem Kampf die #&A;Flotten des Imperators.";
         }
         override public void Action()
         {

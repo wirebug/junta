@@ -12,7 +12,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Annexion";
             kartenphase = "Spiele als Angreifer vor einem Kampf, wenn der Verteidiger mehr Gebäude hat als du.";
-            text = "Ist dein Angriff erfolgreich, übernimm 1 Gebäude des Verteidigers und verzichte auf seine Handkarte.";
+            text = "Ist dein Angriff erfolgreich, &#A;übernimm 1 Gebäude des Verteidigers &#A;und verzichte auf seine &#A;Handkarte.";
         }
         override public void Action()
         {
