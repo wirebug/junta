@@ -269,7 +269,7 @@ namespace GameServer.Code
                         temp.flotten++;
                         _hub.AddMiliz(temp);
                         break;
-                case 3: temp.GeldZuSchreiben += 3000;
+                case 3: temp.GeldZuSchreiben += 4000;
                         temp.planet.addGebäude();
                         _hub.AddGebäude(temp);
                         break;
@@ -301,14 +301,12 @@ namespace GameServer.Code
                 }
             }
             rundenCount++;
-            GameLoop.waitForVersprechen = false;
+            Spieler temp = won();
+            if(temp != null) {
+                _hub.won(temp);
+            } else { GameLoop.Next(); }
+            
         }
-
-        public void verarbeiteSpionAntwort(bool b) {
-
-        }
-
-
         //Methoden
         public void neuerImperator(Spieler s)
         {
@@ -352,7 +350,14 @@ namespace GameServer.Code
             c.versprechungen.Clear();
         }
         
-
+        private Spieler won() {
+            foreach(Spieler i in spieler) {
+                if(i.punkte >= 6) {
+                    return i;
+                } 
+            }
+            return null;
+        }
 
     }
 }

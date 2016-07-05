@@ -63,7 +63,7 @@ namespace GameServer.Code {
             } else {
                 int s = angriffswürfel.Count;
                 for (int i = 0; i < s; i++) {
-                    Spieler temp = ergA.Max().Key;
+                    Spieler temp = ergA.Aggregate((l, r) => l.Value > r.Value ? l : r).Key;
                     ergebnis.Add(temp);
                     angriffswürfel.Remove(temp);
                 }
