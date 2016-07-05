@@ -11,7 +11,7 @@ namespace GameServer.Code
         public static int spielerCount = 0;
         public int ID { get; set; }
         public int Kampfmodifikator { get; set; }//Kampkarte InterplanetareGefechtsstations - bonus
-        public List<Karte> versprechungen;
+        public List<Karte> versprechungen = new List<Karte>();
         public int flotten { get; set; }
         public int punkte { get; set; } = 1;
         public bool imperator { get; set; }
@@ -63,6 +63,7 @@ namespace GameServer.Code
                     }
                 }
                 int betr = 0;
+                geldkarten.Sort();
                 List<Karte> remove = new List<Karte>();
                 while (betr < GeldZuSchreiben) {
                     foreach(CreditsKarte k in geldkarten) {
@@ -74,6 +75,7 @@ namespace GameServer.Code
                             betr += 3000;
                         }
                         remove.Add(k);
+                        geldkarten.Remove(k);
                         break;
                     }
                 }

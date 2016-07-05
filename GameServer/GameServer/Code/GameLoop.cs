@@ -22,28 +22,29 @@ namespace GameServer.Code {
             foreach (Spieler s in sv.spieler) {
                 sv._hub.AddOtherPlayer(s);
             }
-            while (true) {
+           // while (true) {
                 sv.KartenZiehen();
                 sv.VersprechungStart(sv.imperator);
-                while (waitForVersprechen) {
-                    sleep();
-                }
-                sv.FlottenStart();
-                while (waitForFlotten < anzSpieler) {
-                    sleep();
-                }
-                sv.KaempfeAustragen();
-                sv.Kaufen();
-                while (waitForKaufen < anzSpieler) {
-                    sleep();
-                }
-                sv.HandkartenlimitPrüfen();
-                reset();
+                /*  while (waitForVersprechen) {
+                     sleep();
+                      }
+                     sv.FlottenStart();
+                     while (waitForFlotten < anzSpieler-1) {
+                         sleep();
+                     }
+                     sv.KaempfeAustragen();
+                     sv.Kaufen();
+                     while (waitForKaufen < anzSpieler) {
+                         sleep();
             }
+            //  sv.HandkartenlimitPrüfen();*/
+                //reset();
+         //   }
         }
 
         private static void init() {
             sv = new Spielverwaltung();
+            JuntaHub.sv = sv;
             sv._hub = new JuntaHub(sv);
             sv.deck = new Deck();
             sv.spieler = new List<Spieler>();

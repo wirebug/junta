@@ -30,12 +30,12 @@ namespace GameClient {
 
             ValueItem temp;
 
-            for (int i = 0; i < spiel.mitspieler.Count; i++) {
+            for (int i = 0; i <= spiel.mitspieler.Count; i++) {
                 FakeSpieler check;
                 if (i == 0) {
                     check = spiel.selbst;
                 } else {
-                    check = spiel.mitspieler[i];
+                    check = spiel.mitspieler[i-1];
                 }
                 switch (check.würfelzahl) {
                     case 1: sp[0] = true; break;

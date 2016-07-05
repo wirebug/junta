@@ -29,7 +29,7 @@ namespace GameClient {
         public int Milizen {
             get { return milizen; }
             set { milizen = value;
-                Dispatcher.BeginInvoke(new Action(() => milizenLabel.Content = milizen));           
+                Dispatcher.BeginInvoke(new Action(() => milizenLabel.Content = milizen)).Wait();           
             }
         }
 
@@ -55,9 +55,9 @@ namespace GameClient {
 
         public void IstPräsident() {
             if (selbst.präsident) {               
-                    Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist Präsident"));
+                    Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist Präsident")).Wait();
             } else {
-                Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist nicht Präsident"));
+                Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist nicht Präsident")).Wait();
             }
             
         }
@@ -77,7 +77,7 @@ namespace GameClient {
 
         public void initGUI() {
             
-            Dispatcher.BeginInvoke(new Action(() => würfelzahlLabel.Content = selbst.würfelzahl));
+            Dispatcher.BeginInvoke(new Action(() => würfelzahlLabel.Content = selbst.würfelzahl)).Wait();
             IstPräsident();
             Milizen = selbst.milizen;
         }

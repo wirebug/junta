@@ -4,20 +4,21 @@ using System.Linq;
 using System.Web;
 using GameServer.Code.Karten;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace GameServer.Code
 {
-    public class Spielverwaltung
-    {
+    public class Spielverwaltung {
         public List<Spieler> spieler;
         public Spieler imperator;
         public JuntaHub _hub { get; set; }
         public Deck deck { get; set; }
         public int rundenCount { get; set; } = 0;
-        public int ImperatorID{
-            get{return imperator.ID;}
+        public int ImperatorID {
+            get { return imperator.ID; }
         }
-        
+        private int schedule = 0;
         //Phasen
         /// <summary>
         /// Spielphase I: KartenZiehen
@@ -102,11 +103,12 @@ namespace GameServer.Code
                 Karte temp = imperator.hand.getKarteById(pair.Key);
                 if (pair.Value != ImperatorID) {
                     imperator.hand.RemoveHandkarte(temp);
-                    GetSpieleraById(pair.Value).hand.AddHandkarte(temp);
+                    _hub.KarteIDEntfernen(imperator, temp);
+                    GetSpieleraById(pair.Value).versprechungen.Add(temp);
                     _hub.VersprechenHinzu(pair.Value, pair.Key, temp.titel, temp.text);
                 }
             }
-            GameLoop.waitForVersprechen = false;
+            FlottenStart();
            /*
             foreach(Spieler s in spieler)
             {
@@ -148,13 +150,28 @@ namespace GameServer.Code
             {
                 if (!s.imperator)
                 {
-                    s.kampf = new Kampf();
-                    _hub.FlottenAuswahl(s,s.flotten);
+                    s.kampf = new Kampf(s);
                 } else {
-                    s.kampf = new ImperatorKampf();
+                    s.kampf = new ImperatorKampf(s);
                 }
             }
+            FlottenScheduler();
         }
+
+        public void FlottenScheduler() {
+            if(schedule < spieler.Count) {
+                if (!spieler[schedule].imperator) {
+                    _hub.FlottenAuswahl(spieler[schedule], spieler[schedule].flotten);
+                } else {
+                    schedule++;
+                    FlottenScheduler();
+                }
+            } else {
+                KaempfeAustragen();
+            }
+        }
+        
+
         
         /// <summary>
         /// Spielphase III: Flotten befehligen
@@ -173,7 +190,8 @@ namespace GameServer.Code
                     GetSpieleraById(i).kampf.addAngriff(temp);
                 }
             }
-            GameLoop.waitForFlotten++;
+            schedule++;
+            FlottenScheduler();
         }
         
         /// <summary>
@@ -181,6 +199,7 @@ namespace GameServer.Code
         /// </summary>
         public void KaempfeAustragen()
         {
+            schedule = 0;
             List<Spieler> gewinner;
             Spieler nImperator = imperator;
             foreach(Spieler i in spieler) {
@@ -219,11 +238,18 @@ namespace GameServer.Code
                 }
             }
             neuerImperator(nImperator);
+            Kaufen();
         }
 
         public void Kaufen() {
-            foreach(Spieler v in spieler) {
+           /* foreach(Spieler v in spieler) {
                 _hub.Kaufen(v);
+            }*/
+
+            if (schedule < spieler.Count) {
+                _hub.Kaufen(spieler[schedule]);
+            } else {
+                HandkartenlimitPrüfen();
             }
         }
 
@@ -254,7 +280,8 @@ namespace GameServer.Code
                 KaufenSpieler(temp, true);
             } else {
                 temp.schreibeAusgaben();
-                GameLoop.waitForKaufen++;
+                schedule++;
+                Kaufen();
             }
         }
         /// <summary>
@@ -262,6 +289,7 @@ namespace GameServer.Code
         /// </summary>
         public void HandkartenlimitPrüfen()
         {
+            schedule = 0;
             Karte tmp;
             foreach (Spieler s in spieler)
             {
@@ -269,9 +297,11 @@ namespace GameServer.Code
                 {
                     tmp = s.hand.RandomHandkarte();
                     deck.Gespielt(tmp);
+                    _hub.KarteIDEntfernen(s, tmp);
                 }
             }
             rundenCount++;
+            GameLoop.waitForVersprechen = false;
         }
 
         public void verarbeiteSpionAntwort(bool b) {

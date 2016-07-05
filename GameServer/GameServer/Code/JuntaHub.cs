@@ -5,15 +5,16 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using GameServer.Code.Karten;
 using Microsoft.AspNet.SignalR.Hubs;
+using Newtonsoft.Json;
 
 namespace GameServer.Code {
     public class JuntaHub : Hub {
         private IHubContext context;
-        public Spielverwaltung sv { get; set; }
+        public static Spielverwaltung sv { get; set; }
 
-        public JuntaHub(Spielverwaltung sv)
+        public JuntaHub(Spielverwaltung svs)
         {
-            this.sv = sv;
+            sv = svs;
             context = GlobalHost.ConnectionManager.GetHubContext<JuntaHub>();
         }
         public JuntaHub() {
@@ -28,9 +29,10 @@ namespace GameServer.Code {
         {
             context.Clients.All.VersprechenWählen(idSpieler,json);
         }
-        public void VersprechenVerarbeiten(Dictionary<int,int> versprechung)
+        public void VersprechenVerarbeiten(string versprechungen)
         {
-            sv.VersprechungMachen(versprechung);
+            Dictionary<int, int> versprechen = JsonConvert.DeserializeObject<Dictionary<int, int>>(versprechungen);
+            sv.VersprechungMachen(versprechen);
         }
 
         public void VersprechenHinzu(int ident, int id, string titel, string text) {

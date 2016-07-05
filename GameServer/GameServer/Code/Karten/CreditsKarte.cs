@@ -6,7 +6,7 @@ using System.Web;
 
 namespace GameServer.Code.Karten
 {
-    public class CreditsKarte : Karte
+    public class CreditsKarte : Karte, IComparable<CreditsKarte>
     {
         public int Credits { get; set; }
         
@@ -23,6 +23,15 @@ namespace GameServer.Code.Karten
             //11x 2000
             //3x 3000
         }
-        
+
+        public int CompareTo(CreditsKarte other) {
+            if(this.Credits == other.Credits) {
+                return 0;
+            } else if (this.Credits > other.Credits) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
     }
 }

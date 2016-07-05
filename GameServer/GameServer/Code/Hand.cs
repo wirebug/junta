@@ -72,12 +72,10 @@ namespace GameServer.Code {
                 if(k.id == idKarte)
                 {
                     return k;
-                }else
-                {
-                    throw new Exception("Karte nicht gefunden");
                 }
+                
             }
-            throw new Exception("Karte nicht gefunden");
+            return null;
         }
 
         public void RemoveHandkarte(Karte item)

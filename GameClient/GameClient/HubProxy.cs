@@ -23,7 +23,7 @@ namespace GameClient {
 
             proxy.On<int, int, string, string>("AddKarte", (ident, id, titel, text) => AddKarte(ident, id, titel, text));
             proxy.On<int, string>("VersprechenWählen", (idSpieler, json) => VersprechenWählen(idSpieler, json));
-            proxy.On<int, int, string, string>("AddVerspprechung", (ident, id, titel, text) => AddVersprechung(ident, id, titel, text));
+            proxy.On<int, int, string, string>("AddVersprechung", (ident, id, titel, text) => AddVersprechung(ident, id, titel, text));
             proxy.On<int>("RemoveVersprechen", (idSpieler) => RemoveVersprechen(idSpieler));
             proxy.On<int>("AlleVersprechenEnfernen", (id) => RemoveAllVersprechen());
             proxy.On<int, int>("KampfWählen", (idSpieler, flotten) => KampfWählen(idSpieler, flotten));
@@ -60,7 +60,7 @@ namespace GameClient {
                     }
                 }
                 
-                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.mitspieler.Add(new FakeSpieler(ident, präs))));
+                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.mitspieler.Add(new FakeSpieler(ident, präs)))).Wait();
             }
         }
 
@@ -80,18 +80,20 @@ namespace GameClient {
         /// <param name="idSpieler">ident Spieler</param>
         /// <param name="idKarte">id Karte</param>
         public void VersprechenWählen(int idSpieler, string json) {
-            if (spiel.selbst.präsident)
-            {
+            if (spiel.selbst.präsident) {
                 List<FakeKarte> FKarteListe = new List<FakeKarte>();
                 FKarteListe = JsonConvert.DeserializeObject<List<FakeKarte>>(json);
 
                 VersprechenWählenWindow vww = null;
-                spiel.Dispatcher.BeginInvoke(new Action(() => vww =  new VersprechenWählenWindow(FKarteListe, spiel))).Wait();
+                 spiel.Dispatcher.Invoke(() => {
+                    vww = new VersprechenWählenWindow(FKarteListe, spiel);
 
 
-                if (vww.ShowDialog() == false) {
-                    proxy.Invoke("VersprechenVerarbeiten", vww.versprechen);
-                }               
+                    if (vww.ShowDialog() == false) {
+                        string j = JsonConvert.SerializeObject(vww.versprechen);
+                        proxy.Invoke("VersprechenVerarbeiten", j);
+                    }
+                });        
             }
             
         }
@@ -108,7 +110,7 @@ namespace GameClient {
                 temp.id = id;
                 temp.text = text;
                 temp.titel = titel;
-                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.karten.Add(temp)));
+                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.karten.Add(temp))).Wait();
             } else {
                 foreach (FakeSpieler f in spiel.mitspieler) {
                     if (f.würfelzahl == ident) {
@@ -126,7 +128,7 @@ namespace GameClient {
                 temp.id = id;
                 temp.text = text;
                 temp.titel = titel;
-                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.versprechen.Add(temp)));
+                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.versprechen.Add(temp))).Wait();
                 
             }
         }
@@ -155,29 +157,35 @@ namespace GameClient {
         public void VersprechenBekommen(int ident) {
             if (IsPlayer(ident)){
                 foreach(FakeKarte s in spiel.versprechen) {
-                    spiel.versprechen.Remove(s);
-                    spiel.karten.Add(s);
+                    spiel.Dispatcher.BeginInvoke(new Action(() => spiel.versprechen.Remove(s))).Wait();
+                    spiel.Dispatcher.BeginInvoke(new Action(() => spiel.karten.Add(s))).Wait();                   
                 }
             }
         }
         
         public void RemoveVersprechen(int ident) {
             if (IsPlayer(ident)) {
-                spiel.versprechen.Clear();
+                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.versprechen.Clear())).Wait();
             }
         }
 
         public void RemoveAllVersprechen() {
-            spiel.versprechen.Clear();
+            spiel.Dispatcher.BeginInvoke(new Action(() => spiel.versprechen.Clear())).Wait();
         }
 
         public void KampfWählen(int ident,int flottenAnzahl) {
             if (IsPlayer(ident)) {
-                KampfWählenWindow kww = new KampfWählenWindow(flottenAnzahl, spiel);
-                if(kww.ShowDialog() == false) {
-                    proxy.Invoke("FlottenVerarbeiten", ident, kww.würfel);
-                }
-                
+                /*    spiel.Dispatcher.InvokeAsync(() => {
+                        KampfWählenWindow kww = new KampfWählenWindow(flottenAnzahl, spiel);
+                        if (kww.ShowDialog() == false) {
+                            proxy.Invoke("FlottenVerarbeiten", ident, kww.würfel);
+                        }
+                    });
+                 */
+                KampfWählenWindow kww = null;
+                spiel.Dispatcher.BeginInvoke(new Action(() =>  kww = new KampfWählenWindow(flottenAnzahl, spiel))).Wait();
+                spiel.Dispatcher.BeginInvoke(new Action(() => kww.ShowDialog())).Wait();
+                proxy.Invoke("FlottenVerarbeiten", ident, kww.würfel);
             }
         }
         
@@ -242,10 +250,12 @@ namespace GameClient {
 
         public void Kaufen(int ident, int money, bool second) {
             if (IsPlayer(ident)) {
-                KaufenWindow kw = new KaufenWindow(money, second);
-                if(kw.ShowDialog() == false) {
-                    proxy.Invoke("KaufenAntwort", ident, kw.option);
-                }
+                spiel.Dispatcher.Invoke(() => {
+                    KaufenWindow kw = new KaufenWindow(money, second);
+                    if (kw.ShowDialog() == false) {
+                        proxy.Invoke("KaufenAntwort", ident, kw.option);
+                    }
+                });
             }
         }
 

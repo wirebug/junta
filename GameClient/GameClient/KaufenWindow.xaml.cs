@@ -21,15 +21,15 @@ namespace GameClient {
         public KaufenWindow(int money, bool second) {
             InitializeComponent();
             moneyLabel.Content = money;
-            if (money < 4000) {
-                rb3.IsHitTestVisible = false;
-            } else if (money < 2000) {
-                rb3.IsHitTestVisible = false;
-                rb2.IsHitTestVisible = false;
-            } else if (money < 1000) {
+            if (money < 1000) {
                 rb3.IsHitTestVisible = false;
                 rb2.IsHitTestVisible = false;
                 rb1.IsHitTestVisible = false;
+            } else if (money < 2000) {
+                rb3.IsHitTestVisible = false;
+                rb2.IsHitTestVisible = false;
+            } else if (money < 4000) {
+                rb3.IsHitTestVisible = false;
             }
             if (second) {
                 rb1.IsHitTestVisible = false;

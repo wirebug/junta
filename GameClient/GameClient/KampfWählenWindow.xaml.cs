@@ -37,7 +37,7 @@ namespace GameClient {
                 if(i == 0) {
                     check = spiel.selbst;
                 } else {
-                    check = spiel.mitspieler[i];
+                    check = spiel.mitspieler[i-1];
                 }
                 switch (check.würfelzahl) {
                     case 1: sp1 = true;break;

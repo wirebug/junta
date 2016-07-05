@@ -7,12 +7,13 @@ using GameServer.Code.Karten;
 namespace GameServer.Code {
     public class Kampf {
         public Dictionary<Spieler, int> angriffswürfel { get; set; } //Würfel pro Spieler
+        protected Dictionary<Spieler, int> ergA { get; set; } = new Dictionary<Spieler, int>();
         public int verteidigungswürfel { get; set; } //Würfel des Verteidigungsspieler
         public Spieler zuordnung { get; set; }
 
-        public Kampf() {
+        public Kampf(Spieler sp) {
+            zuordnung = sp;
             angriffswürfel = new Dictionary<Spieler, int>();
-            verteidigungswürfel += zuordnung.planet.gebäude;
         }
 
         public void addVerteidigung() {
@@ -39,18 +40,18 @@ namespace GameServer.Code {
         }
 
         private bool Würfeln() { 
-            int vert = 0;
+            int vert = zuordnung.planet.gebäude;
             int angr = 0;
             Random rng = new Random();
             for (int i = 0; i < verteidigungswürfel; i++) {
-                vert += rng.Next(1, 6);
+                vert += rng.Next(1, 7);
             }
             foreach (KeyValuePair<Spieler, int> pair in angriffswürfel) {
                 int spAngr = 0;
                 for (int i = 0; i < pair.Value; i++) {
-                    spAngr += rng.Next(1, 6);
+                    spAngr += rng.Next(1, 7);
                 }
-                angriffswürfel[pair.Key] = spAngr;
+                ergA.Add(pair.Key, spAngr);
                 angr += spAngr;
             }
             if (vert >= angr) {
@@ -68,7 +69,7 @@ namespace GameServer.Code {
             } else {
                 int s = angriffswürfel.Count;
                 for (int i = 0; i < s; i++) {
-                    Spieler temp = angriffswürfel.Max().Key;
+                    Spieler temp = ergA.Max().Key;
                     ergebnis.Add(temp);
                     angriffswürfel.Remove(temp);
                 }
