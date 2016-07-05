@@ -55,9 +55,9 @@ namespace GameClient {
 
         public void IstPräsident() {
             if (selbst.präsident) {               
-                    Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist Präsident")).Wait();
+                    Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist Imperator")).Wait();
             } else {
-                Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist nicht Präsident")).Wait();
+                Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist nicht Imperator")).Wait();
             }
             
         }
@@ -80,6 +80,10 @@ namespace GameClient {
             Dispatcher.BeginInvoke(new Action(() => würfelzahlLabel.Content = selbst.würfelzahl)).Wait();
             IstPräsident();
             Milizen = selbst.milizen;
+        }
+
+        private void handGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
         }
     }
 }
