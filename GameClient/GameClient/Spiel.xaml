@@ -13,12 +13,6 @@
             <ImageBrush ImageSource="Resources/background.png" Stretch="UniformToFill"/>
         </Grid.Background>
         <Button x:Name="debugButton" Content="" HorizontalAlignment="Left" Margin="10,770,0,0" VerticalAlignment="Top" Width="20" Click="debugButton_Click" Background="#FF231F20"/>
-        <Ellipse x:Name="gebäude1" Fill="LimeGreen" HorizontalAlignment="Left" Height="100" Margin="276,666,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-1.64,2.08"/>
-        <Ellipse x:Name="gebäude2" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="669,153,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude3" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="515,335,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude6" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="873,234,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude5" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="831,498,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude4" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="631,525,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="präsidentLabel" Content="Du bist nicht Imperator" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="41" Width="287" FontSize="24" FontWeight="Bold" Foreground="#FFF77123" Background="#FF231F20"/>
         <Label x:Name="milizenLabel" Content="0" HorizontalAlignment="Left" Height="34" Margin="106,90,0,0" VerticalAlignment="Top" Width="42" FontSize="20" Foreground="White" RenderTransformOrigin="0.635,1.461"/>
         <DataGrid x:Name="handGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="438" Margin="20,187,0,0" VerticalAlignment="Top" Width="356" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" Foreground="White" Background="#FF231F20" BorderBrush="#FF231F20" HeadersVisibility="Column" RowHeaderWidth="0" GridLinesVisibility="None">
@@ -82,5 +76,32 @@
         <Label x:Name="präsidentLabel_Copy" Content="Würfelzahl:" HorizontalAlignment="Left" Margin="20,51,0,0" VerticalAlignment="Top" Height="34" Width="119" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
         <Label x:Name="präsidentLabel_Copy1" Content="Flotten:" HorizontalAlignment="Left" Margin="20,90,0,0" VerticalAlignment="Top" Height="34" Width="86" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
         <Label x:Name="präsidentLabel_Copy2" Content="Hand:" HorizontalAlignment="Left" Margin="20,153,0,0" VerticalAlignment="Top" Height="34" Width="86" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
+        <Rectangle x:Name="gebäude1" HorizontalAlignment="Left" Height="125" Margin="686,153,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="125" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/mars.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="gebäude2" HorizontalAlignment="Left" Height="125" Margin="868,281,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="125" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/merkur.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="gebäude3" HorizontalAlignment="Left" Height="125" Margin="799,491,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="125" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/neptun.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="gebäude4" HorizontalAlignment="Left" Height="125" Margin="574,491,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="126" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/uranus.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="gebäude5" HorizontalAlignment="Left" Height="125" Margin="503,281,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="125" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/venus.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label x:Name="präsidentLabel_Copy3" Content="Versprechen:" HorizontalAlignment="Left" Margin="1110,160,0,0" VerticalAlignment="Top" Height="34" Width="136" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
+
     </Grid>
 </Page>
