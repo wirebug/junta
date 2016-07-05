@@ -45,7 +45,6 @@ namespace GameClient {
             gebäude.Add(gebäude3);
             gebäude.Add(gebäude4);
             gebäude.Add(gebäude5);
-            gebäude.Add(gebäude6);
             handGrid.DataContext = karten;
             versprechenGrid.DataContext = versprechen;
             mitspielerGrid.DataContext = mitspieler;
@@ -68,11 +67,11 @@ namespace GameClient {
         }
 
         public void addGebäude() {
-            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount++].Fill = Brushes.LimeGreen)).Wait();           
+            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount++ -1].Fill = Brushes.LimeGreen)).Wait();           
         }
 
         public void removeGebäude() {
-            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount-- - 1].Fill = Brushes.Red)).Wait();           
+            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount-- -2].Fill = Brushes.Red)).Wait();           
         }
 
         public void initGUI() {
@@ -80,10 +79,6 @@ namespace GameClient {
             Dispatcher.BeginInvoke(new Action(() => würfelzahlLabel.Content = selbst.würfelzahl)).Wait();
             IstPräsident();
             Milizen = selbst.milizen;
-        }
-
-        private void handGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
         }
     }
 }
