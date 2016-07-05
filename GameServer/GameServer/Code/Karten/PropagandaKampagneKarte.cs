@@ -11,7 +11,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Propaganda";
             kartenphase = "Spiele vor einem Kampf.";
-            text = "Alle verteidigenden Milizen haben in diesem Kampf den Wert 2.";
+            text = "Alle verteidigenden Milizen haben &#A;in diesem Kampf den Wert 2.";
         }
         override public void Action()
         {
