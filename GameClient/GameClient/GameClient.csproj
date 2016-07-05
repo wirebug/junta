@@ -66,13 +66,22 @@
     <Compile Include="DebugWindow.xaml.cs">
       <DependentUpon>DebugWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EinbrecherWindow.xaml.cs">
+      <DependentUpon>EinbrecherWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="KampfWählenWindow.xaml.cs">
       <DependentUpon>KampfWählenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KaufenWindow.xaml.cs">
+      <DependentUpon>KaufenWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Referenzen\FakeKarte.cs" />
     <Compile Include="Referenzen\FakeSpieler.cs" />
     <Compile Include="Spiel.xaml.cs">
       <DependentUpon>Spiel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VersprechenWählenWindow.xaml.cs">
+      <DependentUpon>VersprechenWählenWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Anmelden.xaml">
       <SubType>Designer</SubType>
@@ -82,7 +91,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EinbrecherWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="KampfWählenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KaufenWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,6 +120,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Spiel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VersprechenWählenWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
