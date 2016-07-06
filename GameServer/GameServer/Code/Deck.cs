@@ -27,10 +27,10 @@ namespace GameServer.Code {
             }
             Shuffle();
             */
-
-
             stapel.Add(new SpionKarte(0, null, this)); //Nach FLotten
             stapel.Add(new EinbrecherKarte(1, null, this)); //Nach Versprechungen
+            
+            
 
             //KAMPFPHASE KARTEN
             stapel.Add(new AblenkungsmanoeverKarte(2, null, this)); //Würfel neu wprfeln

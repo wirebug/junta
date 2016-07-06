@@ -31,20 +31,20 @@ namespace GameServer.Code {
         void checkFlags()
         {
             hatKampfkarte = false;
+            hatEinbrecher = false;
+            hatSpion = false;
             foreach (Karte k in handKarten)
             {
                 if (k.id == 0)
                 {
                     hatSpion = true;
                 }
-                else
-                    hatSpion = false;
+   
                 if (k.id == 1)
                 {
                     hatEinbrecher = true;
                 }
-                else
-                    hatEinbrecher = false;
+                
                 if (k.id > 1 && k.id < 14)
                 {
                     hatKampfkarte = true;
@@ -82,9 +82,9 @@ namespace GameServer.Code {
         {
             if (item.id >= 19) {
                 spieler.decreaseGuthaben((item as CreditsKarte).Credits);
-            }
-            checkFlags();
+            }            
             handKarten.Remove(item);
+            checkFlags();
         }
         /// <summary>
         /// Legt Karte auf Hand
@@ -95,8 +95,8 @@ namespace GameServer.Code {
             if(item.id >= 19) {
                 spieler.increaseGuthaben((item as CreditsKarte).Credits);
             }
-            checkFlags();
             handKarten.Add(item);
+            checkFlags();
         }
         /// <summary>
         /// Gibt Anzahl der Handkarten zurück

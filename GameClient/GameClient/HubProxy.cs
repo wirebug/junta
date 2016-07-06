@@ -39,7 +39,8 @@ namespace GameClient {
             proxy.On<int, int, bool, int, int>("setSpieler", (idSpieler, punkte, imp, flotten, anzK) => setSpieler(idSpieler, punkte, imp, flotten, anzK));
             proxy.On<int, bool>("AddOtherPlayer", (ident, imp) => AddOtherPlayers(ident, imp));
             proxy.On<string>("message", (text) => message(text));
-            proxy.On<int>("won", (ident) => won(ident));          
+            proxy.On<int>("won", (ident) => won(ident));
+            proxy.On<int, string>("ZeigeNachricht", (ident, mesage) => ZeigeNachricht(ident, mesage));   
             connection.Start().Wait();
         }
         public void message(string ab) {
@@ -207,28 +208,29 @@ namespace GameClient {
             if (IsPlayer(ident)) {
                 string message = "Möchtest du den Einbrecher spielen?";
                 string caption = "Junta";
-                MessageBoxResult result = MessageBox.Show(message, caption, MessageBoxButton.YesNo);
-                if(result == MessageBoxResult.Yes) {
+                spiel.Dispatcher.Invoke(() => {
+                    MessageBoxResult result = MessageBox.Show(message, caption, MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes) {
                     //Fenster mit spieleranzahl an radiobuttons
                     //EinbrecherWindow
-                    EinbrecherWindow ew = new EinbrecherWindow(spiel);
-                    if (ew.ShowDialog() == false)
-                    {
-                        proxy.Invoke("EinbrecherAntwort", true, ew.erg);
-                    }
-                    //Methode im EW auswahl eines spielers der beklaut werden soll.
-
                     
-                } else {
-                    proxy.Invoke("EinbrecherAntwort", false);
-                }
+                        EinbrecherWindow ew = new EinbrecherWindow(spiel);
+                        if (ew.ShowDialog() == false) {
+                            proxy.Invoke("EinbrecherAntwort", true, ew.erg, spiel.selbst.würfelzahl);
+                        }
+                        //Methode im EW auswahl eines spielers der beklaut werden soll.
+
+
+                    } else {
+                        proxy.Invoke("EinbrecherAntwort", false);
+                    }
+                });
             }
         }
 
         public  void ZeigeNachricht(int ident, string message) {
             if (IsPlayer(ident)) {
-                string caption = "Junta";
-                MessageBox.Show(message, caption, MessageBoxButton.OK);
+                spiel.Dispatcher.BeginInvoke(new Action(() => spiel.messageBox.Items.Add(message)));
             }
         }
 

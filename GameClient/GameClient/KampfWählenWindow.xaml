@@ -7,7 +7,7 @@
         
         xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
         
-        mc:Ignorable="d" Height="300" Width="340" Title="Junta Viva Imperator">
+        mc:Ignorable="d" Height="300" Width="350.084" Title="Junta Viva Imperator" ResizeMode="NoResize">
 
     <Grid>
         <Grid.Background>

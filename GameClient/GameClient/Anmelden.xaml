@@ -12,7 +12,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="Resources/background2.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Button x:Name="anmeldenButton" Content="Anmelden" HorizontalAlignment="Left" Margin="688,384,0,0" VerticalAlignment="Top" Width="75" Click="anmeldenButton_Click"/>
+        <Button x:Name="anmeldenButton" Content="Start" HorizontalAlignment="Left" Margin="480,449,0,0" VerticalAlignment="Top" Width="475" Click="anmeldenButton_Click" Height="141" Background="#FF231F20" BorderBrush="White" BorderThickness="3" Foreground="White" FontSize="72"/>
+        <Label x:Name="label" Content="Junta Viva Imperator" HorizontalAlignment="Left" Height="248" Margin="125,53,0,0" VerticalAlignment="Top" Width="1250" Foreground="#FFF77123" FontSize="129" FontFamily="Yu Gothic Medium"/>
 
     </Grid>
 </Page>

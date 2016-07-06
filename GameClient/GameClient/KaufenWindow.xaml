@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameClient"
         mc:Ignorable="d"
-        Title="Junta Viva Imperator" Height="285" Width="300">
+        Title="Junta Viva Imperator" Height="285" Width="300" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/background2.png" Stretch="UniformToFill"/>
@@ -19,7 +19,7 @@
         <Label x:Name="label_Copy" Content="2000 Credits: Flotte" HorizontalAlignment="Left" Height="17" Margin="36,119,0,0" VerticalAlignment="Top" Width="118" Foreground="White" Padding="5,0"/>
         <Label x:Name="label_Copy1" Content="4000 Credits: Planet" HorizontalAlignment="Left" Height="17" Margin="36,149,0,0" VerticalAlignment="Top" Width="128" Foreground="White" Padding="5,0"/>
         <Button x:Name="okButton" Content="Bestätigen" HorizontalAlignment="Left" Height="29" Margin="10,201,0,0" VerticalAlignment="Top" Width="79" Click="button_Click" Background="#FF231F20" Foreground="White" BorderBrush="White" BorderThickness="3"/>
-        <Button x:Name="button" Content="?" HorizontalAlignment="Left" Height="29" Margin="258,201,0,0" VerticalAlignment="Top" Width="29" Background="#FF231F20" Foreground="White" BorderBrush="White" Click="button_Click2"/>
+        <Button x:Name="button" Content="?" HorizontalAlignment="Left" Height="29" Margin="253,201,0,0" VerticalAlignment="Top" Width="29" Background="#FF231F20" Foreground="White" BorderBrush="White" Click="button_Click2" RenderTransformOrigin="-2.082,0.755"/>
         <Label x:Name="label_Copy2" Content="passen" HorizontalAlignment="Left" Height="17" Margin="36,59,0,0" VerticalAlignment="Top" Width="109" Foreground="White" Padding="5,0"/>
         <Label x:Name="label1" Content="Credits:" HorizontalAlignment="Left" Height="30" Margin="10,18,0,0" VerticalAlignment="Top" Width="69" FontWeight="Bold" FontSize="16" Foreground="White" Padding="1,5,5,5"/>
         <Label x:Name="hilfeLabel" Content="Wähle aus was du kaufen möchtest.&#xA;Hast du anschließend noch genug Credits&#xA;um dir etwas weiteres zu leisten, dann&#xA;kannst du nochmal kaufen." HorizontalAlignment="Left" Margin="94,176,0,0" VerticalAlignment="Top" Height="54" Width="159" Background="#FF231F20" Foreground="#FFF77123" FontSize="8" Visibility="Hidden"/>

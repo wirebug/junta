@@ -108,16 +108,8 @@ namespace GameServer.Code
                     _hub.VersprechenHinzu(pair.Value, pair.Key, temp.titel, temp.text);
                 }
             }
-            FlottenStart();
-           /*
-            foreach(Spieler s in spieler)
-            {
-                if (s.hand.hatEinbrecher)
-                {
-                    EinbrecherKarteSpielen(s);
-                }
-            
-             }*/
+            EinbrecherKarteSpielen();
+           
         }
 
         /// <summary>
@@ -125,9 +117,20 @@ namespace GameServer.Code
         /// Die Methode übergibt den Spieler mit der Karte an den Hub
         /// Der Spieler kann sich aussuchen ob er den Einbrecher spielen möchte
         /// </summary>
-        public void EinbrecherKarteSpielen(Spieler spieler)
+        public void EinbrecherKarteSpielen()
         {
-            _hub.SpieleEinbrecher(spieler);
+            Spieler temp = null;
+            foreach(Spieler s in spieler) {
+                if (s.hand.hatEinbrecher) {
+                    temp = s;
+                    break;
+                }
+            }
+            if(temp != null) {
+                _hub.SpieleEinbrecher(temp);
+            } else {
+                FlottenStart();
+            }
         }
         public void verarbeiteEinbrecherAntwort(bool b,int idSpielerWeg, int idSpielerHinzu)
         {
@@ -139,6 +142,7 @@ namespace GameServer.Code
                 _hub.KarteIDEntfernen(GetSpieleraById(idSpielerHinzu), k);
                 deck.Ablegen(k);
             }
+            FlottenStart();
         }
         /// <summary>
         /// Spielphase III Flotten befehligen
@@ -211,11 +215,31 @@ namespace GameServer.Code
                         nImperator = gewinner.First();
                         foreach(Spieler p in gewinner) {
                             KarteKlauen(p, imperator);
+                            if (p.Equals(gewinner.First())) {
+                                _hub.ZeigeNachricht(p, "Du hast den Kmapf gegen den Imperator gewonnen und bist neuer Imperator");
+                            } else {
+                                _hub.ZeigeNachricht(p, "Du hast den Kampf gegen den Imperator gewonnen");
+                            }
+                            foreach (KeyValuePair<Spieler, int> s in (i.kampf as ImperatorKampf).verteidigungswürfel) {
+                                if (s.Key.imperator) {
+                                    _hub.ZeigeNachricht(s.Key, "Du hast deine Verteidigung verloren und bist nicht mehr Imperator");
+                                } else {
+                                    _hub.ZeigeNachricht(s.Key, "Die Verteidigung des Imperators war nicht erfolgreich");
+                                }
+                            }
                         }
                     } else {
                         foreach(KeyValuePair<Spieler,int> s in i.kampf.angriffswürfel) {
                             AlleVersprechenEntfernen(s.Key);
                             _hub.VersprechenEntfernen(s.Key);
+                            _hub.ZeigeNachricht(s.Key, "Du hast den Angriff gegen den Imperator verloren");
+                        }
+                        foreach(KeyValuePair<Spieler, int> s in (i.kampf as ImperatorKampf).verteidigungswürfel) {
+                            if (s.Key.imperator) {
+                                _hub.ZeigeNachricht(s.Key, "Du hast deine Verteidigung gewonnen");
+                            } else {
+                                _hub.ZeigeNachricht(s.Key, "Die Verteidigung des Imperators war erfolgreich");
+                            }
                         }
                     }
                 } else {
@@ -223,6 +247,13 @@ namespace GameServer.Code
                     if(gewinner.Count > 0) {
                         foreach(Spieler p in gewinner) {
                             KarteKlauen(p, i);
+                            _hub.ZeigeNachricht(p, "Du hast den Angriff gegen Spieler " + p.ID + " gewonnen");
+                        }
+                        _hub.ZeigeNachricht(i, "Du hast deine Verteidigung verloren");
+                    } else {
+                        _hub.ZeigeNachricht(i, "Du hast deine Verteidigung gewonnen");
+                        foreach(KeyValuePair<Spieler, int > m in i.kampf.angriffswürfel) {
+                            _hub.ZeigeNachricht(m.Key, "Du hast den Angriff gegen Spieler " + i.ID + " verloren");
                         }
                     }
                 }
@@ -324,6 +355,8 @@ namespace GameServer.Code
                 taeter.hand.AddHandkarte(temp);
                 _hub.KarteIDEntfernen(opfer, temp);
                 _hub.KarteIdHinzu(taeter, temp);
+                _hub.ZeigeNachricht(taeter, "Du hast Spieler " + opfer.ID + " " + temp.titel + " geklaut");
+                _hub.ZeigeNachricht(opfer, "Dir wurde von Spieler " + taeter.ID + " " + temp.titel + " geklaut");
             }
         }
 

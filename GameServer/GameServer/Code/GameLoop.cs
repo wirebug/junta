@@ -11,12 +11,6 @@ namespace GameServer.Code {
             init();
                   
         }
-        public static void sada() {
-            while (true) {
-                sleep();
-                sv._hub.ZeigeNachricht("testetetst");
-            }
-        }
 
         public static void Start() {
             foreach (Spieler s in sv.spieler) {

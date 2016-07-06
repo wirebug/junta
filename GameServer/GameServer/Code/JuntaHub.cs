@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -57,9 +57,9 @@ namespace GameServer.Code {
         {
             context.Clients.All.RemoveKarte(spieler.ID, karte.id);
         }
-        public void ZeigeNachricht(string nachricht)
+        public void ZeigeNachricht(Spieler spieler, string nachricht)
         {
-            context.Clients.All.message(nachricht);
+            context.Clients.All.ZeigeNachricht(spieler.ID, nachricht);
         }
         public void SetzeImperator(Spieler spieler, Spieler alt)
         {

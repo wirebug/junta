@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameClient"
         mc:Ignorable="d"
-        Title="EinbrecherWindow" Height="300" Width="300">
+        Title="Junta Viva Imperator" Height="300" Width="300" ResizeMode="NoResize">
     <Grid>
-        <Label x:Name="label" Content="Auf welchen Spieler möchtest du den&#xA;Einbrecher spielen?" HorizontalAlignment="Left" Height="49" Margin="10,10,0,0" VerticalAlignment="Top" Width="265"/>
-        <RadioButton x:Name="rb1" GroupName="einbrecher" Content="1" Checked="radioButton_Checked" Margin="25,87,-25,-87" IsHitTestVisible="False"/>
-        <RadioButton x:Name="rb2" GroupName="einbrecher" Content="2" Checked="radioButton_Checked" Margin="25,106,-25,-106" IsHitTestVisible="False"/>
-        <RadioButton x:Name="rb3" GroupName="einbrecher" Content="3" Checked="radioButton_Checked" Margin="25,124,-25,-124" IsHitTestVisible="False"/>
-        <RadioButton x:Name="rb4" GroupName="einbrecher" Content="4" Checked="radioButton_Checked" Margin="25,142,-25,-142" IsHitTestVisible="False"/>
-        <RadioButton x:Name="rb5" GroupName="einbrecher" Content="5" Checked="radioButton_Checked" Margin="25,160,-25,-160" IsHitTestVisible="False"/>
-        <Button x:Name="button" Content="Ok" HorizontalAlignment="Left" Height="19" Margin="25,214,0,0" VerticalAlignment="Top" Width="52" Click="button_Click"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/background2.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Label x:Name="label" Content="Auf welchen Spieler möchtest du den&#xA;Einbrecher spielen?" HorizontalAlignment="Left" Height="49" Margin="10,10,0,0" VerticalAlignment="Top" Width="265" Background="#FF231F20" Foreground="White"/>
+        <RadioButton x:Name="rb1" GroupName="einbrecher" Content="1" Checked="radioButton_Checked" Margin="25,90,-25,-87" IsHitTestVisible="False" Foreground="White"/>
+        <RadioButton x:Name="rb2" GroupName="einbrecher" Content="2" Checked="radioButton_Checked" Margin="25,110,-25,-106" IsHitTestVisible="False" Foreground="White"/>
+        <RadioButton x:Name="rb3" GroupName="einbrecher" Content="3" Checked="radioButton_Checked" Margin="25,130,-25,-124" IsHitTestVisible="False" Foreground="White"/>
+        <RadioButton x:Name="rb4" GroupName="einbrecher" Content="4" Checked="radioButton_Checked" Margin="25,150,-25,-142" IsHitTestVisible="False" Foreground="White"/>
+        <RadioButton x:Name="rb5" GroupName="einbrecher" Content="5" Checked="radioButton_Checked" Margin="25,170,-25,-160" IsHitTestVisible="False" Foreground="White"/>
+        <Button x:Name="okButton" Content="Bestätigen" HorizontalAlignment="Left" Height="29" Margin="25,223,0,0" VerticalAlignment="Top" Width="109" Click="button_Click" Background="#FF231F20" Foreground="White" BorderBrush="White" BorderThickness="3"/>
     </Grid>
 </Window>
