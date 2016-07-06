@@ -25,7 +25,13 @@ namespace GameClient {
         }
 
         private void PräsidentÄndern_Click(object sender, RoutedEventArgs e) {
-            spiel.proxy.addSpieler();
+            spiel.gebäude1.Visibility = Visibility.Visible;
+            spiel.gebäude2.Visibility = Visibility.Visible;
+            spiel.gebäude3.Visibility = Visibility.Visible;
+            spiel.gebäude4.Visibility = Visibility.Visible;
+            spiel.gebäude5.Visibility = Visibility.Visible;
+            MessageBox.Show("Du hast gewonnen");
+            
         }
 
         private void KarteHinzu_Click(object sender, RoutedEventArgs e) {

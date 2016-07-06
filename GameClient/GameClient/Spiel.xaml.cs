@@ -80,5 +80,22 @@ namespace GameClient {
             IstPräsident();
             Milizen = selbst.milizen;
         }
+
+        private void debugButton1_Click(object sender, RoutedEventArgs e) {
+            Dispatcher.BeginInvoke(new Action(() => proxy.Start()));
+            
+        }
+
+        private void debugButton2_Click(object sender, RoutedEventArgs e) {
+            Dispatcher.Invoke(() => {
+                gebäude1.Visibility = Visibility.Visible;
+                gebäude2.Visibility = Visibility.Visible;
+                gebäude3.Visibility = Visibility.Visible;
+                gebäude4.Visibility = Visibility.Visible;
+                gebäude5.Visibility = Visibility.Visible;
+                MessageBox.Show("Du hast gewonnen");
+            });
+            
+        }
     }
 }

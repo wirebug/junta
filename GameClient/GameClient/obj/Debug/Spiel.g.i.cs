@@ -176,6 +176,22 @@ namespace GameClient {
         #line default
         #line hidden
         
+        
+        #line 105 "..\..\Spiel.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button debugButton_Copy;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 106 "..\..\Spiel.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button debugButton_Copy1;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -262,6 +278,24 @@ namespace GameClient {
             return;
             case 17:
             this.messageBox = ((System.Windows.Controls.ListBox)(target));
+            return;
+            case 18:
+            this.debugButton_Copy = ((System.Windows.Controls.Button)(target));
+            
+            #line 105 "..\..\Spiel.xaml"
+            this.debugButton_Copy.Click += new System.Windows.RoutedEventHandler(this.debugButton1_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 19:
+            this.debugButton_Copy1 = ((System.Windows.Controls.Button)(target));
+            
+            #line 106 "..\..\Spiel.xaml"
+            this.debugButton_Copy1.Click += new System.Windows.RoutedEventHandler(this.debugButton2_Click);
+            
+            #line default
+            #line hidden
             return;
             }
             this._contentLoaded = true;
