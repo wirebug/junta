@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="EinbrecherWindow" Height="300" Width="300">
     <Grid>
-        <Label x:Name="label" Content="Auf welchen Spieler möchtest du den&#xA;Einbrecher spielen?" HorizontalAlignment="Left" Height="41" Margin="10,10,0,0" VerticalAlignment="Top" Width="265"/>
+        <Label x:Name="label" Content="Auf welchen Spieler möchtest du den&#xA;Einbrecher spielen?" HorizontalAlignment="Left" Height="49" Margin="10,10,0,0" VerticalAlignment="Top" Width="265"/>
         <RadioButton x:Name="rb1" GroupName="einbrecher" Content="1" Checked="radioButton_Checked" Margin="25,87,-25,-87" IsHitTestVisible="False"/>
         <RadioButton x:Name="rb2" GroupName="einbrecher" Content="2" Checked="radioButton_Checked" Margin="25,106,-25,-106" IsHitTestVisible="False"/>
         <RadioButton x:Name="rb3" GroupName="einbrecher" Content="3" Checked="radioButton_Checked" Margin="25,124,-25,-124" IsHitTestVisible="False"/>

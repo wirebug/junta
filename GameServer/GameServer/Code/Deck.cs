@@ -95,9 +95,10 @@ namespace GameServer.Code {
         }
 
         public void Nachfüllen() {
-            foreach( Karte i in ablage){
-                stapel.Add(i);
-                ablage.Remove(i);
+            int temp = ablage.Count;
+            for(int i = 0; i < temp;i++){
+                stapel.Add(ablage.First());
+                ablage.RemoveAt(0);
             }
             Shuffle();
         }

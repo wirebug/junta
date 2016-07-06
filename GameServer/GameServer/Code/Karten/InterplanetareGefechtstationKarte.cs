@@ -15,7 +15,7 @@ namespace GameServer.Code.Karten
         {
             titel = "Interplanetare Gefechtsstation";
             kartenphase = "Spiele vor einem Kampf.";
-            text = "Dein Kampfwert erhöht sich beim nächsten Kampf um +3.";
+            text = "Dein Kampfwert erhöht sich beim &#A;nächsten Kampf um +3.";
         }
         override public void Action()
         {

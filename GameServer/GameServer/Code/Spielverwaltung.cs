@@ -231,6 +231,7 @@ namespace GameServer.Code
             foreach(Spieler s in spieler) {
                 if(s.versprechungen.Count > 0) {
                     foreach (Karte k in s.versprechungen) {
+                        _hub.KarteIdHinzu(s, k);
                         s.hand.AddHandkarte(k);
                     }
                     s.versprechungen.Clear();

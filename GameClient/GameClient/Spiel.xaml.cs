@@ -35,7 +35,7 @@ namespace GameClient {
 
         public FakeSpieler selbst;
         public ObservableCollection<FakeSpieler> mitspieler = new ObservableCollection<FakeSpieler>();
-        private List<Ellipse> gebäude = new List<Ellipse>();
+        private List<Rectangle> gebäude = new List<Rectangle>();
         private int gebäudeCount = 1;
 
         public Spiel() {          
@@ -45,7 +45,6 @@ namespace GameClient {
             gebäude.Add(gebäude3);
             gebäude.Add(gebäude4);
             gebäude.Add(gebäude5);
-            gebäude.Add(gebäude6);
             handGrid.DataContext = karten;
             versprechenGrid.DataContext = versprechen;
             mitspielerGrid.DataContext = mitspieler;
@@ -55,9 +54,9 @@ namespace GameClient {
 
         public void IstPräsident() {
             if (selbst.präsident) {               
-                    Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist Präsident")).Wait();
+                    Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist Imperator")).Wait();
             } else {
-                Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist nicht Präsident")).Wait();
+                Dispatcher.BeginInvoke(new Action(() => präsidentLabel.Content = "Du bist nicht Imperator")).Wait();
             }
             
         }
@@ -68,11 +67,11 @@ namespace GameClient {
         }
 
         public void addGebäude() {
-            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount++].Fill = Brushes.LimeGreen)).Wait();           
+            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount++ -1].Visibility = Visibility.Visible)).Wait();           
         }
 
         public void removeGebäude() {
-            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount-- - 1].Fill = Brushes.Red)).Wait();           
+            Dispatcher.BeginInvoke(new Action(() => gebäude[gebäudeCount-- -2].Visibility = Visibility.Hidden)).Wait();           
         }
 
         public void initGUI() {

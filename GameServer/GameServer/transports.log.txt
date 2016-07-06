@@ -4888,3 +4888,633 @@ SignalR.Transports.TransportHeartBeat Verbose: 0 : 793b0f83-f43f-419e-a4a2-6f911
 SignalR.Transports.TransportHeartBeat Verbose: 0 : 62aa5fff-a130-4e09-9bee-331463f42898 is dead
 SignalR.Transports.TransportHeartBeat Verbose: 0 : 0e3ec199-f79f-4c28-81e2-ff08a04be75b is dead
 SignalR.Transports.TransportHeartBeat Verbose: 0 : 793b0f83-f43f-419e-a4a2-6f911acba224 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection be4cf469-0e0d-46d1-8f57-cf845df16a4c is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be4cf469-0e0d-46d1-8f57-cf845df16a4c)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 5a0702d1-6deb-4ca4-8112-43a384cdb4dc is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be4cf469-0e0d-46d1-8f57-cf845df16a4c)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(5a0702d1-6deb-4ca4-8112-43a384cdb4dc)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be4cf469-0e0d-46d1-8f57-cf845df16a4c)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(5a0702d1-6deb-4ca4-8112-43a384cdb4dc)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be4cf469-0e0d-46d1-8f57-cf845df16a4c)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(5a0702d1-6deb-4ca4-8112-43a384cdb4dc)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be4cf469-0e0d-46d1-8f57-cf845df16a4c)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(5a0702d1-6deb-4ca4-8112-43a384cdb4dc)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be4cf469-0e0d-46d1-8f57-cf845df16a4c)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(5a0702d1-6deb-4ca4-8112-43a384cdb4dc)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(be4cf469-0e0d-46d1-8f57-cf845df16a4c)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(5a0702d1-6deb-4ca4-8112-43a384cdb4dc)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 4d6e5a01-c75d-44cb-af6b-a4ceec631731 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(4d6e5a01-c75d-44cb-af6b-a4ceec631731)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(4d6e5a01-c75d-44cb-af6b-a4ceec631731)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(4d6e5a01-c75d-44cb-af6b-a4ceec631731, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(4d6e5a01-c75d-44cb-af6b-a4ceec631731)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4d6e5a01-c75d-44cb-af6b-a4ceec631731 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4d6e5a01-c75d-44cb-af6b-a4ceec631731 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4d6e5a01-c75d-44cb-af6b-a4ceec631731 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4d6e5a01-c75d-44cb-af6b-a4ceec631731 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4d6e5a01-c75d-44cb-af6b-a4ceec631731 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4d6e5a01-c75d-44cb-af6b-a4ceec631731 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4d6e5a01-c75d-44cb-af6b-a4ceec631731 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 4d6e5a01-c75d-44cb-af6b-a4ceec631731
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(4d6e5a01-c75d-44cb-af6b-a4ceec631731)
+SignalR.Transports.WebSocketTransport Information: 0 : End(4d6e5a01-c75d-44cb-af6b-a4ceec631731)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(4d6e5a01-c75d-44cb-af6b-a4ceec631731)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(4d6e5a01-c75d-44cb-af6b-a4ceec631731)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (4d6e5a01-c75d-44cb-af6b-a4ceec631731)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 4db58890-3a7b-4417-8a2d-e1d4afbbefa4 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(4db58890-3a7b-4417-8a2d-e1d4afbbefa4)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(4db58890-3a7b-4417-8a2d-e1d4afbbefa4)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(4db58890-3a7b-4417-8a2d-e1d4afbbefa4, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(4db58890-3a7b-4417-8a2d-e1d4afbbefa4)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4db58890-3a7b-4417-8a2d-e1d4afbbefa4 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4db58890-3a7b-4417-8a2d-e1d4afbbefa4 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4db58890-3a7b-4417-8a2d-e1d4afbbefa4 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4db58890-3a7b-4417-8a2d-e1d4afbbefa4 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4db58890-3a7b-4417-8a2d-e1d4afbbefa4 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4db58890-3a7b-4417-8a2d-e1d4afbbefa4 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 4db58890-3a7b-4417-8a2d-e1d4afbbefa4 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 4db58890-3a7b-4417-8a2d-e1d4afbbefa4
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(4db58890-3a7b-4417-8a2d-e1d4afbbefa4)
+SignalR.Transports.WebSocketTransport Information: 0 : End(4db58890-3a7b-4417-8a2d-e1d4afbbefa4)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(4db58890-3a7b-4417-8a2d-e1d4afbbefa4)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(4db58890-3a7b-4417-8a2d-e1d4afbbefa4)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (4db58890-3a7b-4417-8a2d-e1d4afbbefa4)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection b9fd13fc-04a6-4926-bb39-ae7d45a2b488 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(b9fd13fc-04a6-4926-bb39-ae7d45a2b488)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(b9fd13fc-04a6-4926-bb39-ae7d45a2b488, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(b9fd13fc-04a6-4926-bb39-ae7d45a2b488)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : b9fd13fc-04a6-4926-bb39-ae7d45a2b488 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection e22ef025-1846-4116-8fe4-a1debaa5c80b is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e22ef025-1846-4116-8fe4-a1debaa5c80b)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(e22ef025-1846-4116-8fe4-a1debaa5c80b, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(e22ef025-1846-4116-8fe4-a1debaa5c80b)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : e22ef025-1846-4116-8fe4-a1debaa5c80b is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : e22ef025-1846-4116-8fe4-a1debaa5c80b is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : e22ef025-1846-4116-8fe4-a1debaa5c80b is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : e22ef025-1846-4116-8fe4-a1debaa5c80b is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : e22ef025-1846-4116-8fe4-a1debaa5c80b is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : e22ef025-1846-4116-8fe4-a1debaa5c80b is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : e22ef025-1846-4116-8fe4-a1debaa5c80b is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection e22ef025-1846-4116-8fe4-a1debaa5c80b
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(e22ef025-1846-4116-8fe4-a1debaa5c80b)
+SignalR.Transports.WebSocketTransport Information: 0 : End(e22ef025-1846-4116-8fe4-a1debaa5c80b)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(e22ef025-1846-4116-8fe4-a1debaa5c80b)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(e22ef025-1846-4116-8fe4-a1debaa5c80b)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (e22ef025-1846-4116-8fe4-a1debaa5c80b)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 57ebdd20-59a8-42b3-a370-3bcd5203d735 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(57ebdd20-59a8-42b3-a370-3bcd5203d735)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 2e4febfa-0a27-4c1e-92a1-a977a7f90d4d is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(2e4febfa-0a27-4c1e-92a1-a977a7f90d4d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(2e4febfa-0a27-4c1e-92a1-a977a7f90d4d)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(2e4febfa-0a27-4c1e-92a1-a977a7f90d4d)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection da95cdd1-ad37-4853-845b-21c92b3b2337 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(da95cdd1-ad37-4853-845b-21c92b3b2337)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(da95cdd1-ad37-4853-845b-21c92b3b2337)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(da95cdd1-ad37-4853-845b-21c92b3b2337, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(da95cdd1-ad37-4853-845b-21c92b3b2337)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : da95cdd1-ad37-4853-845b-21c92b3b2337 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : da95cdd1-ad37-4853-845b-21c92b3b2337 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : da95cdd1-ad37-4853-845b-21c92b3b2337 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : da95cdd1-ad37-4853-845b-21c92b3b2337 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : da95cdd1-ad37-4853-845b-21c92b3b2337 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : da95cdd1-ad37-4853-845b-21c92b3b2337 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : da95cdd1-ad37-4853-845b-21c92b3b2337 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection da95cdd1-ad37-4853-845b-21c92b3b2337
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(da95cdd1-ad37-4853-845b-21c92b3b2337)
+SignalR.Transports.WebSocketTransport Information: 0 : End(da95cdd1-ad37-4853-845b-21c92b3b2337)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(da95cdd1-ad37-4853-845b-21c92b3b2337)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(da95cdd1-ad37-4853-845b-21c92b3b2337)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (da95cdd1-ad37-4853-845b-21c92b3b2337)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 0a0f4456-3e9d-4969-8606-1bead96ca147 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(0a0f4456-3e9d-4969-8606-1bead96ca147, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 0a0f4456-3e9d-4969-8606-1bead96ca147 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 0a0f4456-3e9d-4969-8606-1bead96ca147 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 0a0f4456-3e9d-4969-8606-1bead96ca147 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 0a0f4456-3e9d-4969-8606-1bead96ca147 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 0a0f4456-3e9d-4969-8606-1bead96ca147 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 0a0f4456-3e9d-4969-8606-1bead96ca147 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 0a0f4456-3e9d-4969-8606-1bead96ca147 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 0a0f4456-3e9d-4969-8606-1bead96ca147
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.WebSocketTransport Information: 0 : End(0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (0a0f4456-3e9d-4969-8606-1bead96ca147)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection abd1b378-aed1-4bd4-a186-12826c56bce1 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(abd1b378-aed1-4bd4-a186-12826c56bce1)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(abd1b378-aed1-4bd4-a186-12826c56bce1, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(abd1b378-aed1-4bd4-a186-12826c56bce1)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : abd1b378-aed1-4bd4-a186-12826c56bce1 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : abd1b378-aed1-4bd4-a186-12826c56bce1 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : abd1b378-aed1-4bd4-a186-12826c56bce1 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : abd1b378-aed1-4bd4-a186-12826c56bce1 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection c1d5afcb-5e5a-43f5-9b31-4d1554611de5 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : abd1b378-aed1-4bd4-a186-12826c56bce1 is dead
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(c1d5afcb-5e5a-43f5-9b31-4d1554611de5, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(c1d5afcb-5e5a-43f5-9b31-4d1554611de5)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : abd1b378-aed1-4bd4-a186-12826c56bce1 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c1d5afcb-5e5a-43f5-9b31-4d1554611de5 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : abd1b378-aed1-4bd4-a186-12826c56bce1 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection abd1b378-aed1-4bd4-a186-12826c56bce1
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(abd1b378-aed1-4bd4-a186-12826c56bce1)
+SignalR.Transports.WebSocketTransport Information: 0 : End(abd1b378-aed1-4bd4-a186-12826c56bce1)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(abd1b378-aed1-4bd4-a186-12826c56bce1)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(abd1b378-aed1-4bd4-a186-12826c56bce1)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c1d5afcb-5e5a-43f5-9b31-4d1554611de5 is dead
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (abd1b378-aed1-4bd4-a186-12826c56bce1)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c1d5afcb-5e5a-43f5-9b31-4d1554611de5 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c1d5afcb-5e5a-43f5-9b31-4d1554611de5 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c1d5afcb-5e5a-43f5-9b31-4d1554611de5 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c1d5afcb-5e5a-43f5-9b31-4d1554611de5 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 1e13259e-09e8-4dd0-b5ab-dd9917d42a2f is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(1e13259e-09e8-4dd0-b5ab-dd9917d42a2f)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c1d5afcb-5e5a-43f5-9b31-4d1554611de5 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection c1d5afcb-5e5a-43f5-9b31-4d1554611de5
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(c1d5afcb-5e5a-43f5-9b31-4d1554611de5)
+SignalR.Transports.WebSocketTransport Information: 0 : End(c1d5afcb-5e5a-43f5-9b31-4d1554611de5)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(c1d5afcb-5e5a-43f5-9b31-4d1554611de5)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(c1d5afcb-5e5a-43f5-9b31-4d1554611de5)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (c1d5afcb-5e5a-43f5-9b31-4d1554611de5)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(1e13259e-09e8-4dd0-b5ab-dd9917d42a2f)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(1e13259e-09e8-4dd0-b5ab-dd9917d42a2f, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(1e13259e-09e8-4dd0-b5ab-dd9917d42a2f)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1e13259e-09e8-4dd0-b5ab-dd9917d42a2f is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1e13259e-09e8-4dd0-b5ab-dd9917d42a2f is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1e13259e-09e8-4dd0-b5ab-dd9917d42a2f is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1e13259e-09e8-4dd0-b5ab-dd9917d42a2f is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1e13259e-09e8-4dd0-b5ab-dd9917d42a2f is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1e13259e-09e8-4dd0-b5ab-dd9917d42a2f is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1e13259e-09e8-4dd0-b5ab-dd9917d42a2f is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 1e13259e-09e8-4dd0-b5ab-dd9917d42a2f
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(1e13259e-09e8-4dd0-b5ab-dd9917d42a2f)
+SignalR.Transports.WebSocketTransport Information: 0 : End(1e13259e-09e8-4dd0-b5ab-dd9917d42a2f)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(1e13259e-09e8-4dd0-b5ab-dd9917d42a2f)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(1e13259e-09e8-4dd0-b5ab-dd9917d42a2f)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (1e13259e-09e8-4dd0-b5ab-dd9917d42a2f)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection a8bd1ad2-295f-4049-a1c7-807ae3710904 is New.
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(a8bd1ad2-295f-4049-a1c7-807ae3710904, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(a8bd1ad2-295f-4049-a1c7-807ae3710904)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : a8bd1ad2-295f-4049-a1c7-807ae3710904 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : a8bd1ad2-295f-4049-a1c7-807ae3710904 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : a8bd1ad2-295f-4049-a1c7-807ae3710904 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : a8bd1ad2-295f-4049-a1c7-807ae3710904 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : a8bd1ad2-295f-4049-a1c7-807ae3710904 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : a8bd1ad2-295f-4049-a1c7-807ae3710904 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : a8bd1ad2-295f-4049-a1c7-807ae3710904 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection a8bd1ad2-295f-4049-a1c7-807ae3710904
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(a8bd1ad2-295f-4049-a1c7-807ae3710904)
+SignalR.Transports.WebSocketTransport Information: 0 : End(a8bd1ad2-295f-4049-a1c7-807ae3710904)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(a8bd1ad2-295f-4049-a1c7-807ae3710904)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(a8bd1ad2-295f-4049-a1c7-807ae3710904)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (a8bd1ad2-295f-4049-a1c7-807ae3710904)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 47c8896b-4ef0-45f7-acad-647bce68d852 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(47c8896b-4ef0-45f7-acad-647bce68d852)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(47c8896b-4ef0-45f7-acad-647bce68d852)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(47c8896b-4ef0-45f7-acad-647bce68d852, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(47c8896b-4ef0-45f7-acad-647bce68d852)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 47c8896b-4ef0-45f7-acad-647bce68d852 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 47c8896b-4ef0-45f7-acad-647bce68d852 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 47c8896b-4ef0-45f7-acad-647bce68d852 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 47c8896b-4ef0-45f7-acad-647bce68d852 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 47c8896b-4ef0-45f7-acad-647bce68d852 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 47c8896b-4ef0-45f7-acad-647bce68d852 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 47c8896b-4ef0-45f7-acad-647bce68d852 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 47c8896b-4ef0-45f7-acad-647bce68d852
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(47c8896b-4ef0-45f7-acad-647bce68d852)
+SignalR.Transports.WebSocketTransport Information: 0 : End(47c8896b-4ef0-45f7-acad-647bce68d852)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(47c8896b-4ef0-45f7-acad-647bce68d852)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(47c8896b-4ef0-45f7-acad-647bce68d852)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (47c8896b-4ef0-45f7-acad-647bce68d852)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection c78359a9-c353-473a-a062-ed6ea9b1c917 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c78359a9-c353-473a-a062-ed6ea9b1c917)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(c78359a9-c353-473a-a062-ed6ea9b1c917, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(c78359a9-c353-473a-a062-ed6ea9b1c917)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c78359a9-c353-473a-a062-ed6ea9b1c917 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c78359a9-c353-473a-a062-ed6ea9b1c917 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c78359a9-c353-473a-a062-ed6ea9b1c917 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c78359a9-c353-473a-a062-ed6ea9b1c917 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c78359a9-c353-473a-a062-ed6ea9b1c917 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c78359a9-c353-473a-a062-ed6ea9b1c917 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c78359a9-c353-473a-a062-ed6ea9b1c917 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection c78359a9-c353-473a-a062-ed6ea9b1c917
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(c78359a9-c353-473a-a062-ed6ea9b1c917)
+SignalR.Transports.WebSocketTransport Information: 0 : End(c78359a9-c353-473a-a062-ed6ea9b1c917)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(c78359a9-c353-473a-a062-ed6ea9b1c917)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(c78359a9-c353-473a-a062-ed6ea9b1c917)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (c78359a9-c353-473a-a062-ed6ea9b1c917)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 25768398-aaf7-4bc5-ad0e-a1349e6ba049 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(25768398-aaf7-4bc5-ad0e-a1349e6ba049)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(25768398-aaf7-4bc5-ad0e-a1349e6ba049)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(25768398-aaf7-4bc5-ad0e-a1349e6ba049, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(25768398-aaf7-4bc5-ad0e-a1349e6ba049)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 25768398-aaf7-4bc5-ad0e-a1349e6ba049 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 25768398-aaf7-4bc5-ad0e-a1349e6ba049 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 25768398-aaf7-4bc5-ad0e-a1349e6ba049 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 25768398-aaf7-4bc5-ad0e-a1349e6ba049 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 25768398-aaf7-4bc5-ad0e-a1349e6ba049 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 25768398-aaf7-4bc5-ad0e-a1349e6ba049 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 25768398-aaf7-4bc5-ad0e-a1349e6ba049 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 25768398-aaf7-4bc5-ad0e-a1349e6ba049
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(25768398-aaf7-4bc5-ad0e-a1349e6ba049)
+SignalR.Transports.WebSocketTransport Information: 0 : End(25768398-aaf7-4bc5-ad0e-a1349e6ba049)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(25768398-aaf7-4bc5-ad0e-a1349e6ba049)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(25768398-aaf7-4bc5-ad0e-a1349e6ba049)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (25768398-aaf7-4bc5-ad0e-a1349e6ba049)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 59b3cd4f-f34d-41ef-9049-3d2b5faea9ed is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(59b3cd4f-f34d-41ef-9049-3d2b5faea9ed)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(59b3cd4f-f34d-41ef-9049-3d2b5faea9ed, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(59b3cd4f-f34d-41ef-9049-3d2b5faea9ed)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 59b3cd4f-f34d-41ef-9049-3d2b5faea9ed is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 59b3cd4f-f34d-41ef-9049-3d2b5faea9ed is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 59b3cd4f-f34d-41ef-9049-3d2b5faea9ed is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 59b3cd4f-f34d-41ef-9049-3d2b5faea9ed is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 59b3cd4f-f34d-41ef-9049-3d2b5faea9ed is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 59b3cd4f-f34d-41ef-9049-3d2b5faea9ed is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 59b3cd4f-f34d-41ef-9049-3d2b5faea9ed is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 59b3cd4f-f34d-41ef-9049-3d2b5faea9ed
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(59b3cd4f-f34d-41ef-9049-3d2b5faea9ed)
+SignalR.Transports.WebSocketTransport Information: 0 : End(59b3cd4f-f34d-41ef-9049-3d2b5faea9ed)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(59b3cd4f-f34d-41ef-9049-3d2b5faea9ed)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(59b3cd4f-f34d-41ef-9049-3d2b5faea9ed)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (59b3cd4f-f34d-41ef-9049-3d2b5faea9ed)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection 1673c6bf-793b-4c46-af47-ccf2ea001dd0 is New.
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(1673c6bf-793b-4c46-af47-ccf2ea001dd0, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(1673c6bf-793b-4c46-af47-ccf2ea001dd0)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1673c6bf-793b-4c46-af47-ccf2ea001dd0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1673c6bf-793b-4c46-af47-ccf2ea001dd0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1673c6bf-793b-4c46-af47-ccf2ea001dd0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1673c6bf-793b-4c46-af47-ccf2ea001dd0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1673c6bf-793b-4c46-af47-ccf2ea001dd0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1673c6bf-793b-4c46-af47-ccf2ea001dd0 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : 1673c6bf-793b-4c46-af47-ccf2ea001dd0 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection 1673c6bf-793b-4c46-af47-ccf2ea001dd0
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(1673c6bf-793b-4c46-af47-ccf2ea001dd0)
+SignalR.Transports.WebSocketTransport Information: 0 : End(1673c6bf-793b-4c46-af47-ccf2ea001dd0)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(1673c6bf-793b-4c46-af47-ccf2ea001dd0)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(1673c6bf-793b-4c46-af47-ccf2ea001dd0)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (1673c6bf-793b-4c46-af47-ccf2ea001dd0)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection d777ceea-d07a-4c09-80a3-ae011e306308 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(d777ceea-d07a-4c09-80a3-ae011e306308)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(d777ceea-d07a-4c09-80a3-ae011e306308, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(d777ceea-d07a-4c09-80a3-ae011e306308)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : d777ceea-d07a-4c09-80a3-ae011e306308 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : d777ceea-d07a-4c09-80a3-ae011e306308 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : d777ceea-d07a-4c09-80a3-ae011e306308 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : d777ceea-d07a-4c09-80a3-ae011e306308 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : d777ceea-d07a-4c09-80a3-ae011e306308 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : d777ceea-d07a-4c09-80a3-ae011e306308 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : d777ceea-d07a-4c09-80a3-ae011e306308 is dead
+SignalR.Transports.TransportHeartBeat Information: 0 : Removing connection d777ceea-d07a-4c09-80a3-ae011e306308
+SignalR.Transports.WebSocketTransport Information: 0 : Abort(d777ceea-d07a-4c09-80a3-ae011e306308)
+SignalR.Transports.WebSocketTransport Information: 0 : End(d777ceea-d07a-4c09-80a3-ae011e306308)
+SignalR.Transports.WebSocketTransport Verbose: 0 : Cancel(d777ceea-d07a-4c09-80a3-ae011e306308)
+SignalR.Transports.WebSocketTransport Verbose: 0 : DrainWrites(d777ceea-d07a-4c09-80a3-ae011e306308)
+SignalR.Transports.WebSocketTransport Information: 0 : CompleteRequest (d777ceea-d07a-4c09-80a3-ae011e306308)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection c04d1f52-2e3a-464f-bbc9-bcce3b87bb53 is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Information: 0 : Connection e7f1eb67-2a34-4d51-8937-38a833808fcd is New.
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : KeepAlive(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Error: 0 : OnError(e7f1eb67-2a34-4d51-8937-38a833808fcd, System.Net.WebSockets.WebSocketException (0x800703E3): Der E/A-Vorgang wurde wegen eines Threadendes oder einer Anwendungsanforderung abgebrochen
+   bei System.Web.WebSockets.WebSocketPipe.<>c__DisplayClass9_0.<ReadFragmentAsync>b__0(Int32 hrError, Int32 cbIO, Boolean fUtf8Encoded, Boolean fFinalFragment, Boolean fClose)
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<DoWork>d__45`1.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei System.Web.WebSockets.AspNetWebSocket.<>c__DisplayClass36_0.<<ReceiveAsyncImpl>b__0>d.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketMessageReader.<ReadMessageAsync>d__0.MoveNext()
+--- Ende der Stapelüberwachung vom vorhergehenden Ort, an dem die Ausnahme ausgelöst wurde ---
+   bei System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   bei System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   bei Microsoft.AspNet.SignalR.WebSockets.WebSocketHandler.<ProcessWebSocketRequestAsync>d__e.MoveNext())
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(e7f1eb67-2a34-4d51-8937-38a833808fcd)
+SignalR.Transports.WebSocketTransport Information: 0 : CloseSocket(c04d1f52-2e3a-464f-bbc9-bcce3b87bb53)
+SignalR.Transports.TransportHeartBeat Verbose: 0 : c04d1f52-2e3a-464f-bbc9-bcce3b87bb53 is dead
+SignalR.Transports.TransportHeartBeat Verbose: 0 : e7f1eb67-2a34-4d51-8937-38a833808fcd is dead

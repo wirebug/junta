@@ -4,34 +4,54 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GameClient"
-      mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1500"
-      Title="Spiel">
+      mc:Ignorable="d" d:DesignWidth="1500"
+      Title="Spiel" Height="850" WindowHeight="850" MinHeight="844">
 
-    <Grid>
-        <Button x:Name="debugButton" Content="debug" HorizontalAlignment="Left" Margin="10,689,0,0" VerticalAlignment="Top" Width="75" Click="debugButton_Click"/>
-        <Ellipse x:Name="gebäude1" Fill="LimeGreen" HorizontalAlignment="Left" Height="100" Margin="744,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude2" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="655,239,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude3" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="581,474,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude6" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="883,214,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude5" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="928,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Ellipse x:Name="gebäude4" Fill="Red" HorizontalAlignment="Left" Height="100" Margin="785,549,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="präsidentLabel" Content="Du bist nicht Präsident" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Height="24" Width="214"/>
-        <Label x:Name="milizenLabel" Content="0" HorizontalAlignment="Left" Height="31" Margin="10,92,0,0" VerticalAlignment="Top" Width="116"/>
-        <DataGrid x:Name="handGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="438" Margin="37,179,0,0" VerticalAlignment="Top" Width="510" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True">
+    <Grid Height="850" MinHeight="853">
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/background.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Button x:Name="debugButton" Content="" HorizontalAlignment="Left" Margin="10,770,0,0" VerticalAlignment="Top" Width="20" Click="debugButton_Click" Background="#FF231F20"/>
+        <Label x:Name="präsidentLabel" Content="Du bist nicht Imperator" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="41" Width="287" FontSize="24" FontWeight="Bold" Foreground="#FFF77123" Background="#FF231F20"/>
+        <Label x:Name="milizenLabel" Content="0" HorizontalAlignment="Left" Height="34" Margin="106,90,0,0" VerticalAlignment="Top" Width="42" FontSize="20" Foreground="White" RenderTransformOrigin="0.635,1.461"/>
+        <DataGrid x:Name="handGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="438" Margin="20,187,0,0" VerticalAlignment="Top" Width="356" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" Foreground="White" Background="#FF231F20" BorderBrush="#FF231F20" HeadersVisibility="Column" RowHeaderWidth="0" GridLinesVisibility="None">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding titel}" MinWidth="100"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding titel}" MinWidth="170"/>
                 <DataGridTextColumn Header="Beschreibung" Binding="{Binding text}" Width="*"/>
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF231F20"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="#FF231F20"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderBrush" Value="#FF231F20"/>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
-        <DataGrid x:Name="versprechenGrid" HorizontalAlignment="Left" Height="169" Margin="1013,37,0,0" VerticalAlignment="Top" Width="460" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="versprechenGrid" HorizontalAlignment="Left" Height="438" Margin="1110,187,0,0" VerticalAlignment="Top" Width="356" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" RowHeaderWidth="0" HeadersVisibility="Column" Background="#FF231F20" Foreground="White" BorderBrush="#FF231F20">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding titel}" MinWidth="100"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding titel}" MinWidth="170"/>
                 <DataGridTextColumn Header="Beschreibung" Binding="{Binding text}" Width="*"/>
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF231F20"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="#FF231F20"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderBrush" Value="#FF231F20"/>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
-        <Label x:Name="würfelzahlLabel" Content="Label" HorizontalAlignment="Left" Height="66" Margin="639,28,0,0" VerticalAlignment="Top" Width="82"/>
-        <DataGrid x:Name="mitspielerGrid" HorizontalAlignment="Left" Height="120" Margin="1073,335,0,0" VerticalAlignment="Top" Width="300" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False">
+        <Label x:Name="würfelzahlLabel" Content="!" HorizontalAlignment="Left" Height="33" Margin="139,51,0,0" VerticalAlignment="Top" Width="31" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <DataGrid x:Name="mitspielerGrid" HorizontalAlignment="Left" Height="120" Margin="599,666,0,0" VerticalAlignment="Top" Width="300" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" BorderBrush="#FF231F20" Background="#FF231F20" Foreground="White" RowHeaderWidth="0" HeadersVisibility="Column">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Zahl" Binding="{Binding würfelzahl}" MinWidth="40"/>
                 <DataGridTextColumn Header="Imperator" Binding="{Binding präs}" MinWidth="50"/>
@@ -39,6 +59,48 @@
                 <DataGridTextColumn Header="Karten" Binding="{Binding anzKarten}" MinWidth="50"/>
                 <DataGridTextColumn Header="Punkte" Binding="{Binding punktzahl}" Width="*"/>
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF231F20"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="#FF231F20"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderBrush" Value="#FF231F20"/>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
+        <Label x:Name="präsidentLabel_Copy" Content="Würfelzahl:" HorizontalAlignment="Left" Margin="20,51,0,0" VerticalAlignment="Top" Height="34" Width="119" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
+        <Label x:Name="präsidentLabel_Copy1" Content="Flotten:" HorizontalAlignment="Left" Margin="20,90,0,0" VerticalAlignment="Top" Height="34" Width="86" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
+        <Label x:Name="präsidentLabel_Copy2" Content="Hand:" HorizontalAlignment="Left" Margin="20,153,0,0" VerticalAlignment="Top" Height="34" Width="86" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
+        <Rectangle x:Name="gebäude1" HorizontalAlignment="Left" Height="125" Margin="686,153,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="125" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/mars.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="gebäude2" HorizontalAlignment="Left" Height="125" Margin="868,281,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="125" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/merkur.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="gebäude3" HorizontalAlignment="Left" Height="125" Margin="799,491,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="125" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/neptun.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="gebäude4" HorizontalAlignment="Left" Height="125" Margin="574,491,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="126" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/uranus.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="gebäude5" HorizontalAlignment="Left" Height="125" Margin="503,281,0,0" Stroke="#FF231F20" VerticalAlignment="Top" Width="125" Visibility="Hidden">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/venus.png" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label x:Name="präsidentLabel_Copy3" Content="Versprechen:" HorizontalAlignment="Left" Margin="1110,144,0,0" VerticalAlignment="Top" Height="38" Width="136" FontSize="20" FontWeight="Bold" Foreground="White" Background="#FF231F20"/>
+
     </Grid>
 </Page>
