@@ -1,4 +1,4 @@
-# Junta Galaxy
+# Junta viva Imperator
 Junta based Game with Science-Fiction Theme*
 
 
